@@ -1,0 +1,3 @@
+representative_case,G_comp,g_rel,r_sep,r_overlap,R_sup,Delta_P_group,r_cost,M_res,M,source_type,payload_mode,grouping_strategy
+positive_moderate,1.82,0.4549999999999999,1.0,0.0,0.0413223140495867,0.0030526800522822,0.25,0.2074268806415643,16,strong_skew,optimized,overlap_aware
+negative_comparable,1.090168816729164,0.272542204182291,0.7538403596251634,1.5963188926973757,0.2687643738239598,0.0008165636673502,0.5,-0.2263942196670219,16,dirichlet,optimized,probability_aware

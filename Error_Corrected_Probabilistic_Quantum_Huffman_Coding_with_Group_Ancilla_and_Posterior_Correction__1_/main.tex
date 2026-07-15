@@ -1,0 +1,1381 @@
+% ****** Start of file main.tex ******
+%
+% This manuscript follows the APS REVTeX 4.2 sample style.  The
+% documentclass options below select a two-column Physical Review A
+% layout suitable for a quantum-information manuscript.
+%
+% TeX'ing this file requires AMS-LaTeX and REVTeX 4.2.  The standard
+% compilation sequence is
+%
+%  1) pdflatex main.tex
+%  2) bibtex main
+%  3) pdflatex main.tex
+%  4) pdflatex main.tex
+%
+\documentclass[
+ reprint,
+ amsmath,amssymb,
+ aps,
+ pra,
+ floatfix,
+]{revtex4-2}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{braket}
+\usepackage{hyperref}
+\hypersetup{hypertexnames=false}
+\usepackage{orcidlink}
+\usepackage{booktabs}
+\usepackage{placeins}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\raggedbottom
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{8pt plus 2fil}
+\setlength{\@fpbot}{0pt plus 1fil}
+\setlength{\@dblfptop}{0pt}
+\setlength{\@dblfpsep}{8pt plus 2fil}
+\setlength{\@dblfpbot}{0pt plus 1fil}
+\makeatother
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+\begin{document}
+
+% The preprint command is retained in the APS sample style; it is useful
+% for tracking manuscript versions before journal submission.
+\preprint{APS/123-QED}
+
+% The title should be concise but literal enough for database indexing.
+\title{Error-Corrected Quantum-Huffman-Inspired Probabilistic Source Decoding
+with Group Ancilla and Posterior Correction}
+
+% Author and affiliation lines follow the REVTeX front-matter structure.
+\author{
+    Songyao Xue\,\orcidlink{0009-0009-5122-0963}
+}
+\email{Contact author: 18637229290@139.com}
+\affiliation{School of Software, Luoyang Normal University, No. 6 Jiqing Road, Yibin District, Luoyang, Henan Province, 471934, China}
+
+\author{
+    Mengsi Zhang\,\orcidlink{0009-0001-6793-9093}
+}
+\thanks{These authors contributed equally to this work. Songyao Xue is listed first and Mengsi Zhang second.}
+\affiliation{School of Artificial Intelligence, Luoyang Normal University, No. 6 Jiqing Road, Yibin District, Luoyang, Henan Province, 471934, China}
+
+% Any explicit date may be used; \today follows the APS sample convention.
+\date{\today}
+
+\begin{abstract}
+We study a finite-resource probabilistic source-decoding model inspired by quantum Huffman coding, but not a strictly lossless quantum Huffman code. Huffman lengths are reinterpreted as finite-dimensional support budgets rather than transmitted coherent variable-length quantum codewords, producing a source-shaped nonorthogonal ensemble in a common Hilbert space. A group ancilla transfers inter-group ambiguity into orthogonal label information, leaving smaller conditional POVM tasks. Resource-normalized margins then decide whether success gains pay for group-label and reliability overhead. We distinguish representative benchmarking from a favorable-regime parameter sweep: the former shows that resource advantage is not generic under conservative overhead, whereas the latter shows that positive margins occupy structured low-overhead, high-support-saving regions. Exact SDP probes certify selected finite instances, including a controlled \(M=8\) probe, while larger-\(M\) rows are treated as PGM diagnostics. QEC and MAP are auxiliary reliability and posterior-decision layers, not the central coding novelty.
+\end{abstract}
+
+%\keywords{Suggested keywords}% Use showkeys class option if keyword display is desired.
+\maketitle
+
+%\tableofcontents
+
+
+\section{Introduction}
+
+Classical Huffman coding converts a nonuniform source distribution into prefix lengths $l_i$ satisfying the Kraft inequality~\cite{shannon1948mathematical,huffman1952method,cover2006elements},
+\begin{equation}
+    \sum_i2^{-l_i}\le 1,
+    \label{eq:kraft_intro}
+\end{equation}
+with average length $\bar L=\sum_i p_i l_i$. A direct quantum analogue is subtle because coherent superpositions of different codeword lengths make termination and length measurement nontrivial~\cite{schumacher1995quantum,jozsa1994new,jozsa1998optimal,braunstein2000quantum,schumacher2001indeterminate,bostrom2002lossless,hayashi2002quantum,hayashi2002simple,muller2009variable}. The present work therefore does not construct a strictly lossless quantum Huffman code. Instead, it uses classical Huffman lengths as support-budget parameters in a common finite-dimensional Hilbert space and studies probabilistic decoding of the resulting nonorthogonal states.
+
+The difficulty is not merely technical bookkeeping. In a coherent variable-length code, a quantum source may occupy a superposition of different length sectors. A decoder that tries to identify a codeword boundary or a prefix termination time can reveal length information and thereby disturb the encoded state. Schumacher compression and its refinements provide asymptotic, universal, and finite-resource perspectives on quantum source coding~\cite{schumacher1995quantum,jozsa1994new,wilde2013quantum,tomamichel2013hierarchy,tomamichel2016finite}. They do not by themselves provide a finite-symbol, real-time Huffman tree with coherent prefix parsing. These observations motivate a more modest finite-resource question: can the probability structure that makes classical Huffman coding useful still be used to shape a quantum ensemble, even if the final decoding is probabilistic rather than lossless?
+
+Our answer is to separate ``Huffman structure'' from ``variable-length transmission.'' The length $l_i$ is treated as a support-budget parameter, so that $2^{-l_i}$ determines a relative share of a common ambient Hilbert space. High-probability symbols receive more amplitude--phase shaping freedom, while all symbol states remain embedded in the same Hilbert space for discrimination. This avoids the coherence problem of measuring length, but preserves the source-dependent geometry induced by the classical Huffman tree.
+
+The central contribution is the combination of Huffman-induced support budgeting and group-conditioned state discrimination under an explicit resource-efficiency test. Huffman lengths determine how much support each source symbol may occupy. The induced support geometry controls state overlaps. An orthogonal group ancilla separates inter-group alternatives exactly and leaves smaller conditional POVM tasks inside each group. QEC enters only through an effective logical-failure model, and MAP correction is a block-local deterministic post-processing rule. The final question is whether the success gain compensates the group-label and physical-qubit overhead.
+
+The words ``error-corrected'' and ``posterior correction'' in the title should therefore be read in this limited sense: QEC is an effective reliability interface, and MAP is standard posterior decision post-processing. Neither layer is the main coding novelty, a new quantum Huffman mechanism, or a hardware-level fault-tolerant implementation.
+
+Compared with strict variable-length quantum coding, this model avoids coherent length transmission and termination measurement. Compared with ordinary fixed-length ensemble discrimination, it uses source nonuniformity to shape the ensemble before discrimination. Compared with standalone QEC communication, it does not treat reduced logical error as free: reliability is judged through the same resource-normalized efficiency as grouping. The resulting pipeline is summarized in Fig.~\ref{fig:pipeline}. Besides the operational flow, the figure highlights the diagnostic quantities introduced here: the Huffman-induced ambiguity budget, the ambiguity transferred by the group label, and the resource margin used to certify finite-resource advantage.
+
+This positioning also distinguishes the present paper from standard minimum-error state discrimination and its numerical optimality methods~\cite{helstrom1969quantum,helstrom1976quantum,holevo1973statistical,yuen1975optimum,belavkin1975optimum,chefles2000quantum,barnett2009quantum,bae2015quantum,jezek2002finding}. In the usual discrimination problem, the ensemble is specified first and the task is to find the optimal measurement for that ensemble. Here the ensemble itself is part of the finite-resource design: the source distribution induces support budgets, the support budgets constrain the amplitude--phase states, and the group ancilla changes which overlaps remain relevant to the receiver. The POVM/SDP layer is therefore an optimal decoding layer for a source-shaped ensemble, not the whole construction.
+
+The resource criterion is included for a similar reason. A grouped decoder can have a higher success probability simply because it has access to additional ancilla information; a QEC-assisted decoder can have a higher reliability because it uses more physical redundancy~\cite{shor1995scheme,steane1996error,calderbank1996good,knill1997theory,gottesman1997stabilizer,nielsen2010quantum,lidar2013quantum,terhal2015quantum}. Neither observation is sufficient for a finite-resource advantage. The comparison must normalize by the modeled logical and physical costs. This is why the paper develops both analytic and SDP-certified sufficient conditions rather than reporting success probabilities alone. The SDP language follows the standard convex-optimization formulation of quantum detection~\cite{eldar2003designing,jezek2002finding,boyd2004convex,watrous2018theory}.
+
+The contributions are organized around three linked questions: how to convert Huffman source structure into a finite quantum support geometry, how to reduce the resulting discrimination ambiguity by group conditioning, and how to certify when the gain is large enough after resource normalization. First, we reinterpret classical Huffman lengths as support-budget parameters in a common Hilbert space. Second, we define a support-constrained payload ensemble and use group-conditioned discrimination to remove inter-group ambiguity from the conditional POVM tasks. Third, we formulate resource-normalized margins, weighted sensitivity diagnostics, and SDP certificates that identify favorable finite-resource regimes. QEC and MAP are retained as reliability and posterior layers; they are not independent lossless coding mechanisms and they are not automatic sources of resource advantage.
+
+The organization follows this chain. Section~\ref{sec:support_geometry} defines the support geometry and the amplitude--phase ensemble. Section~\ref{sec:group_discrimination} introduces the group ancilla and the conditional discrimination problem. Section~\ref{sec:qec_prob_decoding} adds noise, recovery, and MAP correction at the level of an effective probabilistic decoder. Section~\ref{sec:resource_advantage} states the resource-efficiency tests. Section~\ref{sec:numerical_results} gives a compact set of diagnostics, while the appendices contain the gradient formulas, SDP details, QEC syndrome model, randomized statistics, additional phase diagrams, and supplementary plots.
+
+For clarity, Table~\ref{tab:notation} summarizes the main notation used in the body of the paper. Appendix-specific quantities are defined where they first appear.
+
+\begin{table*}[t]
+\caption{\label{tab:notation}Main notation used in the body of the paper. Certificate-specific and weighted-resource quantities are defined in their respective sections.}
+\scriptsize
+\begin{tabular}{ll}
+Symbol & Meaning\\
+\hline
+\(M\) & Number of source symbols in the alphabet.\\
+\(s_i\) & The \(i\)-th source symbol.\\
+\(p_i\) & Prior probability of symbol \(s_i\), with \(\sum_i p_i=1\).\\
+\(l_i\) & Classical Huffman length used as a support-budget parameter, not as a transmitted quantum length.\\
+\(\bar L\) & Average Huffman support cost, \(\bar L=\sum_i p_i l_i\).\\
+\(n_{\max}\) & Number of qubits defining the common ambient Hilbert space.\\
+\(\mathcal H_{\max}\) & Common ambient Hilbert space \((\mathbb C^2)^{\otimes n_{\max}}\).\\
+\(S_i\) & Computational-basis support assigned to symbol \(s_i\).\\
+\(R_{\rm sup}\) & Normalized support-overlap ratio.\\
+\(|\Phi_i\rangle\) & Payload state supported on \(S_i\).\\
+\(\Gamma_{ij}\) & Payload Gram-matrix entry, \(\Gamma_{ij}=\langle \Phi_i|\Phi_j\rangle\).\\
+\(g(i)\) & Group index of symbol \(s_i\).\\
+\(\mathcal G_g\) or \(G_g\) & The \(g\)-th group of source symbols.\\
+\(G\) & Number of groups.\\
+\(|a_g\rangle\) & Orthogonal group-ancilla label.\\
+\(|\Psi_i\rangle\) & Grouped state \(|\Phi_i\rangle\otimes |a_{g(i)}\rangle\).\\
+\(\mathcal A_{\rm Huff}\) & Huffman-induced ambiguity budget.\\
+\(\mathcal A_i\) & Symbol-level ambiguity contribution.\\
+\(\mathcal A_{\rm global}\) & Total source-weighted overlap ambiguity before grouping.\\
+\(\mathcal A_{\rm in}\) & Ambiguity remaining inside conditional group tasks.\\
+\(\mathcal A_{\rm sep}\) & Ambiguity removed by the group label, \(\mathcal A_{\rm global}-\mathcal A_{\rm in}\).\\
+\(P_{\rm group}^{\star}\) & Optimal group-conditioned success probability.\\
+\(P_{\rm full}\) & Effective full success after QEC reliability and fallback.\\
+\(P_{\rm base}\) & Generic baseline success probability.\\
+\(P_{\rm base,opt}\) & Numerical exact or representative baseline success.\\
+\(q_L\) & Effective logical failure probability after recovery.\\
+\(P_{\rm fallback}\) & Success probability of the fallback decision rule.\\
+\(C_A\) & Group-label cost, \(C_A=\lceil \log_2 G\rceil\).\\
+\(C_{\rm QEC}\) & Modeled QEC redundancy cost.\\
+\(C_{\rm total}\) & Total modeled resource cost.\\
+\(\eta\) & Resource-normalized efficiency, \(P_{\rm success}/C_{\rm total}\).\\
+\(M_{\rm res}\) & Resource margin from Eq.~\eqref{eq:resource_margin_main}.\\
+\(M_{\rm cert}\) & SDP-certified normalized margin from Eq.~\eqref{eq:certified_margin_main}.\\
+\end{tabular}
+\end{table*}
+
+\paragraph*{Formal result roadmap.}
+The formal results follow the construction order. Proposition~1 establishes that Kraft-compatible Huffman lengths define feasible support budgets in the common Hilbert space. Proposition~2 and Theorem~3 describe what the ideal group label guarantees before resource accounting: a posterior guessing floor and non-degradation relative to ignoring the group outcome. Theorem~4 gives an analytic sufficient condition under a bounded-overlap comparison model. Theorem~5 removes the overlap-model assumption by comparing a feasible grouped primal certificate with a fixed-length dual upper certificate. Corollary~6 inserts the effective QEC reliability layer into the same certificate logic. The numerical diagnostics and the Supplemental Material then test these conditions on finite instances rather than claiming an unconditional ordering.
+
+\begin{figure*}[t]
+\centering
+\resizebox{0.98\textwidth}{!}{%
+\begin{tikzpicture}[
+    box/.style={draw, rounded corners=1pt, align=center, inner sep=2.4pt, font=\scriptsize, minimum height=9mm, text width=2.15cm},
+    widebox/.style={draw, rounded corners=1pt, align=center, inner sep=2.4pt, font=\scriptsize, minimum height=9mm, text width=3.25cm},
+    label/.style={font=\scriptsize\bfseries, align=center, text width=2.70cm},
+    arr/.style={-{Stealth[length=1.5mm]}, line width=0.35pt}
+]
+\node[label] (lab1) at (0,0) {Source and\\state construction};
+\node[box] (p) at (3.00,0) {Source\\probabilities\\$p_i$};
+\node[box] (l) at (5.60,0) {Huffman\\lengths\\$l_i$};
+\node[box] (s) at (8.20,0) {Support\\allocation\\$|S_i|\leq2^{n_{\max}-l_i}$};
+\node[box] (phi) at (10.80,0) {Amplitude--phase\\state\\$\ket{\Phi_i}$\\$\mathcal A_{\mathrm{Huff}},\,\mathcal A_i$};
+\node[widebox] (psi) at (13.85,0) {Grouped logical state\\$\ket{\Psi_i}=\ket{\Phi_i}\otimes\ket{a_{g(i)}}$\\transfer $\mathcal A_{\mathrm{sep}}$};
+\node[label] (lab2) at (0,-1.45) {Noisy probabilistic\\decoding};
+\node[box] (map) at (3.00,-1.45) {MAP correction\\final success\\$P_{\mathrm{full}}$};
+\node[box] (povm) at (5.60,-1.45) {Group-conditioned\\POVM\\$P_{\mathrm{group}}$};
+\node[box] (meas) at (8.20,-1.45) {Group\\measurement\\$J_{\mathrm{grp}}(\mathcal G)$};
+\node[box] (qec) at (10.80,-1.45) {QEC recovery\\logical failure\\$q_L$};
+\node[box] (noise) at (13.85,-1.45) {Noisy\\channel};
+\node[label] (lab3) at (0,-2.90) {Resource evaluation};
+\node[widebox] (cost) at (3.00,-2.90) {$P_{\mathrm{full}}$ and\\$C_{\mathrm{total}}$\\$M_{\rm res}$};
+\node[widebox] (eta) at (7.25,-2.90) {Efficiency\\$\eta=P_{\mathrm{full}}/C_{\mathrm{total}}$};
+\node[widebox] (adv) at (11.25,-2.90) {Resource advantage\\$P_{\mathrm{full}}>P_{\mathrm{base}}(1+\Delta C/C_{\mathrm{base}})$\\$\tau_{\mathrm{OH}}$};
+\draw[arr] (p) -- (l); \draw[arr] (l) -- (s); \draw[arr] (s) -- (phi); \draw[arr] (phi) -- (psi);
+\draw[arr] (psi.south) -- (noise.north); \draw[arr] (noise) -- (qec); \draw[arr] (qec) -- (meas); \draw[arr] (meas) -- (povm); \draw[arr] (povm) -- (map);
+\draw[arr] (map.south) -- (cost.north); \draw[arr] (cost) -- (eta); \draw[arr] (eta) -- (adv);
+\end{tikzpicture}}
+\caption{\label{fig:pipeline}Pipeline of the proposed finite-resource probabilistic source-decoding framework. Huffman lengths are support-budget parameters rather than transmitted coherent variable-length quantum codewords. The allocated supports define amplitude--phase states $\ket{\Phi_i}$ and the ambiguity diagnostics \(\mathcal A_{\mathrm{Huff}}\) and \(\mathcal A_i\); group labels form $\ket{\Psi_i}=\ket{\Phi_i}\otimes\ket{a_{g(i)}}$ and transfer inter-group ambiguity into orthogonal label information measured by \(\mathcal A_{\mathrm{sep}}\). The grouping criterion \(J_{\mathrm{grp}}\) summarizes the resource-aware design trade-off. After noisy transmission, QEC recovery, group-conditioned POVM decoding, and MAP post-processing, the final success probability and modeled resource cost determine \(\eta\), the resource margin \(M_{\rm res}\), and the overhead tolerance \(\tau_{\mathrm{OH}}\).}
+\end{figure*}
+
+\section{Huffman-Induced Support Geometry}
+\label{sec:support_geometry}
+
+Let $\mathcal S=\{s_i\}_{i=1}^M$ be a discrete source with probabilities $p_i>0$ and $\sum_i p_i=1$. A classical Huffman tree assigns lengths $l_i$ satisfying Eq.~\eqref{eq:kraft_intro}. In this paper $l_i$ is not a transmitted quantum length. It is a source-dependent support-budget parameter in a common ambient Hilbert space
+\begin{equation}
+    \mathcal H_{\max}=(\mathbb C^2)^{\otimes n_{\max}}.
+\end{equation}
+For each symbol, choose a computational-basis support $S_i\subseteq\{0,1\}^{n_{\max}}$ obeying
+\begin{equation}
+    |S_i|\le 2^{n_{\max}-l_i}.
+    \label{eq:huffman_support_size}
+\end{equation}
+Kraft compatibility follows immediately:
+\begin{equation}
+    \sum_i |S_i|\le \sum_i2^{n_{\max}-l_i}=2^{n_{\max}}\sum_i2^{-l_i}\le 2^{n_{\max}}.
+    \label{eq:support_kraft_compatibility}
+\end{equation}
+Thus the classical source distribution induces a feasible support geometry in a single Hilbert space. A local symbol-dependent representation with $n_i=f_n(l_i)$ may be useful for implementation, but all states compared by the decoder are understood to be embedded into $\mathcal H_{\max}$ by zero padding or an isometry. Detailed local representations and amplitude--phase gradients are collected in Appendix~A.
+
+\begin{proposition}[Support allocation]\hfill\par
+Any Kraft-compatible length assignment admits support budgets obeying Eq.~\eqref{eq:huffman_support_size} inside \(\mathcal H_{\max}\).
+\end{proposition}
+\textit{Proof.} Equation~\eqref{eq:support_kraft_compatibility} gives
+\(\sum_i |S_i|\le 2^{n_{\max}}\). Hence the requested support sizes occupy no more computational-basis labels than are available in the ambient Hilbert space. The supports may therefore be assigned as disjoint subsets when disjointness is desired, or as overlapping subsets when overlap is deliberately used as part of the state-design layer. \(\square\)
+
+The proposition is intentionally a feasibility statement rather than an optimality theorem. Its role is to make the classical Kraft constraint operational in a common Hilbert space. The nontrivial part of the framework begins after this feasible support geometry is fixed: the amplitudes, phases, grouping, and POVM certificates determine whether the support saving survives discrimination and resource normalization.
+
+Support overlap is a design degree of freedom, not a contradiction of Kraft compatibility. We quantify it by
+\begin{equation}
+    R_{\rm sup}
+    =
+    \frac{\sum_{i<j}|S_i\cap S_j|}
+    {\sum_{i<j}\min(|S_i|,|S_j|)},
+    \label{eq:support_overlap_ratio}
+\end{equation}
+with \(R_{\rm sup}=0\) when the denominator is zero. Three regimes are useful. In a disjoint-support regime, payload states can be made nearly orthogonal and discrimination becomes easy, but the example no longer stresses probabilistic nonorthogonal decoding. In the overlap-controlled regime targeted here, support overlap creates finite ambiguity while group labels can transfer inter-group ambiguity into orthogonal label information. In an overlap-heavy regime, \(\mathcal A_{\rm Huff}\) can become too large and any support-budget saving may be lost after resource normalization.
+
+\begin{definition}[Huffman-budget payload ensemble]\hfill\par
+Given \(p\), Huffman lengths \(l\), an ambient space \(\mathcal H_{\max}\), and supports \(S_i\) satisfying Eq.~\eqref{eq:huffman_support_size}, define
+\begin{equation}
+    \begin{split}
+    \mathcal E_{\rm Huff}=
+    \{\,\{\ket{\Phi_i}\}_{i=1}^M:\;&
+    {\rm supp}(\ket{\Phi_i})\subseteq S_i,\\
+    &\braket{\Phi_i|\Phi_i}=1\,\}.
+    \end{split}
+\end{equation}
+The ambiguity-minimizing payload design is
+\begin{equation}
+    \mathcal A_{\rm Huff}^{\star}
+    =
+    \min_{\{\ket{\Phi_i}\}\in\mathcal E_{\rm Huff}(p,l,S)}
+    \sum_{i<j}p_ip_j|\braket{\Phi_i|\Phi_j}|^2 .
+    \label{eq:AHuff_star}
+\end{equation}
+\end{definition}
+
+The optimization in Eq.~\eqref{eq:AHuff_star} is generally nonconvex. The numerical ``optimized'' payload is therefore a deterministic local phase-search heuristic for this objective, not a proof of global optimality. Random-phase and deterministic-phase payloads are baselines for the same feasible class. The two-dimensional angle-defined four-symbol states used later are only a transparent sanity check and are not the main payload construction.
+
+\paragraph*{Construction.}
+The source-to-ensemble map used in the rest of the paper is as follows. Given a source distribution $\{p_i\}_{i=1}^M$, construct a classical Huffman tree and record the associated lengths $l_i$. Choose an ambient logical Hilbert space $\mathcal H_{\max}$ large enough to contain supports satisfying Eq.~\eqref{eq:huffman_support_size}. Assign computational-basis subsets $S_i\subseteq\{0,1\}^{n_{\max}}$ with total size compatible with Eq.~\eqref{eq:support_kraft_compatibility}. Inside each support, choose amplitudes and phases to form $\ket{\Phi_i}$, and compute the overlap matrix
+\begin{equation}
+    \Gamma_{ij}=\braket{\Phi_i|\Phi_j}.
+\end{equation}
+The matrix $\Gamma$ is the object passed to the grouping stage: groups are chosen so that highly ambiguous pairs are preferentially separated by the group ancilla, while the remaining intra-group states are decoded by conditional POVMs. Thus the Huffman tree affects decoding only through support geometry and overlap structure.
+
+This construction also clarifies the role of the ambient dimension. A larger $n_{\max}$ creates more possible basis supports and therefore more freedom to separate high-priority states, but it is not treated as a free resource. The modeled logical support cost remains tied to $\bar L$, and the physical redundancy cost enters separately through $C_{\mathrm{QEC}}$. Related source-coding work shows that ensemble structure and nondisturbing operations can be central to quantum compressibility~\cite{koashi2001compressibility,koashi2002operations}; here those ideas serve only as background for a finite support-allocation design. In this sense the support rule should be read as a finite-dimensional allocation constraint, not as an asymptotic compression theorem.
+
+Within $S_i$ we use an amplitude--phase state
+\begin{equation}
+    \ket{\Phi_i}=\sum_{x\in S_i} a_{i,x}e^{i\theta_{i,x}}\ket{x},
+    \qquad \sum_{x\in S_i}|a_{i,x}|^2=1.
+    \label{eq:phi_state_main}
+\end{equation}
+The pairwise overlaps
+\begin{equation}
+    \braket{\Phi_i|\Phi_j}=\sum_{x\in S_i\cap S_j}a_{i,x}a_{j,x}e^{i(\theta_{j,x}-\theta_{i,x})}
+    \label{eq:pairwise_overlap_main}
+\end{equation}
+control distinguishability. Numerically, the amplitude--phase design minimizes a weighted overlap surrogate such as
+\begin{equation}
+    \mathcal O=\sum_{i<j}p_ip_j|\braket{\Phi_i|\Phi_j}|^2,
+    \label{eq:overlap_objective_main}
+\end{equation}
+which serves only as a design proxy for the later optimal POVM stage. The formal contribution is the support geometry and its effect on the discrimination problem, not a new continuous optimization algorithm.
+We will refer to the same source-weighted quantity as the Huffman-induced ambiguity budget,
+\begin{equation}
+    \mathcal A_{\mathrm{Huff}}
+    =
+    \sum_{i<j}p_ip_j|\braket{\Phi_i|\Phi_j}|^2,
+    \label{eq:huffman_ambiguity_budget}
+\end{equation}
+with symbol-level contribution
+\begin{equation}
+    \mathcal A_i
+    =
+    p_i\sum_{j\neq i}p_j|\braket{\Phi_i|\Phi_j}|^2 .
+    \label{eq:symbol_ambiguity_contribution}
+\end{equation}
+\(\mathcal A_{\mathrm{Huff}}\) measures the nonorthogonal ambiguity induced by the support allocation, while large \(\mathcal A_i\) identifies source symbols that dominate the ambiguity budget. These quantities can guide support refinement and group design, but they are diagnostic tools rather than replacements for the optimal POVM/SDP decoder.
+
+The overlap objective in Eq.~\eqref{eq:overlap_objective_main} is nevertheless useful because minimum-error discrimination is sensitive to pairwise and collective state geometry. Lowering the weighted overlaps of high-priority symbols can increase the value of the later POVM SDP, especially after grouping removes inter-group pairs from the conditional tasks. The optimization is therefore a state-design layer between source statistics and quantum detection, rather than a replacement for the optimal decoder.
+
+The formal analysis does not require a unique choice of amplitudes, phases, or supports. A deterministic implementation may use a fixed design heuristic, while an offline numerical study may optimize Eq.~\eqref{eq:overlap_objective_main}. In both cases the decoder only sees the resulting finite ensemble \(\{p_i,\ket{\Phi_i}\}\). This is why the SDP-certified advantage theorem in Sec.~\ref{sec:resource_advantage} can be stated without reference to the particular amplitude--phase optimizer.
+
+There are therefore three distinct design degrees of freedom. The Huffman tree fixes the support budgets but not the supports themselves. The support assignment fixes which computational-basis components can contribute to overlap. The amplitude--phase choice then controls interference inside the shared portions of those supports. Keeping these steps separate is useful because only the first is inherited directly from the classical source code; the latter two are quantum state-design choices evaluated by the downstream discrimination and resource tests.
+
+\paragraph*{Numerical state-generation protocol.}
+The revised experiments use the following deterministic protocol. (i) Given \(p_i\), compute Huffman lengths \(l_i\), \(n_{\rm fix}=\lceil\log_2M\rceil\), and a common \(n_{\max}\). (ii) Allocate cyclic computational-basis supports satisfying \(|S_i|\le 2^{n_{\max}-l_i}\); overlaps are allowed because the states are payload states in a common Hilbert space, not disjoint transmitted codewords. (iii) Generate payload states on these supports in three modes: an optimized phase search minimizing \(\mathcal A_{\rm Huff}\), a random-phase ensemble averaged over fixed seeds, and a deterministic-phase baseline. (iv) Form random, probability-aware, and overlap-aware group partitions and evaluate \(\mathcal A_{\rm in}\), \(\mathcal A_{\rm sep}\), \(P_{\rm group}\), \(P_{\rm full}\), \(\eta\), and \(M_{\rm res}\). (v) For certificate runs, solve exact small-instance SDPs when feasible and record \(\underline P_{\rm group}\), \(\overline P_{\rm fix}\), feasibility residuals, and \(M_{\rm cert}\). This protocol is implemented in the scripts listed in the data-availability statement and in \texttt{code/README\_experiments.md}.
+
+\section{Group-Ancilla Conditional Discrimination}
+\label{sec:group_discrimination}
+
+Partition the source alphabet into groups $\mathcal G_g$ with group map $g(i)$. Attach an orthonormal ancilla label $\{\ket{a_g}\}_{g=1}^G$ and define
+\begin{equation}
+    \ket{\Psi_i}=\ket{\Phi_i}\otimes\ket{a_{g(i)}}.
+    \label{eq:psi_group_state_main}
+\end{equation}
+Then
+\begin{equation}
+    \braket{\Psi_i|\Psi_j}=\braket{\Phi_i|\Phi_j}\delta_{g(i),g(j)},
+    \label{eq:group_orthogonality_main}
+\end{equation}
+so inter-group alternatives become orthogonal while intra-group nonorthogonality remains. The ancilla is therefore not a decorative label; it changes the ensemble presented to each conditional decoder.
+
+The same effect can be summarized as an ambiguity-budget transfer. Define
+\begin{align}
+    \mathcal A_{\mathrm{global}}
+    &=
+    \sum_{i<j}p_ip_j|\braket{\Phi_i|\Phi_j}|^2,\nonumber\\
+    \mathcal A_{\mathrm{in}}
+    &=
+    \sum_g\sum_{\substack{i<j\\ i,j\in\mathcal G_g}}
+    p_ip_j|\braket{\Phi_i|\Phi_j}|^2,\nonumber\\
+    \mathcal A_{\mathrm{sep}}
+    &=
+    \mathcal A_{\mathrm{global}}-\mathcal A_{\mathrm{in}} .
+    \label{eq:ambiguity_budget_transfer}
+\end{align}
+Here \(\mathcal A_{\mathrm{global}}\) is the overlap-weighted ambiguity carried by the original nonorthogonal ensemble, \(\mathcal A_{\mathrm{in}}\) is the part remaining inside conditional POVM tasks, and \(\mathcal A_{\mathrm{sep}}\) is the portion removed by converting inter-group alternatives into orthogonal label information. Like the overlap-ratio diagnostics in Appendix~\ref{app:supplementary_diagnostics}, \(\mathcal A_{\mathrm{sep}}\) is a design diagnostic rather than an independent success-probability theorem.
+
+Operationally, the group measurement is performed before the conditional payload measurement. If the outcome is $g$, all symbols outside $\mathcal G_g$ are eliminated without ambiguity. The remaining problem is a smaller minimum-error discrimination task with renormalized priors $p_i/p_g$. This is the sense in which grouping converts one global nonorthogonal ensemble into a family of conditional ensembles.
+
+After measuring the group label, group $g$ occurs with probability $p_g=\sum_{i\in\mathcal G_g}p_i$. The optimal conditional success is the minimum-error discrimination SDP
+\begin{align}
+    P_{\mathrm{opt}}^{(g)}
+    =
+    \max_{\{E_i^{(g)}\}}
+    &\sum_{i\in\mathcal G_g}
+    \frac{p_i}{p_g}
+    \operatorname{Tr}(E_i^{(g)}\rho_i^{(g)})
+    \label{eq:group_sdp_main}\\
+    \text{subject to}\quad
+    &E_i^{(g)}\succeq0,\qquad
+    \sum_{i\in\mathcal G_g}E_i^{(g)}=I_g .
+    \nonumber
+\end{align}
+The grouped success is
+\begin{equation}
+    P_{\mathrm{group}}=\sum_g p_gP_{\mathrm{opt}}^{(g)}.
+    \label{eq:p_group_main}
+\end{equation}
+The primal-dual SDP details, the KKT conditions, and the Helstrom two-state check are given in Appendices~B and~C.
+
+\begin{proposition}[Group-label guessing floor]
+With access to the orthogonal group label,
+\begin{equation}
+    P_{\mathrm{group}}\ge \sum_g \max_{i\in\mathcal G_g}p_i .
+    \label{eq:group_guess_floor}
+\end{equation}
+\end{proposition}
+\textit{Proof.} After measuring the group label, the receiver knows that the symbol lies in $\mathcal G_g$. A feasible conditional strategy is to ignore the payload state and always guess the most likely symbol in that group. Its conditional success is $\max_{i\in\mathcal G_g}p_i/p_g$. Averaging over $g$ gives $\sum_g p_g\max_{i\in\mathcal G_g}(p_i/p_g)=\sum_g\max_{i\in\mathcal G_g}p_i$. Since the POVM decoder is optimal within each group, it cannot do worse. \(\square\)
+
+\begin{theorem}[Ideal group-label non-degradation]
+If the receiver has access to the orthogonal group label and may implement the optimal conditional POVM inside each group, then the grouped strategy performs at least as well as the same strategy with the group outcome ignored.
+\end{theorem}
+\textit{Proof.} Ignoring the group outcome is a feasible strategy after the group measurement: the receiver can simulate any fixed global decision rule by applying its effects blockwise and forgetting $g$. Optimizing separately within each block cannot reduce the achievable average success, giving $P_{\mathrm{group}}\ge P_{\mathrm{base}}$ under the ideal group-label abstraction. \(\square\)
+
+The ancilla cost used later is
+\begin{equation}
+    C_A=\lceil\log_2G\rceil .
+    \label{eq:ancilla_cost}
+\end{equation}
+Increasing $G$ may reduce within-group overlap and lower the SDP complexity of each conditional task, but it also increases $C_A$ and may leave too few symbols per group to justify the extra label. The resource analysis therefore treats grouping as a tunable design choice rather than as an automatic improvement.
+
+In the numerical examples, groups are chosen by simple source-aware or overlap-aware heuristics rather than by an exhaustive partition search. The important quantity is not the group count alone but the pair of effects it creates: inter-group overlaps are removed exactly by Eq.~\eqref{eq:group_orthogonality_main}, while intra-group overlaps determine the remaining conditional discrimination difficulty. A poor partition can spend ancilla bits without reducing the hard overlaps, whereas a favorable partition concentrates the ambiguous pairs into smaller tasks where the conditional POVM can exploit the posterior priors.
+
+This also explains why the grouped decoder is analyzed through conditional SDPs rather than through a single modified overlap scalar. The group measurement changes the feasible measurement strategy: once $g$ is known, the POVM no longer needs to separate states outside $\mathcal G_g$. Pairwise overlap diagnostics are useful for design and visualization, but the actual success probability remains the solution of the conditional minimum-error problem. The SDP-certified theorem later uses exactly this distinction by comparing a grouped primal certificate with a fixed-length dual certificate.
+
+\paragraph*{Resource-aware group design.}
+The grouping heuristics used in the diagnostics can be summarized by a compact design objective. For a partition \(\mathcal G=\{\mathcal G_g\}_{g=1}^G\), define
+\begin{align}
+    J_{\mathrm{grp}}(\mathcal G)
+    &=
+    \alpha\,\mathcal A_{\mathrm{in}}(\mathcal G)
+    +
+    \beta\,\epsilon_{\mathrm{in}}(\mathcal G)
+    +
+    \gamma\,C_A(\mathcal G), \nonumber\\
+    \epsilon_{\mathrm{in}}(\mathcal G)
+    &=
+    \max_g\max_{\substack{i\ne j\\ i,j\in\mathcal G_g}}
+    |\braket{\Phi_i|\Phi_j}|^2,\nonumber\\
+    C_A(\mathcal G)
+    &=
+    \lceil\log_2G\rceil .
+    \label{eq:resource_aware_group_objective}
+\end{align}
+Here \(\mathcal A_{\mathrm{in}}(\mathcal G)\) penalizes prior-weighted intra-group ambiguity, \(\epsilon_{\mathrm{in}}(\mathcal G)\) penalizes the worst within-group overlap, and \(C_A(\mathcal G)\) penalizes group-label overhead; \(\alpha,\beta,\gamma\) are design weights. Equation~\eqref{eq:resource_aware_group_objective} is not meant to be solved exactly in this paper. It is a design criterion under which random grouping, probability-aware grouping, and overlap-aware grouping in the numerical diagnostics can be viewed as simple heuristics for the broader resource-aware group design problem.
+
+\section{QEC-Assisted Probabilistic Decoding}
+\label{sec:qec_prob_decoding}
+
+The QEC component is used as a reliability abstraction rather than as a hardware-level fault-tolerant implementation. It allows the resource test to include logical-failure suppression and redundancy cost without committing to a particular architecture~\cite{nielsen2010quantum,terhal2015quantum}.
+
+Noise is modeled at the logical ensemble level. A QEC layer is represented by an isometric encoding $V_{\mathrm{QEC}}$, a noisy channel, and a recovery map. The layer preserves logical inner products under ideal encoding and cannot turn nonorthogonal logical states into orthogonal states; it only reduces additional channel-induced failures. Syndrome projectors, correctable error sets, and stabilizer-code bounds are placed in Appendix~C.
+
+For group $g$, let $q_L^{(g)}$ be the effective logical failure probability after recovery and let $P_{\mathrm{fallback}}^{(g)}$ be the success probability used after an uncorrectable event. The QEC-assisted lower bound used throughout the paper is
+\begin{equation}
+    P_{\mathrm{full}}
+    \ge
+    \sum_g p_g\left[(1-q_L^{(g)})P_{\mathrm{opt}}^{(g)}+q_L^{(g)}P_{\mathrm{fallback}}^{(g)}\right].
+    \label{eq:full_bound_main}
+\end{equation}
+When $q_L^{(g)}=q_L$ and $P_{\mathrm{fallback}}^{(g)}=P_{\mathrm{fallback}}$, this reduces to
+\begin{equation}
+    P_{\mathrm{full}}\ge (1-q_L)P_{\mathrm{group}}+q_LP_{\mathrm{fallback}}.
+    \label{eq:full_bound_simple_main}
+\end{equation}
+A tighter group-conditioned fallback can use
+\begin{equation}
+    P_{\mathrm{fallback}}^{(g)}
+    \ge
+    \max_{i\in\mathcal G_g}\frac{p_i}{p_g},
+    \label{eq:map_aware_fallback_floor}
+\end{equation}
+whereas the illustrative binary-group diagnostics retain the conservative random fallback \(P_{\mathrm{fallback}}=1/2\).
+The QEC layer is used only through this effective logical-failure model in the resource analysis; it is not a full fault-tolerant implementation.
+
+For a compact stabilizer-code reliability proxy, let an $[[n,k,d]]$ code correct up to
+\begin{equation}
+    t=\left\lfloor\frac{d-1}{2}\right\rfloor
+    \label{eq:t_correct_main}
+\end{equation}
+errors under an independent physical-error model with error probability $p$. The correctable-event probability is bounded by
+\begin{equation}
+    P_{\mathrm{corr}}
+    \ge
+    \sum_{w=0}^{t}
+    \binom{n}{w}p^w(1-p)^{n-w},
+    \label{eq:pcorr_proxy_main}
+\end{equation}
+and the logical failure proxy is
+\begin{equation}
+    q_L\le 1-P_{\mathrm{corr}}.
+    \label{eq:ql_proxy_main}
+\end{equation}
+This binomial expression is used only as a finite-resource stabilizer-code reliability proxy. Hardware-calibrated fault-tolerant analyses require architecture-specific overhead and threshold modeling~\cite{fowler2012surface,terhal2015quantum,campbell2017roads}. Syndrome-level modeling and the associated correctable-error notation are deferred to Appendix~C~\cite{shor1995scheme,steane1996error,calderbank1996good,gottesman1997stabilizer,lidar2013quantum}.
+
+Equation~\eqref{eq:full_bound_main} has a simple interpretation. With probability $1-q_L^{(g)}$, the recovered state is treated as being in the intended logical ensemble for group $g$, and the conditional POVM succeeds with probability $P_{\mathrm{opt}}^{(g)}$. With probability $q_L^{(g)}$, the decoder falls back to a conservative decision rule. This abstraction is intentionally coarse: it captures the reliability benefit of error correction without asserting a hardware-calibrated recovery circuit.
+
+Given an observation $y$ from the group measurement, conditional POVM, and recovery flag, the MAP post-processing rule is simply
+\begin{equation}
+    \hat i_{\mathrm{MAP}}(y)=\arg\max_i p_i P(y|i).
+    \label{eq:map_rule_main}
+\end{equation}
+For fixed local observations and priors, this rule minimizes block-local decision error. Indeed, for any deterministic post-processing rule \(D\), the conditional probability of a correct decision at observation \(y\) is \(P(D(y)|y)\). Since this quantity is maximized pointwise by choosing the posterior maximizer, the MAP rule is optimal among block-local deterministic decision rules. We do not treat MAP correction as an independent coding theorem; it is the deterministic posterior step following probabilistic quantum decoding.
+
+In the numerical diagnostics, $P_{\mathrm{fallback}}$ is chosen consistently with the same posterior information available after failure. Thus MAP correction affects the final deterministic decision rule but does not alter the support allocation, group orthogonality, or SDP certificates. This separation keeps the hierarchy of the model clear: support geometry and grouping define the ensemble; POVM/SDP gives optimal probabilistic decoding; QEC changes the effective reliability; MAP chooses the final symbol from the posterior.
+
+Two forms of \(q_L\) are used in the paper. The main figures use compact effective logical-failure curves so that the resource trade-off can be inspected directly. The appendices record the corresponding repetition-style toy model and standard stabilizer-code upper bounds. These models are not meant to certify a fault-tolerant implementation; they supply controlled reliability parameters for Eq.~\eqref{eq:full_bound_main}. If a hardware-specific recovery model is available, it can replace \(q_L\) without changing the support-allocation or group-conditioned decoding layers.
+
+\section{Resource-Aware Advantage Conditions}
+\label{sec:resource_advantage}
+
+The resource model is an abstract logical accounting convention rather than a device-level throughput model. This finite-resource accounting is closer in spirit to one-shot resource comparisons than to an asymptotic coding-rate theorem~\cite{tomamichel2013hierarchy,tomamichel2016finite}. Since Huffman lengths are support-budget parameters, the cost
+\begin{equation}
+    C_{\mathrm{total}}=\bar L+C_A+C_{\mathrm{QEC}}
+    \label{eq:total_resource}
+\end{equation}
+uses $\bar L$ as the average logical support-budget term, $C_A$ as the group-label cost, and $C_{\mathrm{QEC}}$ as modeled physical redundancy. The efficiency is
+\begin{equation}
+    \eta=\frac{P_{\mathrm{success}}}{C_{\mathrm{total}}}.
+    \label{eq:eta_main}
+\end{equation}
+
+The distinction between \(P_{\mathrm{group}}\) and \(P_{\mathrm{full}}\) is important: \(P_{\mathrm{group}}\) is a discrimination quantity for the recovered logical ensemble, while \(P_{\mathrm{full}}\) already includes the reliability fallback model. Likewise, \(C_{\mathrm{QEC}}\) is separated from \(\bar L\) so that logical support budgeting and physical redundancy are not conflated. This separation is consistent with fault-tolerant architectures where improved logical reliability typically comes with substantial physical-resource overhead~\cite{fowler2012surface,campbell2017roads}.
+
+The final resource test follows directly from comparing efficiencies. Let
+\begin{equation}
+    \eta_{\mathrm{base}}=\frac{P_{\mathrm{base}}}{C_{\mathrm{base}}},
+    \qquad
+    \eta_{\mathrm{full}}=\frac{P_{\mathrm{full}}}{C_{\mathrm{base}}+\Delta C}.
+    \label{eq:eta_base_full_derivation}
+\end{equation}
+Under the metric \(\eta=P_{\mathrm{success}}/C_{\mathrm{total}}\), the full scheme is resource-superior to the baseline if and only if
+\(\eta_{\mathrm{full}}>\eta_{\mathrm{base}}\). Rearranging this necessary and sufficient condition gives
+\begin{equation}
+    P_{\mathrm{full}}>P_{\mathrm{base}}\left(1+\frac{\Delta C}{C_{\mathrm{base}}}\right),
+    \label{eq:resource_advantage_condition}
+\end{equation}
+or equivalently, with \(\Delta P=P_{\mathrm{full}}-P_{\mathrm{base}}\),
+\begin{equation}
+    \Delta P>\frac{P_{\mathrm{base}}\Delta C}{C_{\mathrm{base}}}.
+    \label{eq:delta_p_resource_condition}
+\end{equation}
+Thus the success increase must exceed the baseline success multiplied by the fractional resource overhead.
+Equivalently, the resource margin
+\begin{equation}
+    M_{\rm res}
+    =
+    P_{\mathrm{full}}
+    -
+    P_{\mathrm{base}}
+    \left(1+\frac{\Delta C}{C_{\mathrm{base}}}\right)
+    \label{eq:resource_margin_main}
+\end{equation}
+is positive exactly when the full scheme is resource-superior under this accounting convention. A nonpositive margin means that reliability gain alone is insufficient to certify advantage in the metric of Eq.~\eqref{eq:eta_main}. In the numerical phase diagrams, \(P_{\mathrm{base}}\) is instantiated by the exact or representative numerical baseline \(P_{\mathrm{base,opt}}\), so the plotted margin is the same diagnostic with that baseline substituted.
+Solving Eq.~\eqref{eq:resource_advantage_condition} for the allowed relative overhead gives
+\begin{equation}
+    \frac{\Delta C}{C_{\mathrm{base}}}
+    <
+    \tau_{\mathrm{OH}},
+    \qquad
+    \tau_{\mathrm{OH}}
+    =
+    \frac{P_{\mathrm{full}}}{P_{\mathrm{base}}}-1 .
+    \label{eq:overhead_tolerance}
+\end{equation}
+The quantity \(\tau_{\mathrm{OH}}\) is the overhead tolerance of the full decoder under the stated finite-resource accounting convention. If the relative overhead exceeds this value, the reliability gain is insufficient to certify resource advantage. It is a diagnostic threshold for the modeled comparison, not a universal hardware threshold.
+
+A source-coding baseline is obtained from $n_{\mathrm{fix}}=\lceil\log_2M\rceil$ and
+\begin{equation}
+    G_{\mathrm{comp}}=n_{\mathrm{fix}}-\bar L.
+\end{equation}
+Here $n_{\mathrm{fix}}$ is the fixed-length logical cost of assigning every symbol the same binary label length, while $\bar L$ is the average support-budget cost inherited from the Huffman allocation. Thus $G_{\mathrm{comp}}$ measures average logical support saving, not a reduction in coherent transmitted codeword length. The standard Huffman inequality $H(p)\le \bar L < H(p)+1$ implies that nonuniform sources can give positive average support saving, especially when $H(p)$ is well below $\log_2M$. Saving alone is not enough, however: the induced states must remain distinguishable enough that the success probability does not fall below the resource gain.
+
+For example, comparing a Huffman-induced grouped decoder with a fixed-length grouped decoder under the same ancilla and QEC accounting gives the sufficient condition
+\begin{equation}
+    \frac{P_{\mathrm{full}}}{P_{\mathrm{fix}}}
+    >
+    \frac{\bar L+C_A+C_{\mathrm{QEC}}}
+    {n_{\mathrm{fix}}+C_A+C_{\mathrm{QEC}}}.
+    \label{eq:huff_fixed_cost_comparison}
+\end{equation}
+This inequality makes explicit the trade-off: Huffman support budgeting helps through the denominator, while grouping and QEC must protect the numerator.
+
+The baseline $P_{\mathrm{fix}}$ can be instantiated in several ways. In an analytic comparison it may be a fixed-length ensemble satisfying a bounded-overlap model. In a numerical comparison it may be the exact SDP value $P_{\mathrm{base,opt}}$ for a fixed representation, or a controlled approximation such as a pretty-good measurement for larger randomized ensembles. What matters for Eq.~\eqref{eq:huff_fixed_cost_comparison} is that the success probability and the cost are evaluated under the same accounting convention.
+
+The minimal logical accounting convention used in most formulas is
+\begin{equation}
+    C_{\rm total}=\bar L+C_A+C_{\rm QEC}.
+\end{equation}
+To expose platform sensitivity, the numerical diagnostics also scan the weighted model
+\begin{equation}
+    \begin{split}
+    C_{\rm total}^{(w)}
+    ={}& w_L\bar L+w_AC_A+w_QC_{\rm QEC}\\
+    &+w_DD+w_MN_{\rm meas}+w_GN_{\rm gate}.
+    \end{split}
+    \label{eq:weighted_resource_model}
+\end{equation}
+The minimal convention is the special case \(w_L=w_A=w_Q=1\) and \(w_D=w_M=w_G=0\). The corresponding diagnostics use
+\begin{equation}
+    \eta^{(w)}=\frac{P_{\rm full}}{C_{\rm total}^{(w)}},
+    \qquad
+    M_{\rm res}^{(w)}
+    =
+    P_{\rm full}
+    -
+    P_{\rm base}\frac{C_{\rm total}^{(w)}}{C_{\rm base}^{(w)}}.
+\end{equation}
+Weighted robustness is a sensitivity diagnostic, not a hardware-calibrated throughput theorem.
+
+\begin{proposition}[No-free-lunch]\hfill\par
+No unconditional resource-normalized advantage can hold for all source distributions and all overhead models.
+\end{proposition}
+\textit{Proof.} For nearly uniform sources, the Huffman average support cost \(\bar L\) approaches \(n_{\rm fix}\), so the support-budget saving \(G_{\rm comp}=n_{\rm fix}-\bar L\) vanishes. If the group-label overhead, QEC overhead, depth cost, measurement cost, or gate cost is sufficiently large, then \(C_{\rm total}\) or \(C_{\rm total}^{(w)}\) can exceed the fixed baseline cost by enough to offset any raw success improvement. Therefore \(P_{\rm full}>P_{\rm base}\) can still coexist with \(\eta\le\eta_{\rm base}\), \(M_{\rm res}\le0\), or \(M_{\rm res}^{(w)}\le0\). Advantage must therefore be certified for finite instances or favorable parameter regimes rather than assumed globally. \(\square\)
+
+\subsection{Bounded-overlap analytic condition}
+
+The bounded-overlap theorem is a design rule, not a universal POVM bound. It applies to a comparison class in which pairwise ambiguity controls success in the conservative form written below. The exact decoder remains the POVM/SDP decoder; the overlap model is used only to expose how source nonuniformity, group separation, and reduced within-group overlap can combine to yield a sufficient resource advantage.
+The assumptions in Eqs.~\eqref{eq:fixed_overlap_bound_main} and \eqref{eq:group_overlap_bound_main} define a comparison class rather than a universal property of all ensembles. They are useful when pairwise overlap is a conservative proxy for discrimination difficulty, for example in controlled-overlap numerical families or during preliminary design before an exact SDP certificate is available. The SDP-certified theorem below removes this overlap-model assumption.
+Define
+\begin{equation}
+    \Lambda(p)=\sum_{i<j}p_ip_j=\frac{1-\sum_ip_i^2}{2},
+\end{equation}
+\begin{equation}
+    \Lambda_{\mathrm{in}}(p,\mathcal G)=\sum_g\sum_{\substack{i<j\\ i,j\in\mathcal G_g}}p_ip_j\le \Lambda(p).
+\end{equation}
+Assume a fixed-length baseline comparison class with
+\begin{equation}
+    P_{\mathrm{fix}}\le 1-\epsilon_{\mathrm{fix}}\Lambda(p),
+    \label{eq:fixed_overlap_bound_main}
+\end{equation}
+and a grouped Huffman-induced comparison class with
+\begin{equation}
+    P_{\mathrm{Huff+grp}}\ge 1-\epsilon_{\mathrm{in}}\Lambda_{\mathrm{in}}(p,\mathcal G).
+    \label{eq:group_overlap_bound_main}
+\end{equation}
+Here $\epsilon_{\mathrm{in}}$ is an upper bound on the maximum within-group squared overlap, evaluated numerically as $\max_g\max_{i\ne j\in\mathcal G_g}|\braket{\Phi_i|\Phi_j}|^2$.
+
+\begin{theorem}[Bounded-overlap advantage]
+Under the bounded-overlap comparison model above,
+\begin{equation}
+    \frac{1-\epsilon_{\mathrm{in}}\Lambda_{\mathrm{in}}(p,\mathcal G)}{\bar L+C_A}
+    >
+    \frac{1-\epsilon_{\mathrm{fix}}\Lambda(p)}{n_{\mathrm{fix}}}
+    \label{eq:bounded_overlap_advantage_main}
+\end{equation}
+implies $\eta_{\mathrm{Huff+grp}}^{(0)}>\eta_{\mathrm{fix}}^{(0)}$.
+\end{theorem}
+\textit{Proof.} The assumed lower bound on $P_{\mathrm{Huff+grp}}$ gives a lower bound on $\eta_{\mathrm{Huff+grp}}^{(0)}=P_{\mathrm{Huff+grp}}/(\bar L+C_A)$, while the assumed upper bound on $P_{\mathrm{fix}}$ gives an upper bound on $\eta_{\mathrm{fix}}^{(0)}=P_{\mathrm{fix}}/n_{\mathrm{fix}}$. If Eq.~\eqref{eq:bounded_overlap_advantage_main} holds, the former lower bound exceeds the latter upper bound. \(\square\)
+
+The low-overlap corollary is immediate: if $\bar L+C_A<n_{\mathrm{fix}}$ and $\epsilon_{\mathrm{in}}\le[(\bar L+C_A)/n_{\mathrm{fix}}]\epsilon_{\mathrm{fix}}$, then the strict inequality holds. Including QEC replaces the numerator by the lower bound in Eq.~\eqref{eq:full_bound_simple_main} and the denominator by $\bar L+C_A+C_{\mathrm{QEC}}$.
+
+\subsection{SDP-certified resource advantage}
+
+The SDP-certified theorem removes the bounded-overlap model. Consider a fixed-length ensemble $\mathcal E_{\mathrm{fix}}=\{p_i,\rho_i^{\mathrm{fix}}\}_{i=1}^M$ with optimal success $P^\star_{\mathrm{fix}}$, and a Huffman-induced grouped ensemble with optimal grouped success $P^\star_{\mathrm{group}}$. If feasible group POVMs provide a primal lower certificate $\underline P_{\mathrm{group}}\le P^\star_{\mathrm{group}}$, and a dual feasible operator $Y$ satisfying
+\begin{equation}
+    Y\succeq p_i\rho_i^{\mathrm{fix}},\qquad i=1,\ldots,M,
+\end{equation}
+provides the upper certificate $\overline P_{\mathrm{fix}}=\operatorname{Tr}Y\ge P^\star_{\mathrm{fix}}$, then weak duality gives the following result.
+
+\begin{theorem}[SDP-certified resource advantage]
+If
+\begin{equation}
+    \frac{\underline P_{\mathrm{group}}}{\bar L+C_A}>
+    \frac{\overline P_{\mathrm{fix}}}{n_{\mathrm{fix}}},
+    \label{eq:sdp_certificate_condition_main}
+\end{equation}
+then $\eta_{\mathrm{Huff+grp}}^{(0)}>\eta_{\mathrm{fix}}^{(0)}$.
+\end{theorem}
+\textit{Proof.} Primal feasibility gives $P^\star_{\mathrm{group}}\ge\underline P_{\mathrm{group}}$, and fixed-length dual feasibility gives $P^\star_{\mathrm{fix}}\le\overline P_{\mathrm{fix}}$. Dividing by the corresponding costs and using Eq.~\eqref{eq:sdp_certificate_condition_main} yields the strict efficiency ordering. \(\square\)
+
+This theorem is a certificate tool, not an unconditional performance ordering. For a concrete pair of ensembles, a fixed resource accounting convention, and feasible SDP certificates, a positive normalized certificate gap verifies strict resource advantage. Without such a gap, the theorem makes no advantage claim.
+The certificate is instance-dependent by construction. This is a feature rather than a weakness: it gives a verifiable finite-ensemble statement without assuming that every source distribution or grouping is advantageous. The positive cases reported in the Supplemental Material demonstrate that the sufficient condition is nonempty, while negative margins remain valid evidence that a chosen design does not certify an advantage.
+In the same certificate language, the normalized QEC-assisted certified margin may be written as
+\begin{equation}
+    M_{\rm cert}
+    =
+    \frac{\underline P_{\mathrm{full}}}{\bar L+C_A+C_{\mathrm{QEC}}}
+    -
+    \frac{\overline P_{\mathrm{fix}}}{n_{\mathrm{fix}}}.
+    \label{eq:certified_margin_main}
+\end{equation}
+Positive \(M_{\rm cert}\) is the certificate form corresponding to the SDP-certified theorem: it compares a QEC-assisted grouped lower certificate with a fixed-length dual upper certificate under the same accounting convention. It is a sufficient certificate, not an unconditional ordering theorem.
+
+\begin{corollary}[QEC-assisted SDP certificate]
+Suppose the QEC-assisted effective success is certified by
+\begin{equation}
+    \underline P_{\mathrm{full}}
+    =
+    (1-q_L)\underline P_{\mathrm{group}}
+    +
+    q_LP_{\mathrm{fallback}} .
+    \label{eq:qec_sdp_cert_main}
+\end{equation}
+If
+\begin{equation}
+    \frac{\underline P_{\mathrm{full}}}
+    {\bar L+C_A+C_{\mathrm{QEC}}}
+    >
+    \frac{\overline P_{\mathrm{fix}}}{n_{\mathrm{fix}}},
+    \label{eq:qec_sdp_cert_condition_main}
+\end{equation}
+then the QEC-assisted Huffman-grouped decoder is certified to be more resource efficient than the fixed-length baseline under the same accounting convention.
+\end{corollary}
+\textit{Proof.} Equation~\eqref{eq:qec_sdp_cert_main} is a lower certificate for the full success under the effective logical-failure model, while $\overline P_{\mathrm{fix}}$ remains a dual upper certificate for the fixed-length baseline. Dividing by the respective costs gives the claimed strict ordering whenever Eq.~\eqref{eq:qec_sdp_cert_condition_main} holds. \(\square\)
+
+The corollary should be interpreted in the same way as the SDP theorem: it certifies a sufficient condition for a specified ensemble, recovery model, and cost convention. It does not state that adding QEC improves resource efficiency in general.
+
+In practice the two resource theorems serve different purposes. The bounded-overlap condition is useful during design because it shows which levers matter before an SDP is solved: lower \(\bar L+C_A\), lower \(\epsilon_{\mathrm{in}}\), and higher baseline ambiguity all favor the grouped Huffman-induced construction. The SDP-certified condition is useful after a concrete ensemble has been built. A feasible grouped measurement gives \(\underline P_{\mathrm{group}}\), while a feasible dual variable for the fixed-length baseline gives \(\overline P_{\mathrm{fix}}\). If the normalized certificate gap is positive, the advantage claim is certified for that instance under the stated resource convention.
+
+The intended workflow is therefore sequential. First choose the source distribution and compute the Huffman-induced support budgets. Next construct a finite ensemble and a group partition, and solve or approximate the conditional POVM tasks. Then evaluate the reliability model, including any QEC overhead, and finally test the normalized certificate or resource-margin inequality. A negative margin at the last step does not invalidate the support construction; it means that the chosen grouping, recovery model, and cost convention do not together produce a resource-normalized advantage. This interpretation is important because the framework is meant to identify favorable parameter regimes rather than to assert that every nonuniform source is advantageous.
+
+The fixed-length baseline in these comparisons is not assumed to be poor. It may itself use an optimized POVM and, in the SDP-certified theorem, it is allowed a dual upper certificate on the optimal success probability. The strict advantage claim is therefore intentionally asymmetric: the grouped construction supplies a feasible lower certificate, while the fixed-length baseline supplies an upper certificate. If the lower normalized value exceeds the upper normalized value, no uncomputed improvement of either side can reverse the conclusion. If the inequality fails, the theorem is silent; a better grouping, a different state design, or a different resource convention may be needed.
+
+\section{Numerical Diagnostics}
+\label{sec:numerical_results}
+
+The numerical diagnostics follow the logical chain of the construction: support-budget saving, support-constrained payload generation, group ambiguity transfer, default resource-normalized benchmark, favorable-regime sweep, exact certificate statistics, weighted sensitivity, and finally the auxiliary QEC/MAP layers. The default benchmark and the favorable-regime sweep play different roles. The benchmark tests representative behavior under a conservative cost convention; the sweep maps structured regions where the same resource inequalities become positive. Exact SDP rows are used only for finite-instance certificates, while larger scalable rows are labeled as PGM diagnostics.
+
+\subsection{Protocol and baselines}
+
+All main-text diagnostics use the same accounting convention as Sec.~\ref{sec:resource_advantage}. The fixed-length reference has logical cost \(n_{\mathrm{fix}}\) and success denoted \(P_{\mathrm{base,opt}}\) when it is computed by the exact SDP. The grouped Huffman-induced decoder has support cost \(\bar L+C_A\) before QEC and success \(P_{\mathrm{group}}\). With the effective reliability layer, the reported success is the lower-bound quantity \(P_{\mathrm{full}}\) from Eq.~\eqref{eq:full_bound_simple_main}, and the reported efficiency is
+\begin{equation}
+    \eta=\frac{P_{\mathrm{full}}}{\bar L+C_A+C_{\mathrm{QEC}}}.
+\end{equation}
+The notation \(P_{\mathrm{base,opt}}\) is reserved for the numerical exact or representative baseline used in plots, whereas \(P^\star_{\mathrm{fix}}\) and \(\overline P_{\mathrm{fix}}\) are used in the SDP-certified theorem.
+The phase diagrams visualize the resource margin
+\begin{equation}
+    M_{\rm res}
+    =
+    P_{\mathrm{full}}
+    -
+    P_{\mathrm{base,opt}}
+    \left(1+\frac{\Delta C}{C_{\mathrm{base}}}\right),
+    \label{eq:numerical_margin}
+\end{equation}
+which is Eq.~\eqref{eq:resource_margin_main} with \(P_{\mathrm{base}}\) replaced by the numerical baseline \(P_{\mathrm{base,opt}}\). Thus \(M_{\rm res}>0\) corresponds to the resource-advantage condition, while the boundary plots in Appendix~\ref{app:additional_phase} visualize the corresponding overhead tolerance \(\tau_{\mathrm{OH}}\).
+
+The scalable multi-\(M\) benchmark uses the pretty-good measurement and is explicitly labeled as an approximate diagnostic in the CSV files. Exact SDP is reserved for feasible small certificate searches; in the regenerated data, exact SDP certificates are reported for \(M=4\), while \(M=8\) and larger benchmark rows are marked as approximate. This distinction is important because the resource theorem is stated in terms of certificates, while the scalable simulations illustrate parameter regimes in which such certificates or lower bounds may be worth searching.
+
+The fixed-length baseline is intentionally strong within each computational regime. It uses the same priors and the same payload ensemble where the goal is to isolate resource accounting, with fixed-length cost \(n_{\rm fix}\); for scalable rows this baseline is labeled \texttt{pgm\_fixed\_global}. Exact SDP fixed-global baselines are used only in the small certificate search. The benchmark CSV also includes \texttt{equal\_support} and \texttt{random\_support} rows as diagnostic support-allocation baselines under the same ambient dimension. These diagnostic baselines are not exact certificate claims.
+
+The effective QEC curves are generated by inserting \(q_L(p)\) into \(P_{\mathrm{full}}=(1-q_L)P_{\mathrm{group}}+q_LP_{\mathrm{fallback}}\), while \(C_{\mathrm{QEC}}\) enters only through the denominator of \(\eta\). The regenerated QEC hierarchy CSV and the weighted-resource figure keep the reliability and resource-accounting roles of QEC separate.
+
+\begin{table*}[tbp]
+\caption{\label{tab:numerical-roles}Roles of the three numerical evidence layers. The favorable-regime sweep is a design-space map, not a typical-case success-rate estimate.}
+\scriptsize
+\begin{tabular}{lll}
+\hline
+Layer & Purpose & Interpretation\\
+\hline
+Default benchmark & Conservative representative behavior & PGM diagnostic for scalable rows; not generic advantage.\\
+Favorable sweep & Intentional design-space exploration & Structured positive regions; not an unbiased estimate.\\
+Exact SDP certificates & Tractable finite-instance primal/dual comparison & Sufficient instance certificate; no global theorem.\\
+\hline
+\end{tabular}
+\end{table*}
+
+The plotted examples are representative rather than exhaustive. Their purpose is to show how the pieces of the analysis interact: source skew changes \(\bar L\), grouping changes \(P_{\mathrm{group}}\), QEC changes the reliability lower bound, and overhead changes the final efficiency. The appendix figures broaden the parameter sweep, but the main conclusions are already visible from the curated diagnostics retained here. This division keeps the body close to a PRA-style system paper while preserving reproducibility through the data files and supplementary plots.
+
+\subsection{Revised multi-instance benchmark}
+
+The main numerical evidence is the regenerated support-driven benchmark in \texttt{benchmark\_multiM.csv}, not the angle-defined four-symbol example below. The benchmark covers \(M=4,8,16,32,64\) over Zipf, Dirichlet-random, near-uniform, and strongly skewed sources. Each row records \(p_i\), Huffman lengths \(l_i\), \(R_{\rm sup}\), \(\bar L\), \(n_{\rm fix}\), \(G_{\rm comp}\), \(C_A\), \(C_{\rm QEC}\), \(P_{\rm base}\), \(P_{\rm group}\), \(P_{\rm full}\), \(\eta\), \(M_{\rm res}\), baseline type, payload-generation mode, grouping strategy, and whether the decoder value is exact or approximate. The companion \texttt{summary\_statistics.csv} reports means, standard deviations, minima, maxima, and the positive-margin fraction \(r_{\rm res+}=\#\{M_{\rm res}>0\}/N_{\rm trial}\).
+
+Figure~\ref{fig:revised-support-saving} shows the first denominator effect: source skew increases the support-budget gain \(G_{\rm comp}\) for Zipf sources. This is a support-accounting effect only. It does not imply a strict lossless quantum Huffman code, and it does not by itself imply resource advantage.
+
+\begin{figure}[tbp]
+\includegraphics[width=\columnwidth]{paper_data/figures/source_support_saving_vs_zipf.pdf}
+\caption{\label{fig:revised-support-saving}Regenerated multi-\(M\) support-budget saving for Zipf sources. Larger skew lowers \(\bar L\) relative to \(n_{\rm fix}\), creating potential denominator gain before grouping, QEC, or resource normalization.}
+\end{figure}
+
+The payload construction used in the benchmark is support-constrained rather than manually angle-tuned. The optimized phase mode minimizes \(\mathcal A_{\rm Huff}\) over the allocated supports; deterministic-phase and random-phase modes are retained as baselines. In \texttt{payload\_generation\_comparison.csv}, the optimized objective is no larger than the random-phase mean in \(98.1\%\) of tested instances and no larger than the deterministic-phase objective in \(86.8\%\) of tested instances. Figure~\ref{fig:payload-comparison} summarizes this comparison across alphabet sizes.
+
+\begin{figure}[tbp]
+\includegraphics[width=\columnwidth]{paper_data/figures/payload_generation_comparison.pdf}
+\caption{\label{fig:payload-comparison}Support-constrained payload-generation comparison. The optimized phase search is the main construction; random-phase and deterministic-phase states are non-hand-tuned baselines.}
+\end{figure}
+
+Figure~\ref{fig:multiM-efficiency} reports the resource-normalized efficiency distribution for the multi-\(M\) benchmark, and Fig.~\ref{fig:grouping-strategy-revised} separates grouping strategies. The grouped decoder often improves the raw discrimination diagnostic, but the unweighted QEC-inclusive resource margin is conservative in this regenerated benchmark: \(r_{\rm res+}=0\) for the QEC-inclusive \(M_{\rm res}\) rows because the modeled \(C_{\rm QEC}=7\) overhead dominates. Without QEC overhead, the diagnostic \(M_{\rm res}^{(0)}\) is positive in \(13.2\%\) of benchmark rows, concentrated in larger alphabets. This is a useful negative result: QEC improves reliability through \(P_{\rm full}\), but it does not automatically improve resource efficiency.
+
+\begin{figure}[tbp]
+\includegraphics[width=\columnwidth]{paper_data/figures/multiM_benchmark_efficiency.pdf}
+\caption{\label{fig:multiM-efficiency}Approximate PGM-labeled multi-\(M\) benchmark efficiency. The plot is a scalable diagnostic, not an exact SDP certificate.}
+\end{figure}
+
+\begin{figure}[tbp]
+\includegraphics[width=\columnwidth]{paper_data/figures/grouping_gain_by_strategy.pdf}
+\caption{\label{fig:grouping-strategy-revised}Grouping gain by strategy in the regenerated benchmark. Random, probability-aware, and overlap-aware partitions are tested with fixed seeds.}
+\end{figure}
+
+
+\subsection{Favorable-regime parameter sweep}
+
+The default multi-\(M\) benchmark shows that resource-normalized advantage is not generic under the conservative cost convention. To test whether positive margins are isolated artifacts or occupy a structured design region, we perform a separate favorable-regime sweep in \texttt{favorable\_regime\_sweep.csv}. This sweep intentionally explores design degrees of freedom such as source skew, support-overlap shift, payload-generation mode, grouping strategy, group number, QEC overhead, and weighted overhead parameters. Its positive fraction is therefore not a typical-case success probability. It is a design-space map used to test whether positive-margin regions are nonempty and structurally interpretable.
+
+The sweep contains \(56160\) PGM-labeled diagnostic rows generated by the current support-budget payload pipeline. The all-row positive fraction is \(6828/56160=0.122\), the no-QEC subset has \(4812/18720=0.257\) positive rows, and the weighted-cost margin has positive fraction \(0.347\). Positive no-QEC rows have larger mean support gain and lower overhead than non-positive rows: mean \(G_{\rm comp}=2.52\) versus \(0.56\), mean \(g_{\rm rel}=0.577\) versus \(0.182\), mean \(r_{\rm sep}=0.834\) versus \(0.788\), and mean \(r_{\rm cost}=0.356\) versus \(0.565\). Thus positive margins concentrate where support-budget saving, ambiguity transfer, and low overhead are present simultaneously.
+
+\begin{figure}[tbp]
+\includegraphics[width=\columnwidth]{paper_data/figures/favorable_sweep_heatmap.pdf}
+\caption{\label{fig:favorable-sweep-heatmap}Favorable-regime sweep, not the default benchmark. The heatmap reports the binned positive-margin fraction for no-QEC PGM-diagnostic rows as a function of relative support gain and overhead ratio. Positive regions appear where support gain is large enough and modeled overhead is low enough; this maps nonempty structured regimes, not universal advantage.}
+\end{figure}
+
+\begin{figure}[tbp]
+\includegraphics[width=\columnwidth]{paper_data/figures/favorable_probability_vs_grel.pdf}
+\caption{\label{fig:favorable-grel}Favorable-regime sweep probability versus relative support-budget gain \(g_{\rm rel}\). Bars are binned PGM diagnostics with bin counts annotated in the generated figure and CSV. Positive margins become more likely at larger support savings, but this statistic is separate from the conservative default benchmark and is not an SDP certificate.}
+\end{figure}
+
+\begin{figure}[tbp]
+\includegraphics[width=\columnwidth]{paper_data/figures/favorable_probability_vs_rsep.pdf}
+\caption{\label{fig:favorable-rsep}Favorable-regime sweep probability versus ambiguity-transfer ratio \(r_{\rm sep}\). The binned PGM diagnostic is not monotone enough to support a threshold law: ambiguity transfer helps, but positive margins also require support saving and low modeled overhead.}
+\end{figure}
+
+\begin{figure}[tbp]
+\includegraphics[width=\columnwidth]{paper_data/figures/favorable_positive_negative_comparison.pdf}
+\caption{\label{fig:favorable-pos-neg}Representative favorable and non-favorable sweep cases. The table reports structural predictors for a median-positive case and a comparable negative case, rather than a cherry-picked best instance. The contrast illustrates that positive margins require support gain, ambiguity transfer, and overhead to align; it does not imply universal advantage.}
+\end{figure}
+
+The support-overlap analysis clarifies the role of overlapping supports in this sweep. In the regenerated sweep, positive-margin rows have larger mean and median \(R_{\rm sup}\) than non-positive rows: \(0.375\) and \(0.216\) versus \(0.238\) and \(0.134\). They also have lower mean \(\mathcal A_{\rm Huff}\) (\(0.00149\) versus \(0.00559\)) and slightly larger mean \(r_{\rm sep}\) (\(0.827\) versus \(0.796\)). The present data therefore suggest that controlled overlap can be useful, but this is a diagnostic observation rather than a universal design rule. Positive margins do not follow from maximizing \(R_{\rm sup}\) alone; they require support saving, ambiguity transfer, and low modeled overhead to align.
+
+\subsection{Exact certificate statistics}
+
+The SDP certificate search is separated from both the default benchmark and the favorable-regime sweep. The regenerated \texttt{sdp\_certificate\_statistics.csv} reports exact SDP certificates for \(M=4\), where \(3\) of \(40\) exact rows are positive, giving \(r_{\rm cert+}=0.075\) and best margin \(M_{\rm cert}=0.0788\). These \(M=4\) statistics are broad relative to the small-instance search, but they are still finite-instance certificates only. PGM rows and favorable-regime sweep rows are not certificate claims.
+
+\begin{figure}[tbp]
+\includegraphics[width=\columnwidth]{paper_data/figures/M_cert_distribution.pdf}
+\caption{\label{fig:mcert-distribution}Exact small-instance certificate-margin distribution for regenerated \(M=4\) SDP rows. Positive \(M_{\rm cert}\) certifies only the corresponding finite instance; negative values mean that the sufficient certificate was not found for that design.}
+\end{figure}
+
+\begin{figure}[tbp]
+\includegraphics[width=\columnwidth]{paper_data/figures/positive_certificate_ratio.pdf}
+\caption{\label{fig:positive-cert-ratio}Positive-certificate ratio \(r_{\rm cert+}\) by source type for exact \(M=4\) searches. The ratio is instance-dependent and should not be read as a global ordering theorem.}
+\end{figure}
+
+
+
+A small controlled exact-SDP probe for \(M=8\) is reported in \texttt{exact\_sdp\_m8\_probe.csv}. The probe includes one positive and one negative solved instance, both with recorded solver residuals and runtimes. It demonstrates feasibility for selected low-dimensional \(M=8\) cases, but it is not a broad \(M=8\) certificate survey; scalable \(M\ge8\) benchmark claims remain PGM diagnostics unless explicit primal/dual certificates are recorded. Extending exact SDP certificate statistics beyond controlled \(M=8\) cases is a computational direction for future work.
+
+\begin{figure}[tbp]
+\includegraphics[width=\columnwidth]{paper_data/figures/exact_sdp_m8_probe.pdf}
+\caption{\label{fig:m8-probe}Controlled exact SDP probe for selected \(M=8\) finite instances. One solved instance has positive certificate margin and one comparable solved instance is negative, illustrating nonemptiness and instance dependence without claiming broad \(M=8\) certificate statistics.}
+\end{figure}
+
+
+
+\subsection{Weighted resource sensitivity}
+
+The weighted sensitivity scan in \texttt{resource\_sensitivity.csv} varies \(w_A/w_L\), \(w_Q/w_L\), and \(w_D/w_L\), with small fixed \(w_M/w_L\) and \(w_G/w_L\) diagnostics. Only \(1.90\%\) of weighted rows in the conservative default sensitivity scan have \(M_{\rm res}^{(w)}>0\), whereas the favorable-regime sweep has a weighted-positive fraction of \(0.347\). This contrast is deliberate: the default scan reports conservative representative behavior, while the favorable-regime sweep maps structured low-overhead regions.
+
+\begin{figure}[tbp]
+\includegraphics[width=\columnwidth]{paper_data/figures/weighted_resource_sensitivity_heatmap.pdf}
+\caption{\label{fig:weighted-sensitivity}Weighted-resource sensitivity heatmap for the default benchmark. The color gives the positive-margin fraction under \(M_{\rm res}^{(w)}\). Positive regions persist for low modeled overheads but shrink as ancilla, QEC, or depth weights increase.}
+\end{figure}
+
+\subsection{QEC and MAP layers}
+
+The QEC reliability hierarchy is retained as a separate diagnostic layer. The regenerated file \texttt{qec\_reliability\_hierarchy.csv} labels all repetition-code, stabilizer-code, and depth-sensitive curves as toy/proxy models. These curves show how \(q_L\) changes \(P_{\rm full}=(1-q_L)P_{\rm group}+q_LP_{\rm fallback}\), while the benchmark margins show that reliability improvement is not automatically resource efficiency. MAP is used only as the posterior decision rule after the probabilistic decoder and fallback model; it is not counted as an independent coding theorem.
+
+\subsection{Four-symbol sanity check}
+
+The angle-defined four-symbol construction is retained only as a notation-level sanity check. It illustrates priors, Huffman lengths, a two-group partition, and the formula for \(P_{\rm full}\) in a transparent two-dimensional setting. It is not the main benchmark, not a scaling test, and not the support-constrained payload rule used in the regenerated multi-\(M\) results.
+
+
+\section{Discussion}
+
+The construction should be read as a finite-resource probabilistic decoding framework. It is not a strict lossless quantum Huffman code: Huffman lengths are support-budget parameters and all states are decoded probabilistically from a common ambient Hilbert space. The group ancilla can improve distinguishability when it lowers within-group overlap, and QEC can improve reliability under the effective logical-failure model, but neither effect implies resource advantage by itself.
+
+The ambiguity quantities \(\mathcal A_{\mathrm{Huff}}\) and \(\mathcal A_i\) show where source-weighted nonorthogonality enters the support-shaped ensemble. The transfer quantity \(\mathcal A_{\mathrm{sep}}\) and the grouping criterion \(J_{\mathrm{grp}}\) show how the group label changes the conditional discrimination tasks. The margin quantities \(M_{\rm res}\), \(M_{\rm cert}\), and \(\tau_{\mathrm{OH}}\) then test whether the success gain is large enough to pay for the extra resources. None of these quantities replaces the POVM/SDP decoder.
+
+The SDP-certified condition is the most model-independent comparison in the paper. It removes the bounded-overlap assumption by comparing a grouped primal lower certificate with a fixed-length dual upper certificate. This certificate should not be read as an unconditional ordering between the two schemes. Once the ensembles, resource accounting convention, and feasible SDP certificates are fixed, a positive normalized certificate gap gives a verifiable sufficient condition for strict resource advantage.
+
+The QEC layer should be interpreted with the same caution. In the effective model, smaller $q_L$ moves the success lower bound toward $P_{\mathrm{group}}$, but the same code also contributes $C_{\mathrm{QEC}}$ to the denominator. A code that improves reliability can therefore reduce $\eta$ if the redundancy cost is too large. This distinction is the reason the paper states resource advantage as an inequality rather than as a monotonic consequence of adding QEC.
+
+The three baselines used in the paper serve different roles. The fixed-length global POVM baseline tests whether source-dependent support budgeting and grouping improve the discrimination problem at all. The grouped no-QEC baseline isolates the effect of the ancilla from the effect of physical redundancy. The QEC-assisted baseline then asks whether improved reliability survives resource normalization. Keeping these baselines separate is what prevents the framework from treating a higher raw success probability as a complete advantage claim.
+
+The finite-resource nature of the model also matters. Asymptotic compression theorems identify rates in large-block limits, whereas the present construction works with a finite source alphabet, finite supports, and explicitly counted ancilla and redundancy costs. This makes the resource metric more schematic than a device throughput model, but it also makes the comparison transparent: every claimed gain must appear either as a higher certified success probability or as a lower modeled cost. The framework is therefore closer to a regime-identification tool than to an asymptotic coding theorem.
+
+The conservative benchmark and the favorable-regime sweep play different roles. The benchmark shows that advantage is not generic under default overhead accounting. The sweep shows that positive margins are not isolated artifacts but occupy structured low-overhead, high-support-saving regions. Exact SDP certificates then provide rigorous finite-instance validation where the SDP dimension is tractable. Taken together, these results support a regime-identification and certification interpretation, not a universal-superiority claim.
+
+The positive SDP-certified cases are finite-instance certificates. They do not imply that every nonuniform source or every grouping is resource-superior; they show that the sufficient certificate condition is nonempty and can be met by explicit support-driven ensembles.
+
+Several implementation issues remain outside the present model. Hardware-native POVMs, calibrated fault-tolerant recovery, variable-depth state preparation, and device-level throughput require a more detailed architecture and resource-overhead model~\cite{fowler2012surface,terhal2015quantum,campbell2017roads}. The POVM/SDP layer is an optimal discrimination benchmark, not a claim that the measurement is immediately native to a particular device. Likewise, the logical-failure curves are finite-resource reliability diagnostics rather than calibrated fault-tolerant simulations. Those refinements would change the cost model, but not the basic logic of the resource test in Eq.~\eqref{eq:resource_advantage_condition}.
+
+\section{Conclusion}
+
+We introduced a quantum-Huffman-inspired finite-resource probabilistic source-decoding framework. Classical Huffman lengths are used as support-budget parameters in a common Hilbert space, not as coherent variable-length quantum codewords. The resulting states define a source-shaped ensemble whose ambiguity is summarized by \(\mathcal A_{\mathrm{Huff}}\) and \(\mathcal A_i\). The group ancilla removes inter-group ambiguity from the conditional POVM tasks, measured by \(\mathcal A_{\mathrm{sep}}\). The criterion \(J_{\mathrm{grp}}(\mathcal G)\) balances intra-group ambiguity, worst-case overlap, and label overhead. QEC and MAP enter as reliability and posterior layers.
+
+The resource side is expressed through \(M_{\rm res}\), \(M_{\rm cert}\), and \(\tau_{\mathrm{OH}}\). These diagnostics state when a success or reliability gain becomes a resource-normalized advantage under the chosen accounting convention. The bounded-overlap theorem is best read as an analytic design criterion showing which levers matter. The SDP-certified theorem is the finite-instance certification tool once feasible primal and dual certificates are fixed. The numerical diagnostics support the main qualitative conclusion: reliability gain does not automatically imply resource-normalized advantage.
+
+The regenerated default benchmark, favorable-regime sweep, and exact certificates give a coherent but deliberately limited conclusion. Default overhead accounting is often negative; favorable low-overhead, high-support-saving regions are nonempty and structured; and exact SDP certificates validate selected finite instances, including controlled \(M=4\) and \(M=8\) cases. These cases do not imply an unconditional ordering over all sources or groupings. Rather, they demonstrate that the proposed support-budget and group-conditioning mechanism can meet the resource inequalities in concrete finite regimes.
+
+% The appendix changes section numbering and is appropriate for validation
+% details and auxiliary data.
+\appendix
+\setcounter{theorem}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\renewcommand{\thetheorem}{\Alph{section}\arabic{theorem}}
+\renewcommand{\thefigure}{\Alph{section}\arabic{figure}}
+\renewcommand{\thetable}{\Alph{section}\arabic{table}}
+\renewcommand{\theHfigure}{\Alph{section}.\arabic{figure}}
+\renewcommand{\theHtable}{\Alph{section}.\arabic{table}}
+
+\section{Gradients for Amplitude--Phase Overlap Optimization}
+\label{app:gradients}
+
+This appendix records the elementary gradients used by numerical overlap optimization. They are auxiliary to the main framework: the central object in the text is the overlap structure of the ensemble, not a particular continuous optimization algorithm.
+
+For
+\begin{equation}
+    z_{ij}=\braket{\Phi_i|\Phi_j}
+    =
+    \sum_x a_{i,x}a_{j,x}
+    e^{i(\theta_{j,x}-\theta_{i,x})},
+\end{equation}
+the squared overlap is $G_{ij}=|z_{ij}|^2$. The phase derivative is
+\begin{align}
+    \frac{\partial G_{ij}}{\partial \theta_{i,y}}
+    &=
+    2\mathrm{Re}\left[
+    -i a_{i,y}a_{j,y}
+    e^{i(\theta_{j,y}-\theta_{i,y})}
+    z_{ij}^{*}
+    \right].
+    \label{eq:phase_gradient}
+\end{align}
+The amplitude derivative is
+\begin{align}
+    \frac{\partial G_{ij}}{\partial a_{i,y}}
+    &=
+    2\mathrm{Re}\left[
+    a_{j,y}e^{i(\theta_{j,y}-\theta_{i,y})}
+    z_{ij}^{*}
+    \right].
+    \label{eq:amplitude_gradient}
+\end{align}
+For the weighted objective
+\begin{equation}
+    \mathcal{O}_{\mathrm{ov}}
+    =
+    \sum_{i<j}p_ip_j|\braket{\Phi_i|\Phi_j}|^2,
+\end{equation}
+the constrained amplitude stationarity condition under
+$\sum_xa_{i,x}^2=1$ is
+\begin{equation}
+    \frac{\partial \mathcal{O}_{\mathrm{ov}}}{\partial a_{i,y}}
+    +
+    2\lambda_i a_{i,y}
+    =
+    0.
+    \label{eq:lagrange_stationary}
+\end{equation}
+Using Eq.~\eqref{eq:amplitude_gradient}, this becomes
+\begin{equation}
+    \sum_{j\neq i} p_ip_j 2\mathrm{Re}\left[
+    a_{j,y}e^{i(\theta_{j,y}-\theta_{i,y})}
+    z_{ij}^{*}
+    \right]
+    +
+    2\lambda_i a_{i,y}
+    =
+    0.
+    \label{eq:amplitude_optimality}
+\end{equation}
+
+\section{SDP Validation Against the Helstrom Bound}
+
+The numerical SDP implementation was validated by comparing two-state SDP solutions against the analytic Helstrom formula. Twenty random pairs of pure states in dimension four were generated with random priors. The maximum absolute difference between the SDP value and the Helstrom value was approximately
+\begin{equation}
+    3.14\times10^{-9},
+\end{equation}
+well below the numerical tolerance used in the simulations. The validation data are stored in the Supplemental Material as \texttt{results/sdp\_helstrom\_validation.csv}.
+
+\section{QEC Syndrome Model and SDP Details}
+
+\subsection{QEC syndrome model and logical-failure bound}
+\label{app:qec_syndrome}
+
+This appendix records the standard syndrome-level details underlying the effective logical-failure probability used in the main text. They are not part of the core Huffman-induced support-allocation contribution.
+
+Let $P_C=V_{\mathrm{QEC}}V_{\mathrm{QEC}}^\dagger$ denote the projector onto the code subspace. A set of errors $\{E_a\}$ is correctable if and only if
+\begin{equation}
+    P_C E_a^\dagger E_b P_C
+    =
+    \alpha_{ab}P_C
+\end{equation}
+for some Hermitian matrix $\alpha_{ab}$. This condition means that the syndrome can reveal which error occurred without revealing the encoded logical information.
+
+For a stabilizer code with generators
+\begin{equation}
+    \mathcal{S}=\langle S_1,S_2,\ldots,S_m\rangle,
+\end{equation}
+a Pauli error $E_a$ determines a syndrome $s(a)$ through the commutation signs between $E_a$ and the generators. The corresponding syndrome projector is
+\begin{equation}
+    \Pi_s
+    =
+    \prod_{k=1}^{m}
+    \frac{I+(-1)^{s_k}S_k}{2}.
+\end{equation}
+For a noisy state $\rho_i^{\mathrm{noisy}}$, the syndrome probability is
+\begin{equation}
+    P(s|i)
+    =
+    \mathrm{Tr}\left(\Pi_s\rho_i^{\mathrm{noisy}}\right).
+\end{equation}
+For a Pauli channel
+\begin{equation}
+    \mathcal{E}(\rho)=\sum_a q_aE_a\rho E_a^\dagger,
+\end{equation}
+this reduces to
+\begin{equation}
+    P(s|i)
+    =
+    \sum_{a:s(a)=s}q_a.
+\end{equation}
+Thus, in the ideal stabilizer-code abstraction under Pauli noise, the syndrome statistics depend on the physical error distribution but not on the logical source symbol.
+
+For each syndrome $s$, let $C_s$ be a chosen correction operator, typically the inverse of the most likely error compatible with $s$. The recovery operation can be written as
+\begin{equation}
+    \mathcal{R}(\rho)
+    =
+    \sum_s
+    C_s\Pi_s\rho\Pi_s C_s^\dagger .
+\end{equation}
+The correctable error set is
+\begin{equation}
+    \mathcal{A}_{\mathrm{corr}}
+    =
+    \{a:C_{s(a)}E_aP_C=P_C\}.
+\end{equation}
+The logical correction and failure probabilities are
+\begin{equation}
+    P_{\mathrm{corr}}
+    =
+    \sum_{a\in\mathcal{A}_{\mathrm{corr}}}q_a,
+    \qquad
+    q_L
+    =
+    1-P_{\mathrm{corr}}.
+\end{equation}
+For an $[[n,k,d]]$ stabilizer-code reliability proxy with independent physical error probability $p$ and $t=\lfloor(d-1)/2\rfloor$, the bound used in the main text is
+\begin{equation}
+    P_{\mathrm{corr}}
+    \geq
+    \sum_{w=0}^{t}
+    \binom{n}{w}p^w(1-p)^{n-w}.
+\end{equation}
+
+\subsection{Primal POVM SDP}
+
+For an ensemble $\{p_i,\rho_i\}_{i=1}^M$, minimum-error quantum-state discrimination is written as the POVM semidefinite program
+\begin{align}
+    P_{\mathrm{opt}}
+    =
+    \max_{\{E_i\}}
+    &\sum_{i=1}^M p_i\mathrm{Tr}(E_i\rho_i)
+    \label{eq:appendix_primal_sdp}\\
+    \mathrm{subject\ to}\quad
+    &E_i\succeq0,\qquad i=1,\ldots,M,\nonumber\\
+    &\sum_{i=1}^M E_i=I.\nonumber
+\end{align}
+The variables $E_i$ are positive semidefinite measurement operators. The normalization constraint makes $\{E_i\}$ a POVM on the support Hilbert space used by the encoder.
+
+\subsection{Lagrangian and dual problem}
+
+Introducing a Hermitian dual variable $Y$ for the equality constraint $\sum_i E_i=I$, the Lagrangian is
+\begin{equation}
+    \mathcal{L}(\{E_i\},Y)
+    =
+    \sum_i p_i\mathrm{Tr}(E_i\rho_i)
+    +
+    \mathrm{Tr}\left[
+    Y\left(I-\sum_iE_i\right)
+    \right].
+\end{equation}
+Equivalently,
+\begin{equation}
+    \mathcal{L}(\{E_i\},Y)
+    =
+    \mathrm{Tr}(Y)
+    +
+    \sum_i
+    \mathrm{Tr}\left[
+    E_i(p_i\rho_i-Y)
+    \right].
+\end{equation}
+The supremum over $E_i\succeq0$ is finite only if
+\begin{equation}
+    Y\succeq p_i\rho_i,\qquad i=1,\ldots,M.
+\end{equation}
+Thus the dual SDP is
+\begin{align}
+    D_{\mathrm{opt}}
+    =
+    \min_Y\quad
+    &\mathrm{Tr}(Y)
+    \label{eq:appendix_dual_sdp}\\
+    \mathrm{subject\ to}\quad
+    &Y\succeq p_i\rho_i,\qquad i=1,\ldots,M.\nonumber
+\end{align}
+
+\subsection{KKT conditions}
+
+The Karush--Kuhn--Tucker conditions consist of primal feasibility,
+\begin{equation}
+    E_i\succeq0,\qquad \sum_iE_i=I,
+\end{equation}
+dual feasibility,
+\begin{equation}
+    Y\succeq p_i\rho_i,\qquad i=1,\ldots,M,
+\end{equation}
+and complementary slackness,
+\begin{equation}
+    (Y-p_i\rho_i)E_i=0,\qquad i=1,\ldots,M.
+\end{equation}
+Under Slater conditions, strong duality holds and
+\begin{equation}
+    P_{\mathrm{opt}}=D_{\mathrm{opt}}.
+\end{equation}
+These conditions are useful for interpreting the SDP decoder: a measurement effect can have support only on the subspace where the corresponding dual inequality is tight.
+
+\subsection{Group-conditioned SDP}
+
+For group $G_g$, let $q_i^{(g)}=p_i/p_g$ denote the conditional prior for $i\in G_g$, where $p_g=\sum_{i\in G_g}p_i$. The group-conditioned discrimination problem is
+\begin{align}
+    P_{\mathrm{opt}}^{(g)}
+    =
+    \max_{\{E_i^{(g)}\}}
+    &\sum_{i\in G_g}q_i^{(g)}
+    \mathrm{Tr}\left(E_i^{(g)}\rho_i^{(g)}\right)
+    \label{eq:appendix_group_sdp}\\
+    \mathrm{subject\ to}\quad
+    &E_i^{(g)}\succeq0,\qquad i\in G_g,\nonumber\\
+    &\sum_{i\in G_g}E_i^{(g)}=I_g.\nonumber
+\end{align}
+The ideal group-conditioned success probability is then
+\begin{equation}
+    P_{\mathrm{group}}^{\star}=\sum_gp_gP_{\mathrm{opt}}^{(g)}.
+\end{equation}
+Group conditioning replaces one large SDP over all symbols by several smaller SDPs conditioned on the group ancilla outcome. This change does not alter the POVM framework; it changes the ensemble presented to each conditional decoder.
+
+\FloatBarrier
+\section{Additional Randomized Numerical Statistics}
+
+The randomized statistics in this appendix are computed from \texttt{randomized\_ensemble\_validation.csv}. They provide robustness checks showing whether the mechanisms predicted by the theoretical bounds persist across randomized ensembles.
+
+The randomized protocol uses alphabet sizes \(M\in\{4,8,16,32\}\). For each trial, source probabilities are drawn from a Dirichlet distribution and payload states are sampled as normalized complex Gaussian pure states in dimension four. Exact SDP baselines are used for \(M=4\) and for selected low-dimensional \(M=8\) diagnostic rows where the solver records a solved status; larger scalable rows use the pretty-good measurement and the CSV records the approximation through the corresponding baseline-type columns. These randomized statistics are robustness diagnostics, not certificate statistics. The grouping strategies are random grouping, probability-aware grouping, and overlap-aware grouping. Recorded metrics include \(P_{\mathrm{base,opt}}\), \(P_{\mathrm{group}}\), \(P_{\mathrm{group}}-P_{\mathrm{base,opt}}\), \(P_{\mathrm{full}}\), \(\eta\), and the overlap-ratio diagnostic \(\epsilon_{\mathrm{global}}/\epsilon_{\mathrm{in}}\).
+
+The three grouping rules are meant to separate different sources of improvement. Random grouping provides a distribution-free reference. Probability-aware grouping places high-priority symbols so that the posterior guessing floor is not dominated by a single group. Overlap-aware grouping uses the sampled Gram matrix and greedily reduces the largest within-group squared overlap. For each trial the same ensemble is evaluated under all three strategies, so the reported differences reflect grouping rather than a change of source distribution or payload states.
+
+The randomized QEC-assisted quantities are computed from the same effective lower bound used in the main text,
+\begin{equation}
+    P_{\mathrm{full}}=(1-q_L)P_{\mathrm{group}}+q_LP_{\mathrm{fallback}},
+\end{equation}
+and
+\begin{equation}
+    \eta=\frac{P_{\mathrm{full}}}{\bar L+C_A+C_{\mathrm{QEC}}}.
+\end{equation}
+Thus the randomized tables test whether grouping gains persist after the reliability model and resource normalization are applied. They are not independent hardware simulations.
+
+\begin{table}[!htb]
+\caption{\label{tab:appendix_randomized_protocol}Randomized ensemble validation protocol.}
+\scriptsize
+\begin{ruledtabular}
+\begin{tabular}{ll}
+Item & Setting\\
+\hline
+Alphabet sizes & \(M\in\{4,8,16,32\}\)\\
+Source priors & Dirichlet-distributed probability vectors\\
+Payload states & normalized complex Gaussian pure states\\
+Hilbert dimension & \(d=4\)\\
+Small diagnostic baseline & exact SDP: \(M=4\); selected solved \(M=8\)\\
+Scalable baseline & PGM for larger rows\\
+Grouping rules & random, probability-aware, overlap-aware\\
+Success metrics & \(P_{\mathrm{base,opt}}\), \(P_{\mathrm{group}}\), \(P_{\mathrm{full}}\)\\
+Resource/overlap metrics & \(\eta\), grouping gain, overlap ratio\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{table}[!htb]
+\caption{\label{tab:appendix_gain_stats}Grouping gain statistics by alphabet size and strategy. Statistics are computed over randomized ensembles using one row per trial and strategy.}
+\begin{ruledtabular}
+\begin{tabular}{lccc}
+$M$ & Strategy & Mean $\pm$ std. & Range\\
+\hline
+$4$ & overlap-aware & $0.1090\pm0.0545$ & $0.0377$--$0.2575$\\
+$4$ & probability-aware & $0.0941\pm0.0515$ & $0.0037$--$0.2575$\\
+$4$ & random & $0.0895\pm0.0489$ & $0.0117$--$0.1985$\\
+$8$ & overlap-aware & $0.2100\pm0.0523$ & $0.0860$--$0.3303$\\
+$8$ & probability-aware & $0.1798\pm0.0573$ & $0.0484$--$0.3548$\\
+$8$ & random & $0.1765\pm0.0536$ & $0.0660$--$0.3059$\\
+$16$ & overlap-aware & $0.5401\pm0.0482$ & $0.4170$--$0.6105$\\
+$16$ & probability-aware & $0.4773\pm0.0473$ & $0.3496$--$0.5610$\\
+$16$ & random & $0.4708\pm0.0444$ & $0.3643$--$0.5561$\\
+$32$ & overlap-aware & $0.6090\pm0.0221$ & $0.5654$--$0.6470$\\
+$32$ & probability-aware & $0.5429\pm0.0343$ & $0.4635$--$0.6118$\\
+$32$ & random & $0.5219\pm0.0267$ & $0.4601$--$0.5717$\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{table}[!htb]
+\caption{\label{tab:appendix_reliability_eta_stats}QEC-assisted success and resource-efficiency statistics for the randomized ensembles.}
+\begin{ruledtabular}
+\begin{tabular}{lccc}
+$p$ & Strategy & $P_{\mathrm{full}}$ & $\eta$\\
+\hline
+$0.02$ & overlap-aware & $0.9172\pm0.0558$ & $0.08293\pm0.01556$\\
+$0.02$ & probability-aware & $0.8771\pm0.0741$ & $0.07961\pm0.01700$\\
+$0.02$ & random & $0.8691\pm0.0796$ & $0.07894\pm0.01730$\\
+$0.05$ & overlap-aware & $0.8946\pm0.0573$ & $0.08093\pm0.01550$\\
+$0.05$ & probability-aware & $0.8588\pm0.0770$ & $0.07800\pm0.01710$\\
+$0.05$ & random & $0.8483\pm0.0804$ & $0.07709\pm0.01718$\\
+$0.10$ & overlap-aware & $0.8295\pm0.0624$ & $0.07518\pm0.01535$\\
+$0.10$ & probability-aware & $0.8059\pm0.0868$ & $0.07337\pm0.01744$\\
+$0.10$ & random & $0.7883\pm0.0832$ & $0.07175\pm0.01683$\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\FloatBarrier
+\section{Additional Phase Diagrams}
+\label{app:additional_phase}
+
+This appendix reports additional resource-advantage diagnostics generated from the same margin used in the main text,
+\begin{equation}
+    M_{\rm res}
+    =
+    P_{\mathrm{full}}
+    -
+    P_{\mathrm{base,opt}}
+    \left(1+\frac{\Delta C}{C_{\mathrm{base}}}\right),
+\end{equation}
+where
+\begin{equation}
+    P_{\mathrm{full}}
+    =
+    (1-q_L)P_{\mathrm{group}}+q_LP_{\mathrm{fallback}}.
+\end{equation}
+The plots are parameter-regime diagnostics for the resource margin. The boundary and threshold views also visualize the overhead tolerance \(\tau_{\mathrm{OH}}\) of Eq.~\eqref{eq:overhead_tolerance}; they should be read as finite-resource diagnostics rather than universal thresholds.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{paper_data/figures/appendix_e1_phase_triptych.pdf}
+\caption{\label{fig:appendix-code-phase}Additional enhanced resource-advantage phase diagrams for (a) the $[[5,1,3]]$ code model, (b) the $[[9,1,3]]$ code model, and (c) the $[[11,1,5]]$ code model. All panels use the margin \(M_{\rm res}=P_{\mathrm{full}}-P_{\mathrm{base,opt}}(1+\Delta C/C_{\mathrm{base}})\); positive values indicate regimes where the success gain compensates the modeled overhead.}
+\vspace{0.3ex}
+\includegraphics[width=\textwidth]{paper_data/figures/appendix_e2_resource_diagnostics.pdf}
+\caption{\label{fig:appendix-grouping-quality}\label{fig:phase-boundary}\label{fig:required-threshold}Additional resource-margin and overhead-tolerance diagnostics. (a) Tolerated overhead as a function of group success and logical failure. (b) Boundary comparison by code model. (c) Required group success threshold for representative overhead ratios.}
+\end{figure*}
+
+\FloatBarrier
+\section{Complexity Analysis}
+
+The symbols \(\mathcal C_{\mathrm{global}}\) and \(\mathcal C_{\mathrm{group}}\) in this appendix denote computational-complexity proxies for SDP solution cost. They are distinct from the modeled resource costs \(C_{\mathrm{total}}\), \(C_A\), and \(C_{\mathrm{QEC}}\) used in Sec.~\ref{sec:resource_advantage}.
+
+\subsection{Global POVM SDP complexity}
+
+Let $M$ be the alphabet size and $d$ be the Hilbert-space dimension. The global POVM SDP uses $M$ positive semidefinite variables of size $d\times d$, so the decision-variable scale is $O(Md^2)$. A conservative interior-point scaling proxy is
+\begin{equation}
+    \mathcal C_{\mathrm{global}}\sim O(M^3d^6).
+\end{equation}
+This expression is a rough scaling proxy, not an exact solver-dependent runtime formula. First-order solvers and problem structure can change practical runtime substantially.
+
+\subsection{Group-conditioned SDP complexity}
+
+Let $m_g=|G_g|$ be the size of group $g$. Solving the conditional SDPs separately gives the proxy
+\begin{equation}
+    \mathcal C_{\mathrm{group}}
+    \sim
+    \sum_g O(m_g^3d^6).
+\end{equation}
+If the groups are balanced, $m_g\approx M/G$, and therefore
+\begin{equation}
+    \mathcal C_{\mathrm{group}}
+    \sim
+    G\left(\frac{M}{G}\right)^3d^6
+    =
+    O\left(\frac{M^3d^6}{G^2}\right).
+\end{equation}
+Thus group conditioning can reduce the SDP scaling by roughly a factor $O(G^2)$, ignoring ancilla overhead, implementation constants, and solver details.
+
+\subsection{Grouping algorithm complexity}
+
+Computing the pairwise overlap matrix for $M$ states in dimension $d$ costs
+\begin{equation}
+    O(M^2d).
+\end{equation}
+The greedy overlap-aware grouping heuristic used in the randomized experiments costs approximately
+\begin{equation}
+    O(M^2G+M^2d).
+\end{equation}
+Grouping is combinatorial in general, but greedy polynomial-time heuristics are sufficient for numerical exploration and for diagnosing whether the theoretical grouping conditions can be favorable.
+
+\subsection{Pretty-good measurement approximation}
+
+For larger randomized ensembles, the exact global SDP is replaced by the pretty-good measurement baseline. Define
+\begin{equation}
+    \Gamma=\sum_ip_i\rho_i.
+\end{equation}
+The PGM effects are standard in quantum detection and recovery analyses~\cite{hausladen1994pretty,eldar2001quantum,barnum2002reversing}
+\begin{equation}
+    E_i^{\mathrm{PGM}}
+    =
+    \Gamma^{-1/2}p_i\rho_i\Gamma^{-1/2}.
+\end{equation}
+The approximate cost is dominated by matrix decompositions and multiplications, with scaling on the order of
+\begin{equation}
+    O(d^3+Md^3),
+\end{equation}
+or simply $O(Md^3)$ for fixed implementation constants. In this work, PGM is used as the scalable approximate baseline for larger randomized ensembles. Exact SDP evidence is limited to \(M=4\) certificate statistics and selected solved \(M=8\) probes.
+
+\subsection{Resource complexity}
+
+The resource model used in the numerical experiments is
+\begin{equation}
+    C_{\mathrm{total}}=\bar L+C_A+C_{\mathrm{QEC}},
+\end{equation}
+with
+\begin{equation}
+    C_A=\lceil\log_2G\rceil,
+\end{equation}
+and
+\begin{equation}
+    C_{\mathrm{QEC}}=\sum_ip_irn_i.
+\end{equation}
+Increasing $G$ can improve grouping gain but also increases ancilla cost. Increasing the redundancy ratio $r$ can reduce $q_L$ and improve reliability, but it also increases QEC cost. Therefore reliability gain and resource-normalized efficiency remain distinct metrics.
+
+\FloatBarrier
+\section{Supplementary Numerical Diagnostics}
+\label{app:supplementary_diagnostics}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+This appendix collects diagnostic plots that support the main numerical conclusions but are not needed for the central narrative of the paper.
+
+The communication-level diagnostics use the same finite ensemble as the discrimination experiments but insert a local noise channel before the approximate decoder. The plotted channel families include local depolarizing, amplitude-damping, and phase-damping noise. The purpose is to check whether grouping remains useful when the prepared states are imperfect and whether the effective QEC proxy produces the expected reliability trend. These plots are qualitative finite-resource diagnostics; they are not calibrated fault-tolerant simulations and should not be read as device thresholds.
+
+\begin{center}
+\refstepcounter{table}\label{tab:appendix_diagnostic_roles}
+\scriptsize
+\textbf{TABLE~\thetable.} Roles of the supplementary numerical diagnostics.\\[0.5ex]
+\begin{ruledtabular}
+\begin{tabular}{ll}
+Diagnostic family & Role in the paper\\
+\hline
+Overlap-ratio & grouping separates ambiguous pairs\\
+Zipf support & support-budget saving under source skew\\
+Logical failure & effective \(q_L(p)\) reliability proxies\\
+Communication & robustness under local noise\\
+Randomized boxplots & gains across sampled ensembles\\
+Support-driven & Huffman support consistency\\
+SDP certificates & instance certificate margins\\
+Efficiency & reliability/overhead trade-off\\
+\end{tabular}
+\end{ruledtabular}
+\end{center}
+
+\newcommand{\appdiagfig}[3]{%
+\par\medskip
+\noindent\begin{minipage}{\columnwidth}
+\centering
+\refstepcounter{figure}\label{#1}%
+\includegraphics[width=0.98\columnwidth,height=0.30\textheight,keepaspectratio]{#2}\par\vspace{0.5ex}
+\footnotesize\raggedright
+\textbf{FIG.~\thefigure.} #3
+\end{minipage}
+\par\medskip
+}
+
+\paragraph*{Overlap and support diagnostics.}
+These figures support the bounded-overlap design intuition and the support-budget layer. They are diagnostics rather than certificate claims, and they are retained here only when they show a distinct mechanism not already visible in the main text.
+
+\appdiagfig{fig:grouping-ratio}{paper_data/figures/grouping_gain_vs_overlap_ratio.pdf}{Overlap-ratio diagnostic for the bounded-overlap comparison. Larger $\epsilon_{\mathrm{global}}/\epsilon_{\mathrm{in}}$ indicates that highly overlapping states are placed in different groups, increasing conditional distinguishability.}
+
+\appdiagfig{fig:zipf-gain}{paper_data/figures/zipf_compression_gain.pdf}{Average support-budget gain \(G_{\mathrm{comp}}=n_{\mathrm{fix}}-\bar L\) induced by Huffman-length allocation. This is a support-accounting gain, not a coherent variable-length transmission gain; it is zero for nearly uniform sources and grows as the source distribution becomes more skewed.}
+
+\appdiagfig{fig:app-support-overlap}{paper_data/figures/support_overlap_vs_A_Huff.pdf}{Support-overlap diagnostic for the regenerated benchmark and favorable sweep. The normalized overlap ratio \(R_{\rm sup}\) is a design variable, but the empirical relation is diagnostic rather than a universal threshold law.}
+
+\paragraph*{Reliability and communication diagnostics.}
+These proxy/noisy-channel figures test robustness trends and the reliability layer. They are not hardware-calibrated threshold simulations.
+
+\appdiagfig{fig:qec-logical}{paper_data/figures/qec_logical_failure_vs_noise.pdf}{Logical failure probability under the proxy \(q_L\le 1-\sum_{w=0}^{t}\binom{n}{w}p^w(1-p)^{n-w}\). The curve labeled \texttt{rep3\_toy} is a three-qubit repetition-style toy model for bit-flip logical failure, not a full stabilizer-code benchmark.}
+
+\appdiagfig{fig:communication-grouping-advantage}{paper_data/figures/communication_grouping_advantage.pdf}{Grouping advantage under communication-level noisy transmission. The plotted gap $P_{\mathrm{success,group}}-P_{\mathrm{success,no\ group}}$ shows whether the group ancilla remains useful after local noise is applied.}
+
+\newpage
+
+\paragraph*{Randomized and scalable diagnostics.}
+These figures summarize approximate or randomized ensemble tests. They support robustness checks but are not exact SDP certificate evidence.
+
+\appdiagfig{fig:randomized-strategy}{paper_data/figures/randomized_grouping_strategy_comparison.pdf}{Comparison of grouping strategies. The observed advantage of overlap-aware grouping is statistical rather than unconditional.}
+
+\appdiagfig{fig:app-randomized-eta}{paper_data/figures/randomized_eta_boxplot.pdf}{Distribution of resource-normalized efficiency over randomized ensembles, using \(\eta=P_{\mathrm{full}}/C_{\mathrm{total}}\) with \(C_{\mathrm{total}}=\bar L+C_A+C_{\mathrm{QEC}}\).}
+
+\paragraph*{Support-driven and certificate diagnostics.}
+These figures connect the support-allocation construction to finite-instance certificate behavior. Exact and approximate status is recorded in the associated CSV files.
+
+\appdiagfig{fig:app-support-budget}{paper_data/figures/support_budget_validation.pdf}{Support-budget validation for a Huffman-allocated four-symbol source. Each support size satisfies \(|S_i|\le 2^{n_{\max}-l_i}\), and the total occupied support is within the ambient dimension.}
+
+\appdiagfig{fig:app-ambiguity-transfer}{paper_data/figures/ambiguity_transfer_by_grouping.pdf}{Ambiguity transfer for three groupings of the four-symbol support-driven ensemble. The group label removes \(\mathcal A_{\mathrm{sep}}\) from the conditional POVM tasks and leaves \(\mathcal A_{\mathrm{in}}\).}
+
+Figure~\ref{fig:app-sdp-cert} shows that the initial four-symbol support-driven cases do not automatically certify resource advantage. This negative result is useful because it separates support feasibility from certified advantage.
+
+\appdiagfig{fig:app-sdp-cert}{paper_data/figures/sdp_certificate_margin.pdf}{SDP certificate margins for the four-symbol support-driven cases. The certificate is instance-dependent; negative margin means no certified advantage for that instance.}
+
+\appdiagfig{fig:app-best-positive-regenerated}{paper_data/figures/best_positive_certificate_instance.pdf}{Regenerated best positive exact certificate instance from the current \(M=4\) certificate search. This figure is an instance-level certificate illustration, not a benchmark positive-rate statistic.}
+
+\appdiagfig{fig:app-negative-regenerated}{paper_data/figures/representative_negative_certificate_instance.pdf}{Regenerated representative negative exact certificate instance. Negative margins are retained because the SDP certificate is a sufficient finite-instance test, not a universal theorem.}
+
+Additional legacy figures, repeated noisy-channel views, and raw randomized boxplots are kept in the reproducibility package rather than embedded in Appendix~G. This prevents visually similar diagnostics from being read as independent evidence.
+
+\FloatBarrier
+\clearpage
+\section*{Data availability}
+
+The data and code supporting the findings of this study are provided in the Supplemental Material and in the accompanying reproducibility package. The package contains scripts to reproduce Huffman support allocation, support-constrained payload generation, group-conditioned SDP/PGM decoding, QEC reliability proxies, certificate search, resource-sensitivity diagnostics, favorable-regime analysis, support-overlap analysis, and all figures used in the manuscript. Detailed filenames, command-line entry points, and regeneration notes are provided in the supplemental README files rather than in the main text.
+
+\clearpage
+
+% The bibliography style and database follow the APS REVTeX sample.
+\bibliographystyle{apsrev4-2}
+\bibliography{references}
+
+\end{document}
+% ****** End of file main.tex ******

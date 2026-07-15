@@ -1,0 +1,37 @@
+# This repository intentionally tracks only the current manuscript,
+# its reproducibility assets, and the current source code.
+*
+
+# Repository configuration
+!/.gitignore
+
+# Current manuscript and its direct assets
+!/Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_/
+/Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_/*
+!/Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_/main.tex
+!/Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_/references.bib
+!/Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_/paper_data/
+!/Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_/paper_data/**
+
+# Current Python implementation and experiment entry points
+!/code/
+/code/*
+!/code/*.py
+!/code/*.md
+!/code/requirements.txt
+!/code/experiments/
+!/code/experiments/**
+!/code/src/
+!/code/src/**
+
+# Never track local/runtime artifacts inside retained directories
+**/.DS_Store
+**/.idea/
+**/.vscode/
+**/.venv/
+**/venv/
+**/__pycache__/
+*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
