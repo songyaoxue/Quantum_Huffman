@@ -4,6 +4,16 @@
 
 # Repository configuration
 !/.gitignore
+!/README.md
+!/LATEX_ENVIRONMENT.txt
+
+# Vendored REVTeX 4.2 TeX Directory Structure
+!/revtex-tds/
+/revtex-tds/*
+!/revtex-tds/tex/
+!/revtex-tds/tex/**
+!/revtex-tds/bibtex/
+!/revtex-tds/bibtex/**
 
 # Current manuscript and its direct assets
 !/Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_/

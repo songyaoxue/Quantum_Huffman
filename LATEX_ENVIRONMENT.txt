@@ -1,0 +1,44 @@
+LaTeX environment used for manuscript compilation
+==================================================
+
+Validated toolchain:
+
+- TeX Live 2025
+- pdfTeX
+- BibTeX
+- REVTeX 4.2
+- apsrev4-2 bibliography style
+
+Required LaTeX packages:
+
+- revtex4-2
+- amsmath
+- amssymb
+- graphicx
+- dcolumn
+- bm
+- braket
+- hyperref
+- orcidlink
+- booktabs
+- placeins
+- tikz (arrows.meta and positioning libraries)
+
+The repository includes a local REVTeX 4.2 TDS tree under revtex-tds/. A TeX
+Live installation can use it by setting TEXMFHOME to that directory:
+
+  export TEXMFHOME="$(pwd)/revtex-tds"
+
+Verify that the local class and APS bibliography style are visible:
+
+  kpsewhich revtex4-2.cls
+  kpsewhich apsrev4-2.bst
+
+Compile from the manuscript directory:
+
+  pdflatex main.tex
+  bibtex main
+  pdflatex main.tex
+  pdflatex main.tex
+
+The manuscript has been validated with this four-step sequence.
