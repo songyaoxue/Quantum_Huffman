@@ -22,7 +22,7 @@ def safe_div(num: pd.Series, den: pd.Series) -> pd.Series:
     return (num / den).replace([np.inf, -np.inf], np.nan).fillna(0.0)
 
 
-def binned_probability(df: pd.DataFrame, xcol: str, ycol: str, bins: int = 6) -> pd.DataFrame:
+def binned_fraction(df: pd.DataFrame, xcol: str, ycol: str, bins: int = 6) -> pd.DataFrame:
     valid = df[np.isfinite(df[xcol])].copy()
     valid["bin"] = pd.qcut(valid[xcol].rank(method="first"), q=bins, duplicates="drop")
     out = (
@@ -31,7 +31,7 @@ def binned_probability(df: pd.DataFrame, xcol: str, ycol: str, bins: int = 6) ->
             x_mean=(xcol, "mean"),
             x_min=(xcol, "min"),
             x_max=(xcol, "max"),
-            positive_probability=(ycol, "mean"),
+            positive_fraction=(ycol, "mean"),
             n=(ycol, "size"),
         )
         .reset_index(drop=True)
@@ -112,16 +112,16 @@ def main() -> None:
     pd.DataFrame(rows).to_csv(RESULTS / "favorable_regime_summary.csv", index=False)
 
     for xcol, name, flag in [
-        ("g_rel", "favorable_probability_vs_g_rel", "positive_M_res_no_qec"),
-        ("r_sep", "favorable_probability_vs_r_sep", "positive_M_res_no_qec"),
+        ("g_rel", "favorable_positive_fraction_vs_g_rel", "positive_M_res_no_qec"),
+        ("r_sep", "favorable_positive_fraction_vs_r_sep", "positive_M_res_no_qec"),
     ]:
-        binned = binned_probability(main, xcol, flag)
+        binned = binned_fraction(main, xcol, flag)
         binned.to_csv(RESULTS / f"{name}.csv", index=False)
         plt.figure(figsize=(5.8, 3.7))
-        plt.plot(binned["x_mean"], binned["positive_probability"], marker="o")
+        plt.plot(binned["x_mean"], binned["positive_fraction"], marker="o")
         plt.xlabel(xcol)
-        plt.ylabel("Pr(M_res_no_qec > 0)")
-        plt.title(f"Favorable-regime probability versus {xcol}")
+        plt.ylabel("Empirical positive-margin fraction")
+        plt.title(f"Positive-margin fraction versus {xcol}")
         plt.ylim(-0.02, 1.02)
         plt.tight_layout()
         plt.savefig(FIGURES / f"{name}.pdf")

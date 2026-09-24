@@ -37,8 +37,8 @@ def main() -> None:
             P_fix, _, fix_meta = decode_success(payload.states, p, "exact_sdp")
             P_group, _, group_meta = grouped_success(payload.states, p, groups, "exact_sdp")
             residual = max(float(fix_meta["dual_feasibility_residual"]), float(group_meta["dual_feasibility_residual"]))
-            P_group_lower = max(0.0, P_group - 5.0 * residual)
-            P_fix_upper = min(1.0, P_fix + 5.0 * residual + 1e-6)
+            P_group_lower = float(group_meta["primal_lower"])
+            P_fix_upper = float(fix_meta["dual_upper"])
             M_cert = certificate_margin(P_group_lower, alloc.average_length + group_label_cost(groups), P_fix_upper, alloc.n_fix)
             status = "solved"
         except Exception as exc:
@@ -72,6 +72,8 @@ def main() -> None:
                 "runtime_s": time.time() - start,
                 "dual_feasibility_residual": residual,
                 "primal_feasibility_residual": max(float(fix_meta["primal_residual"]), float(group_meta["primal_residual"])) if status == "solved" else np.nan,
+                "primal_psd_residual": max(float(fix_meta["primal_psd_residual"]), float(group_meta["primal_psd_residual"])) if status == "solved" else np.nan,
+                "certificate_gap": float(fix_meta["optimality_gap"] + group_meta["optimality_gap"]) if status == "solved" else np.nan,
             }
         )
     df = pd.DataFrame(rows)
@@ -81,8 +83,8 @@ def main() -> None:
     colors = ["#59a14f" if x else "#e15759" for x in df["positive_certificate"]]
     plt.bar([f"{r.source_type}\nshift={r.support_overlap_shift}" for _, r in df.iterrows()], df["M_cert"], color=colors)
     plt.axhline(0.0, color="black", linewidth=0.8)
-    plt.ylabel("M_cert")
-    plt.title("Exact SDP M=8 controlled probe")
+    plt.ylabel(r"$M_{\rm cert}$")
+    plt.title("SDP M=8 controlled probe")
     plt.tight_layout()
     plt.savefig("figures/exact_sdp_m8_probe.pdf")
     plt.savefig("figures/exact_sdp_m8_probe.png", dpi=180)

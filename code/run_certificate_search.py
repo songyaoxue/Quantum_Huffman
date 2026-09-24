@@ -45,10 +45,9 @@ def run() -> None:
                             C_A = group_label_cost(groups)
                             C_huff = allocation.average_length + C_A
                             C_fix = allocation.n_fix
-                            residual = max(float(fix_meta["dual_feasibility_residual"]), float(group_meta["dual_feasibility_residual"]))
                             if method == "exact_sdp":
-                                P_group_lower = max(0.0, P_group - 5.0 * residual)
-                                P_fix_upper = min(1.0, P_fix + 5.0 * residual + 1e-6)
+                                P_group_lower = float(group_meta["primal_lower"])
+                                P_fix_upper = float(fix_meta["dual_upper"])
                                 M_cert = certificate_margin(P_group_lower, C_huff, P_fix_upper, C_fix)
                             else:
                                 P_group_lower = np.nan
@@ -74,9 +73,21 @@ def run() -> None:
                                     "C_Huff": C_huff,
                                     "C_fix": C_fix,
                                     "M_cert": M_cert,
-                                    "dual_feasibility_residual": residual,
+                                    "dual_feasibility_residual": max(
+                                        float(fix_meta["dual_feasibility_residual"]),
+                                        float(group_meta["dual_feasibility_residual"]),
+                                    ),
                                     "primal_feasibility_residual": max(
                                         float(fix_meta["primal_residual"]), float(group_meta["primal_residual"])
+                                    ),
+                                    "primal_psd_residual": max(
+                                        float(fix_meta.get("primal_psd_residual", np.nan)),
+                                        float(group_meta.get("primal_psd_residual", np.nan)),
+                                    ),
+                                    "certificate_gap": (
+                                        float(group_meta["optimality_gap"] + fix_meta["optimality_gap"])
+                                        if method == "exact_sdp"
+                                        else np.nan
                                     ),
                                     "positive_certificate": bool(M_cert > 0) if np.isfinite(M_cert) else False,
                                     "decoding_method": "exact_sdp" if method == "exact_sdp" else "pgm_approx",

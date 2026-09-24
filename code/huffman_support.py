@@ -1,4 +1,4 @@
-"""Huffman support-budget allocation for revised numerical experiments."""
+"""Huffman support-budget allocation for the numerical experiments."""
 
 from __future__ import annotations
 

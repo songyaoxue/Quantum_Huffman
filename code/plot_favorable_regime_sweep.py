@@ -39,7 +39,7 @@ def savefig(name: str) -> None:
 def binned(df: pd.DataFrame, x: str, flag: str, q: int = 8) -> pd.DataFrame:
     tmp = df[np.isfinite(df[x])].copy()
     tmp["bin"] = pd.qcut(tmp[x].rank(method="first"), q=q, duplicates="drop")
-    return tmp.groupby("bin", observed=False).agg(x_mean=(x, "mean"), prob=(flag, "mean"), n=(flag, "size")).reset_index(drop=True)
+    return tmp.groupby("bin", observed=False).agg(x_mean=(x, "mean"), fraction=(flag, "mean"), n=(flag, "size")).reset_index(drop=True)
 
 
 def interval_midpoints(index) -> list[str]:
@@ -68,23 +68,23 @@ def main() -> None:
     plt.yticks(range(len(heat.index)), interval_midpoints(heat.index))
     plt.xlabel(r"overhead ratio $r_{\rm cost}$")
     plt.ylabel(r"relative support gain $g_{\rm rel}$")
-    plt.colorbar(label=r"$\Pr(M_{\rm res}>0)$")
+    plt.colorbar(label="Empirical positive-margin fraction")
     plt.title("Favorable-regime sweep, not default benchmark")
     savefig("favorable_sweep_heatmap")
 
     for x, name, xlabel in [
-        ("g_rel", "favorable_probability_vs_grel", r"relative support gain $g_{\rm rel}$"),
-        ("r_sep", "favorable_probability_vs_rsep", r"ambiguity-transfer ratio $r_{\rm sep}$"),
+        ("g_rel", "favorable_positive_fraction_vs_grel", r"relative support gain $g_{\rm rel}$"),
+        ("r_sep", "favorable_positive_fraction_vs_rsep", r"ambiguity-transfer ratio $r_{\rm sep}$"),
     ]:
         stats = binned(no_qec, x, "positive_M_res")
         stats.to_csv(RESULTS / f"{name}.csv", index=False)
         plt.figure(figsize=(5.8, 3.6))
         width = 0.8 * np.diff(stats["x_mean"]).mean() if len(stats) > 1 else 0.05
-        plt.bar(stats["x_mean"], stats["prob"], width=width, color="#4C78A8", alpha=0.86)
+        plt.bar(stats["x_mean"], stats["fraction"], width=width, color="#4C78A8", alpha=0.86)
         for _, row in stats.iterrows():
-            plt.text(row["x_mean"], min(1.02, row["prob"] + 0.035), f"n={int(row['n'])}", ha="center", va="bottom", fontsize=7, rotation=90)
+            plt.text(row["x_mean"], min(1.02, row["fraction"] + 0.035), f"n={int(row['n'])}", ha="center", va="bottom", fontsize=7, rotation=90)
         plt.xlabel(xlabel)
-        plt.ylabel(r"$\Pr(M_{\rm res}>0)$")
+        plt.ylabel("Empirical positive-margin fraction")
         plt.ylim(-0.03, 1.15)
         plt.title("Binned PGM diagnostic sweep")
         savefig(name)

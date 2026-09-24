@@ -1,4 +1,4 @@
-"""Build figures for revised experiments."""
+"""Build manuscript figures from recorded numerical results."""
 
 from __future__ import annotations
 
@@ -32,7 +32,7 @@ def source_support_saving(bench: pd.DataFrame) -> None:
         curve = sub.groupby("source_param")["G_comp"].mean()
         plt.plot(curve.index, curve.values, marker="o", label=f"M={M}")
     plt.xlabel("Zipf skew")
-    plt.ylabel("G_comp = n_fix - Lbar")
+    plt.ylabel(r"$G_{\rm comp}=n_{\rm fix}-\bar L$")
     plt.title("Support-budget saving versus Zipf skew")
     plt.legend(ncol=2, fontsize=8)
     savefig("source_support_saving_vs_zipf")
@@ -42,9 +42,9 @@ def multiM_efficiency(bench: pd.DataFrame) -> None:
     sub = bench[(bench.grouping_strategy == "overlap_aware") & (bench.baseline_type == "pgm_fixed_global")]
     plt.figure(figsize=(6.0, 3.6))
     data = [sub[sub.M == M]["eta"].values for M in sorted(sub.M.unique())]
-    plt.boxplot(data, labels=[str(M) for M in sorted(sub.M.unique())], showfliers=False)
+    plt.boxplot(data, tick_labels=[str(M) for M in sorted(sub.M.unique())], showfliers=False)
     plt.xlabel("Alphabet size M")
-    plt.ylabel("eta = P_full / C_total")
+    plt.ylabel(r"$\eta=P_{\rm full}/C_{\rm total}$")
     plt.title("Multi-M benchmark efficiency")
     savefig("multiM_benchmark_efficiency")
 
@@ -59,7 +59,7 @@ def payload_comparison(payload: pd.DataFrame) -> None:
     plt.bar(x + width, means["A_random_phase_mean"], width, label="random mean")
     plt.xticks(x, [str(i) for i in means.index])
     plt.xlabel("Alphabet size M")
-    plt.ylabel("A_Huff")
+    plt.ylabel(r"$\mathcal{A}_{\rm Huff}$")
     plt.title("Payload-generation comparison")
     plt.legend(fontsize=8)
     savefig("payload_generation_comparison")
@@ -71,7 +71,7 @@ def grouping_gain(bench: pd.DataFrame) -> None:
     tmp["gain"] = tmp["P_group"] - tmp["P_base"]
     means = tmp.groupby(["M", "grouping_strategy"])["gain"].mean().unstack()
     means.plot(kind="bar", ax=plt.gca())
-    plt.ylabel("P_group - P_base")
+    plt.ylabel(r"$P_{\rm group}-P_{\rm base}$")
     plt.xlabel("Alphabet size M")
     plt.title("Grouping gain by strategy")
     plt.legend(fontsize=8)
@@ -84,7 +84,7 @@ def qec_reliability(qec: pd.DataFrame) -> None:
     for model, g in sub.groupby("model"):
         plt.plot(g.p, g.P_full, label=model)
     plt.xlabel("Physical/proxy error p")
-    plt.ylabel("P_full")
+    plt.ylabel(r"$P_{\rm full}$")
     plt.title("QEC reliability hierarchy")
     plt.legend(fontsize=7)
     savefig("qec_reliability_hierarchy")
@@ -93,7 +93,7 @@ def qec_reliability(qec: pd.DataFrame) -> None:
     for model, g in sub.groupby("model"):
         plt.plot(g.p, g.eta, label=model)
     plt.xlabel("Physical/proxy error p")
-    plt.ylabel("eta")
+    plt.ylabel(r"$\eta$")
     plt.title("Reliability versus resource efficiency")
     plt.legend(fontsize=7)
     savefig("qec_reliability_vs_efficiency")
@@ -104,7 +104,7 @@ def certificate_figures(cert: pd.DataFrame) -> None:
     plt.figure(figsize=(6.0, 3.6))
     plt.hist(exact["M_cert"], bins=16, color="#4c78a8", edgecolor="white")
     plt.axvline(0.0, color="black", linewidth=1)
-    plt.xlabel("M_cert")
+    plt.xlabel(r"$M_{\rm cert}$")
     plt.ylabel("Count")
     plt.title("SDP certificate margin distribution")
     savefig("M_cert_distribution")
@@ -112,10 +112,10 @@ def certificate_figures(cert: pd.DataFrame) -> None:
     plt.figure(figsize=(6.0, 3.6))
     ratio = exact.groupby(["M", "source_type"])["positive_certificate"].mean().unstack()
     ratio.plot(kind="bar", ax=plt.gca())
-    plt.ylabel("r_cert+")
+    plt.ylabel("Empirical positive-certificate fraction")
     plt.xlabel("Alphabet size M")
     plt.ylim(0, 1)
-    plt.title("Positive-certificate ratio")
+    plt.title("Positive-certificate fraction")
     plt.legend(fontsize=8)
     savefig("positive_certificate_ratio")
 
@@ -140,7 +140,7 @@ def resource_heatmap(sens: pd.DataFrame) -> None:
     plt.xlabel("w_Q / w_L")
     plt.ylabel("w_A / w_L")
     plt.title("Weighted-resource sensitivity (M=16)")
-    plt.colorbar(label="positive-margin fraction")
+    plt.colorbar(label="Empirical positive-margin fraction")
     savefig("weighted_resource_sensitivity_heatmap")
 
 
@@ -157,7 +157,7 @@ def main() -> None:
     qec_reliability(qec)
     certificate_figures(cert)
     resource_heatmap(sens)
-    print("wrote revised figures")
+    print("wrote figures")
 
 
 if __name__ == "__main__":

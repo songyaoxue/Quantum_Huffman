@@ -1,4 +1,4 @@
-"""QEC reliability hierarchy used by revised experiments."""
+"""Effective QEC reliability hierarchy used by the numerical experiments."""
 
 from __future__ import annotations
 

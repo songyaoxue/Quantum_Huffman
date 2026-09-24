@@ -1,4 +1,4 @@
-"""Run revised multi-alphabet Huffman-budget benchmarks."""
+"""Run multi-alphabet Huffman-support-budget benchmarks."""
 
 from __future__ import annotations
 

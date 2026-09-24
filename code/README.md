@@ -1,6 +1,6 @@
 # Quantum Huffman Classical Simulations
 
-This directory contains local classical simulations for **Error-Corrected Probabilistic Quantum Huffman Coding with Group Ancilla and Posterior Correction**. The core code uses only `numpy`, `scipy`, `cvxpy`, `matplotlib`, and `pandas`; IBM Quantum hardware and cloud credentials are not required. Qiskit Aer is optional for inspecting circuit-style state preparation, but the communication-level validation has a density-matrix fallback.
+This directory contains local classical simulations for **Resource-Certified Quantum-Huffman-Inspired Source Decoding with Group-Conditioned Measurements**. The core code uses only `numpy`, `scipy`, `cvxpy`, `matplotlib`, and `pandas`; IBM Quantum hardware and cloud credentials are not required. Qiskit Aer is optional for inspecting circuit-style state preparation, but the communication-level validation has a density-matrix fallback.
 
 ## Installation
 
@@ -104,7 +104,7 @@ The enhanced experiments save both PNG and PDF for paper workflows:
 - `figures/effective_depth_noise.png/pdf`
 - `figures/communication_grouping_advantage.png/pdf`
 
-Legacy figures also save PNG and PDF:
+Additional figures also save PNG and PDF:
 
 - `figures/success_vs_noise.png/pdf`
 - `figures/success_vs_overlap.png/pdf`

@@ -13,7 +13,9 @@
 ├── revtex-tds/                  # 本地 REVTeX 4.2 TDS 环境
 ├── Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_/
 │   ├── main.tex                 # 当前论文主文件
+│   ├── main.pdf                 # 编译后的论文
 │   ├── references.bib           # 当前参考文献库
+│   ├── SM/                      # 可独立编译的补充材料、代码、数据与图件
 │   └── paper_data/
 │       ├── figures/             # 论文图件
 │       └── results/             # 论文使用的 CSV 数据
@@ -23,7 +25,7 @@
     ├── requirements.txt
     ├── src/                     # 判别、噪声、QEC 与资源模型
     ├── experiments/             # 基础实验入口
-    └── run_*.py                 # 修订版基准、扫描与证书入口
+    └── run_*.py                 # 基准、扫描与证书入口
 ```
 
 仓库只跟踪当前论文版本及其直接相关文件。旧 TeX、历史副本、压缩包、虚拟环境、缓存和本地讲解文档不会推送到 GitHub。
@@ -52,7 +54,7 @@ pdflatex main.tex
 pdflatex main.tex
 ```
 
-输出文件为 `main.pdf`。LaTeX 中间文件和编译生成的主 PDF 默认不进入版本控制。
+输出文件为 `main.pdf`。主 PDF 随论文源文件提交；LaTeX 中间文件不进入版本控制。补充材料可在 `SM/` 中运行 `latexmk -pdf supplemental.tex` 独立编译。
 
 ## Python 环境
 
@@ -69,11 +71,11 @@ python -m pip install -r code/requirements.txt
 
 ## 复现实验
 
-主修订实验从 `code/` 目录运行：
+主实验从 `code/` 目录运行：
 
 ```bash
 cd code
-python run_revised_experiments.py
+python run_experiments.py
 ```
 
 该脚本生成多字母表基准、支持约束载荷比较、QEC 可靠性代理、SDP 证书统计、资源敏感性分析及对应图件，并将正式结果同步到论文的 `paper_data/`。
