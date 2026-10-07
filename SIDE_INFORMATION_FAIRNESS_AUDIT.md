@@ -1,5 +1,7 @@
 # Side-information fairness audit (Phase 1)
 
+**Current Phase 1C status:** label matching and grouped fixed dual implementation PASS for five newly declared smoke pairs. The published pairs remain unmatched. The new partition makes F conditionally orthogonal in every smoke case, so it yields no positive certificate and leaves the main scientific evidence gate open.
+
 **Status: BLOCKED for a fixed-budget advantage claim.** The present label `|a_{g(i)}>` is deterministic, source-correlated information. Its orthogonality removes inter-group ambiguity exactly, so `P_group>=P_base` for the same payload ensemble is expected. The research question is whether that gain survives a common operational cost and a comparable fixed baseline.
 
 ## A. Equal-total-budget comparison
@@ -27,3 +29,9 @@ The current evidence can test whether costed label information helps under the d
 For a fair pairwise test, both H and F must use identical priors, ambient dimension, `n_max`, `g(i)`, `G`, orthogonal label states, and `C_A=ceil(log2 G)`. Both receive the same conditional POVM model, solver and tolerance, and predeclared state-generation effort. The fixed comparator must receive its own grouped conditional dual, aggregated with the group priors; the old global fixed dual is not a matched upper certificate. The existing CSVs do not store such a pair, so `GROUP_SIDE_INFORMATION_MATCHED=NO` for current evidence.
 
 The vector `(Lbar,C_A)` versus `(n_fix,C_A)` avoids a scalar cost in the pairwise mathematical test. It does not establish operational equality of the source-correlated label channel or physical payload resources. More seriously, an unrestricted fixed-ensemble optimization under the current support cap attains success one with disjoint supports. A scientifically meaningful pairwise comparison requires a predeclared fixed-state generator, while a class-optimal theorem requires additional symmetric admissibility constraints and a uniform fixed-side bound. See `MATCHED_BASELINE_DEFINITION.md` and `PARETO_CERTIFICATE_AUDIT.md`. No matched advantage is currently observed or claimed.
+
+## Phase 1C matched formulation
+
+New H and F states use the same cyclic placement implementation, equal-modulus phase parameterization, common ambient space, optimizer maximum/seed policy, and length-dependent support caps. The conditional SDP implementation now treats **both** arms as grouped. It normalizes p_i/p_g, checks each postprocessed H POVM and shifted F dual, and stores the operators for independent verification. The same index-parity partition is declared for both arms, with G=2 and C_A=1. No arm-specific grouping optimization is used. The decoder and source-correlated orthogonal label model are identical.
+
+The fixed construction is fully distinguishable *within* these groups, even where global F overlap cannot be removed by phases. This exposes a further fairness consideration: nonorthogonal global payload design alone is insufficient evidence for a useful conditional comparison. `ORTHOGONALIZABILITY_AUDIT.md` identifies an existing deterministic shift-zero payload family with unavoidable global overlap, but its group-level nontriviality must still be verified with a predeclared matched partition. Broadening or restricting a partition after comparing gap signs would invalidate a preregistered paired test. No physical transmission interpretation of the support coordinate is introduced.

@@ -67,16 +67,7 @@ The two controlled numerical-SDP instances yield $M_{\rm cert}=0.081398$ and $M_
 The favorable sweep samples $M\in\{4,8,16,32\}$, the source families and parameter grids encoded in \texttt{run\_favorable\_regime\_sweep.py}, overlap shifts $0,1,2,4$, payload modes optimized/deterministic-phase/random-phase, and the three grouping protocols. The QEC labels are \texttt{no\_qec}, \texttt{low\_overhead\_proxy}, and \texttt{moderate\_overhead\_proxy}, with $C_{\rm QEC}=0,1,3$. It uses PGM, and every row is labeled as a diagnostic. The complete 56160-row CSV remains in the reproducibility package.
 \input{supplemental_favorable_summary.tex}
 For the no-QEC subset, the following means summarize the positive and nonpositive diagnostic rows.
-\begin{center}\small
-\begin{tabular}{lrrrrrr}
-\toprule
-Class & $G_{\rm comp}$ & $g_{\rm rel}$ & $r_{\rm sep}$ & $r_{\rm cost}$ & $R_{\rm sup}$ & $A_{\rm Huff}$\\
-\midrule
-Positive & 2.5221 & 0.5771 & 0.8339 & 0.3564 & 0.3732 & 0.001659\\
-Nonpositive & 0.9288 & 0.2557 & 0.7966 & 0.9783 & 0.2442 & 0.005424\\
-\bottomrule
-\end{tabular}
-\end{center}
+\input{generated_tables/supplemental_no_qec_table.tex}
 These are finite-sample diagnostic summaries.
 
 \suppsection{S9. Support-overlap diagnostics}

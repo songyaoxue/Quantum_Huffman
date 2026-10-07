@@ -1,0 +1,8 @@
+{
+  "passed_cases": 5,
+  "total_cases": 5,
+  "checked_conditional_sdps": 20,
+  "feasibility_tolerance": 1e-07,
+  "aggregation_tolerance": 1e-12,
+  "status": "PASS"
+}

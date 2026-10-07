@@ -1,5 +1,7 @@
 # Blocking issues for v2
 
+**Current status after Phase 1C: BLOCKED for entry into Phase 2.** Data repairs are complete (707/707 matches), and the matched grouped SDP implementation passes 5/5 smoke cases. The remaining gate is a predeclared nontrivial conditional encoder comparison: current tested fixed outputs are orthogonal within every group. Historical findings below are preserved; the closure table at the end supersedes their current status.
+
 **Status: STOP after Phase 1.** The manuscript, its figures, numerical outputs, and Zenodo v1.0.0 archive have not been restructured or regenerated.
 
 | ID / stop rule | Problem and why it blocks | Minimum repair | Human decision needed? |
@@ -23,3 +25,19 @@ These issues block a defensible fixed-budget theorem, a fair ablation, and numer
 | C4 / E | Main-text positive-margin `A_Huff` mean `0.00149` does not round from packaged support-overlap CSV mean `0.00148458083951` at five decimal places. | Verify original provenance, then correct only in a v2 manuscript after approval. | **Yes:** confirm CSV as source of truth. |
 
 `NUMERICAL_TRACEABILITY_V2.csv` records 707 checked cells, 700 matches, and 7 mismatches. `DATA_PROVENANCE_AUDIT_V2.md` documents filters, formulas, rounding, first tracked occurrences, and an automatically generated replacement fragment held outside frozen SM. No old results, tables, or theorem statements were changed.
+
+## Phase 1C closure table
+
+| Prior issue | Current status | Evidence / remaining action |
+| --- | --- | --- |
+| B1/C1 universal fixed-design theorem | CLOSED BY SCOPE CHANGE | Explicitly abandoned. Only a specified encoder pair and measurement optima are in scope. No fixed-class optimality claim remains in the candidate audit. |
+| B2/C2 unmatched side information / grouped dual | CLOSED FOR NEW SMOKE PIPELINE | Both arms share p, n_max, cyclic rule, phase search settings, partition, label width, solver and tolerance. Five pairs and 20 conditional SDPs independently verified. Old data cannot be relabeled as matched. |
+| B3 unmatched allocation code | PARTIAL | The supplied-length adapter is implemented and verified. A broader allocation ablation remains unrun and unauthorized in this phase. |
+| B4/C3 six SM source discrepancies | CLOSED | Generated CSV-to-table input repairs all six in working v2 SM; historical values and filters remain traceable. |
+| C4 main display rounding | CLOSED | 0.00149 -> 0.00148 at existing precision; raw CSV untouched. |
+| D1 conditional nontriviality / model gate | OPEN | Four pairs are globally nonorthogonalizable, but F is orthogonal within every matched group in all five pairs. The broad encoder family also permits a globally orthogonal M=8 realization. No positive pairwise certificate exists in these checks. |
+| D2 existing narrower family | OPEN AT GROUP LEVEL | Deterministic phases + zero cyclic shift + existing extra-qubit rule provide a naturally nonorthogonal global payload family. A predeclared common partition and its conditional nontriviality have not been audited for that narrower architecture. |
+
+**Minimum next repair:** declare the existing narrower deterministic architecture and an outcome-independent shared partition protocol; audit each conditional group before any new advantage claim. Retain orthogonal, negative and failed cases. The conditional Pareto implication itself is proved, so absence of a positive gap is an evidence limitation rather than an invalid proof. No requirement to invent additional hardware constraints or weaken F follows from these checks. A globally orthogonal or conditionally perfect F remains a valid comparator and cannot be excluded post hoc.
+
+No Phase 2 restructuring occurred. The user-authorized seven display/source repairs are the only working manuscript/SM edits. The frozen PRA tag and Zenodo v1.0.0 remain unchanged.

@@ -1,4 +1,4 @@
-"""Recompute v1 manuscript/SM numeric claims without changing their sources."""
+"""Recompute working v2 manuscript/SM claims and retain Phase 1B repair history."""
 
 from __future__ import annotations
 
@@ -16,6 +16,15 @@ MAIN = PAPER / "main.tex"
 SM = PAPER / "SM"
 OUTPUT = ROOT / "NUMERICAL_TRACEABILITY_V2.csv"
 ROWS: list[dict[str, object]] = []
+REPAIRS = {
+    "SM_S8_Nonpositive_G_comp": ("0.9288", "SOURCE_PROVENANCE_ERROR"),
+    "SM_S8_Nonpositive_g_rel": ("0.2557", "SOURCE_PROVENANCE_ERROR"),
+    "SM_S8_Nonpositive_r_sep": ("0.7966", "SOURCE_PROVENANCE_ERROR"),
+    "SM_S8_Nonpositive_r_cost": ("0.9783", "SOURCE_PROVENANCE_ERROR"),
+    "SM_S8_Nonpositive_R_sup": ("0.2442", "SOURCE_PROVENANCE_ERROR"),
+    "SM_S8_Nonpositive_A_Huff": ("0.005424", "SOURCE_PROVENANCE_ERROR"),
+    "MAIN_overlap_A_Huff_mean_positive": ("0.00149", "DISPLAY_ROUNDING_ERROR"),
+}
 
 
 def rel(path: Path) -> str:
@@ -79,6 +88,11 @@ def add(
             "filter": filter_text,
             "row_count": "" if row_count is None else row_count,
             "formula": formula,
+            "reported_old_value": REPAIRS.get(claim_id, (reported, ""))[0],
+            "correct_value": reported if matched else f"{recomputed:.12g}",
+            "source": source_file,
+            "reason": REPAIRS.get(claim_id, (reported, ""))[1],
+            "fix_status": ("FIXED" if matched else "UNRESOLVED") if claim_id in REPAIRS else "UNCHANGED",
         }
     )
 
@@ -134,13 +148,14 @@ def audit_favorable() -> None:
     no_qec = sweep[sweep.qec_label.eq("no_qec")]
     groups = {True: no_qec[no_qec.M_res.gt(0)], False: no_qec[no_qec.M_res.le(0)]}
     columns = ("G_comp", "g_rel", "r_sep", "r_cost", "R_sup", "A_Huff")
-    for line_number, cells in table_cells(SM / "supplemental.tex", "Positive & ") + table_cells(SM / "supplemental.tex", "Nonpositive & "):
+    table_path = SM / "generated_tables" / "supplemental_no_qec_table.tex"
+    for line_number, cells in table_cells(table_path, "Positive & ") + table_cells(table_path, "Nonpositive & "):
         flag = cells[0] == "Positive"
         frame = groups[flag]
         for column, printed in zip(columns, cells[1:], strict=True):
             add(
                 f"SM_S8_{cells[0]}_{column}",
-                f"{rel(SM / 'supplemental.tex')}:{line_number}",
+                f"{rel(table_path)}:{line_number}",
                 printed,
                 source,
                 float(frame[column].mean()),
@@ -298,7 +313,7 @@ def audit_sensitivity_and_overlap() -> None:
     for name, positive_print, negative_print, aggregation in (
         ("R_sup_mean", "0.375", "0.238", "mean"),
         ("R_sup_median", "0.216", "0.134", "median"),
-        ("A_Huff_mean", "0.00149", "0.00559", "mean"),
+        ("A_Huff_mean", "0.00148", "0.00559", "mean"),
         ("r_sep_mean", "0.827", "0.796", "mean"),
     ):
         column = "R_sup" if name.startswith("R_sup") else ("A_Huff" if name.startswith("A_Huff") else "r_sep")
@@ -366,7 +381,7 @@ def main() -> None:
     audit_sdp()
     audit_sensitivity_and_overlap()
     audit_representative_and_appendix()
-    fieldnames = ("claim_id", "manuscript_location", "reported_value", "source_file", "recomputed_value", "match", "tolerance", "status", "filter", "row_count", "formula")
+    fieldnames = ("claim_id", "manuscript_location", "reported_value", "source_file", "recomputed_value", "match", "tolerance", "status", "filter", "row_count", "formula", "reported_old_value", "correct_value", "source", "reason", "fix_status")
     with OUTPUT.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()

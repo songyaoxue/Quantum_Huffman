@@ -1,6 +1,6 @@
 """Generate the S8 no-QEC summary from the packaged sweep CSV.
 
-This writes a v2 candidate fragment only; it never edits the archived SM.
+This writes a generated fragment in the working v2 SM; the frozen git tag is unchanged.
 """
 
 from __future__ import annotations
@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_" / "SM" / "data" / "favorable_regime_sweep.csv"
-OUTPUT = ROOT / "v2_generated" / "supplemental_no_qec_table.tex"
+OUTPUT = SOURCE.parents[1] / "generated_tables" / "supplemental_no_qec_table.tex"
 COLUMNS = ("G_comp", "g_rel", "r_sep", "r_cost", "R_sup", "A_Huff")
 
 
@@ -36,7 +36,7 @@ def main() -> None:
         "\\begin{center}\\small",
         "\\begin{tabular}{lrrrrrr}",
         "\\toprule",
-        "Class & $G_{\\rm comp}$ & $g_{\\rm rel}$ & $r_{\\rm sep}$ & $r_{\\rm cost}$ & $R_{\\rm sup}$ & $\\mathcal A_{\\rm Huff}$\\\\",
+        "Class & $G_{\\rm comp}$ & $g_{\\rm rel}$ & $r_{\\rm sep}$ & $r_{\\rm cost}$ & $R_{\\rm sup}$ & $A_{\\rm Huff}$\\\\",
         "\\midrule",
     ]
     for flag, label in ((True, "Positive"), (False, "Nonpositive")):

@@ -1,5 +1,7 @@
 # Mathematical audit for a fixed-budget theorem (Phase 1)
 
+**Current Phase 1C decision:** the universal fixed-design and scalar equal-budget routes are abandoned. A specified-pair Pareto implication is mathematically valid, but the tested matched pairs have no positive certificate. Data blockers are closed. A nontrivial matched conditional encoder/partition protocol remains to be established before Phase 2.
+
 **Decision: BLOCKED.** The existing Theorem 7 remains a valid conditional statement about normalized efficiencies of two fixed ensembles under positive, declared scalar costs. Its proof does not establish a common-budget comparison of operationally admissible strategies. No new theorem is inserted into the manuscript.
 
 ## A--H proof gate
@@ -36,3 +38,11 @@ The proposed scalar equal-budget theorem is set aside. For positive priors, inte
 For two *specified* H and F ensembles with the same group map and orthogonal label, a feasible grouped H POVM lower value exceeding the aggregate grouped F dual upper value proves strict success ordering. Together with `Lbar<=n_fix` and equal `C_A`, this gives standard Pareto dominance in `(success up, support index down, label width down)`; equal length costs do not defeat strict dominance because success is strict. The conditional dual and its group-prior weighting are derived in `PARETO_CERTIFICATE_AUDIT.md`.
 
 The broad claim against the optimal fixed ensemble remains blocked: the current support caps permit disjoint orthogonal fixed states and thus fixed success one. Neither the existing global fixed dual nor the one M=4 smoke test gives an upper bound over all fixed designs. Existing samples do not freeze one partition across independently generated H and F ensembles. No new theorem or numerical advantage claim enters the manuscript, and seven source-to-text numerical mismatches separately block Phase 2.
+
+## Phase 1C constrained-family audit
+
+The real encoder fixes cyclic supports and equal amplitudes; its optimized mode varies phases only. A supplied-length adapter reproduces existing H supports exactly and instantiates F with the same rule in the common ambient space. Five new formulation-only smoke pairs share priors, partition, label width, optimizer configuration and SDP tolerance. All five pass an independent audit of 20 archived conditional primal/dual SDPs. These new pairs are additional audit evidence, not a reinterpretation of the old global-baseline certificates.
+
+Global phase orthogonalization is analytically impossible for four of the five H/F pairs (singleton support intersections), but a disjoint-support M=8 pair is orthogonal under both phase modes. The existing narrower shift-zero deterministic architecture has a global nonorthogonality proof based on geometric sums of odd-order roots over power-of-two intersections. That proof does not apply to group-conditioned distinguishability after labels remove cross-group overlap. In all five smoke pairs the fixed supports are disjoint inside each group, giving grouped F success one. No positive strict-success premise can be met for these pairs.
+
+`PAIRWISE_PARETO_THEOREM_AUDIT.md` proves only the requested conditional inference for fixed encoder outputs: `L_H>U_F` implies strict optimal measurement-success ordering, with `Lbar_H<=n_fix` and equal label width. Equal length indices still allow Pareto dominance via strict success. Floating-point feasibility checks do not constitute interval verification. No theorem statement or proof was edited in the manuscript. A narrower, predeclared conditional protocol needs audit before becoming a principal scientific claim; further experiments cannot be selected merely for favorable outcomes.

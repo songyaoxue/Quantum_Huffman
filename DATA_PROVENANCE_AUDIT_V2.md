@@ -1,5 +1,7 @@
 # Data provenance audit for Phase 1B
 
+**Current Phase 1C status: PASS for the 707-cell regression, 0 mismatches.** The seven historical findings below are retained for provenance. `DATA_REPAIR_REPORT_V2.md` records their authorized working-branch fixes; the frozen tag and Zenodo v1.0.0 remain unchanged. `NUMERICAL_TRACEABILITY_V2.csv` now includes old values, corrected values and fix reasons. The previous STOP caused by these seven data discrepancies is closed; the encoder/grouped-comparison gate remains open.
+
 **Status: MISMATCHES FOUND; STOP before manuscript restructuring.** The frozen PRA manuscript, Supplemental Material (SM), packaged CSVs, and Zenodo v1.0.0 were not edited. `NUMERICAL_TRACEABILITY_V2.csv` is the cell-level record: 707 checked claims, 700 matches, 7 mismatches. This is a targeted audit of the numerical claims represented in that file, not a proof that every number in every artifact has been traced.
 
 ## SM Table S8: no-QEC negative-case means
@@ -31,3 +33,7 @@
 ## Broader targeted checks and gate
 
 The traceability audit also checks main/SM favorable-sweep counts and fractions, benchmark percentages, payload comparisons, representative and randomized tables, all 40 M=4 certificate rows, the two M=8 probe rows, Helstrom validation, and support-overlap statistics. Each CSV row records source file, filter, row count, formula, displayed-value tolerance, and match status. The seven mismatches above trigger the user-specified STOP rule. A full prose-wide numerical audit and confirmation of the originally intended SM Table S8 subset remain open; no scientific value is silently replaced.
+
+## Phase 1C closure
+
+The user authorized correction from the packaged data in Phase 1C. The declared no-QEC CSV/filter is now explicitly the source of truth for working SM Table S8. Its first tracked old row was located in `1abe2cf`; the main display issue was present in `08efd6e`. The data were not rerun or changed. The new generator produces `SM/generated_tables/supplemental_no_qec_table.tex`, and working SM loads it directly. The previously generated root fragment remains an audit artifact. The main display is corrected directly from the raw aggregate at its existing precision. All seven old values remain in the updated traceability file, marked FIXED. A broader audit outside the 707 recorded cells remains outside this closure's verified scope.
