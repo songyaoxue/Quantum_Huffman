@@ -1,0 +1,11 @@
+{
+  "registry_sha256": "5e1a092fef6743380ab828c7ba13a8a1385b87bbc9bc621d9341254484b8c036",
+  "registered_rows": 220,
+  "passed_rows": 220,
+  "failed_solver_rows": 0,
+  "checked_conditional_certificates": 1040,
+  "robust_positive_rows": 8,
+  "robust_positives_reproduced": 8,
+  "status": "PASS",
+  "replication_sha256": "cda9700862fa3862e7504feb4ec3efbc88447db20b1e33cd619a26cfdc326cea"
+}

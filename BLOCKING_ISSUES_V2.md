@@ -1,6 +1,6 @@
 # Blocking issues for v2
 
-**Current status after Phase 1C: BLOCKED for entry into Phase 2.** Data repairs are complete (707/707 matches), and the matched grouped SDP implementation passes 5/5 smoke cases. The remaining gate is a predeclared nontrivial conditional encoder comparison: current tested fixed outputs are orthogonal within every group. Historical findings below are preserved; the closure table at the end supersedes their current status.
+**Current status after Phase 1D: gate closed for a scoped pairwise group-route reconstruction.** The preregistered deterministic encoder and source-only grouping yield two independently different prior instances satisfying the E2/robustness gate. All 220 rows pass independent certificate/provenance verification, and original full-space SDP checks confirm the positives. Old numerical traceability remains 707/707. No Phase 2 or manuscript edits occurred. Historical blocker tables are preserved; the Phase 1D closure below supersedes their current status.
 
 **Status: STOP after Phase 1.** The manuscript, its figures, numerical outputs, and Zenodo v1.0.0 archive have not been restructured or regenerated.
 
@@ -41,3 +41,15 @@ These issues block a defensible fixed-budget theorem, a fair ablation, and numer
 **Minimum next repair:** declare the existing narrower deterministic architecture and an outcome-independent shared partition protocol; audit each conditional group before any new advantage claim. Retain orthogonal, negative and failed cases. The conditional Pareto implication itself is proved, so absence of a positive gap is an evidence limitation rather than an invalid proof. No requirement to invent additional hardware constraints or weaken F follows from these checks. A globally orthogonal or conditionally perfect F remains a valid comparator and cannot be excluded post hoc.
 
 No Phase 2 restructuring occurred. The user-authorized seven display/source repairs are the only working manuscript/SM edits. The frozen PRA tag and Zenodo v1.0.0 remain unchanged.
+
+## Phase 1D final closure
+
+| Gate | Current decision | Evidence / scope |
+| --- | --- | --- |
+| D1 matched conditional nontriviality | CLOSED FOR REGISTERED ENCODER PAIRS | 179 matched E1 and 138 matched E2 rows among 220; 41 fixed-trivial rows retained. Rules and tolerances precede every SDP. |
+| D2 existing narrow encoder with predeclared grouping | CLOSED | Deterministic cyclic encoder unchanged; G2 probability-only grouping at M=8/G=2 passes E2, distinct-prior, repeated-certificate and fixed-trivial-rate gates. |
+| Group route | VIABLE | Two distinct qualifying prior instances, including one Dirichlet source; five Zipf seed copies count once. All eight robust-positive rows confirm in both registered replication and original full-space verification. |
+| Global route | REJECTED FOR THIS REGISTERED EVIDENCE | All G0 payloads are nontrivial, but no positive sufficient certificate appears. Negative bounds do not establish inferiority. |
+| Data / preregistration provenance | PASS | Immutable commit `830fe5a91348088710b1409de9f4c329d09f5419`; 220/220 new row traces, 707/707 old numerical cells. |
+
+**SAFE_TO_ENTER_PHASE_2=YES within the specified-pair constrained-encoder framework.** This is readiness for a subsequent authorized structural pass, not a Phase 2 edit in this turn. The abandoned universal fixed-design/equal-physical-budget objectives remain outside the claim. Remaining limitations are the small distinct-prior sample, floating-point rather than interval feasibility, ideal label accounting and support-index rather than physical transmission semantics; none is hidden by the gate result. A separately preregistered held-out study can expand empirical scope later. No new partition search, data release, figure regeneration or manuscript rewrite was performed.

@@ -1,0 +1,65 @@
+{
+  "row_id": "M4_near_uniform_t4_G0_G1",
+  "H": {
+    "lower": 0.8822574090237574,
+    "upper": 0.8822605958551115,
+    "primal_residual": 2.768314930852486e-15,
+    "dual_residual": 0.0,
+    "groups": [
+      {
+        "members": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "p_g": 1.0,
+        "q": [
+          0.25272911441757423,
+          0.26040009363784467,
+          0.25530455653963763,
+          0.23156623540494353
+        ],
+        "primal_lower": 0.8822574090237574,
+        "dual_upper": 0.8822605958551115,
+        "primal_residual": 2.768314930852486e-15,
+        "dual_residual": 0.0,
+        "primal_status": "optimal",
+        "dual_status": "optimal",
+        "span_rank": 4,
+        "span_reconstruction_residual": 2.761141036823552e-15
+      }
+    ]
+  },
+  "F": {
+    "lower": 0.8822574090237574,
+    "upper": 0.8822605958551115,
+    "primal_residual": 2.768314930852486e-15,
+    "dual_residual": 0.0,
+    "groups": [
+      {
+        "members": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "p_g": 1.0,
+        "q": [
+          0.25272911441757423,
+          0.26040009363784467,
+          0.25530455653963763,
+          0.23156623540494353
+        ],
+        "primal_lower": 0.8822574090237574,
+        "dual_upper": 0.8822605958551115,
+        "primal_residual": 2.768314930852486e-15,
+        "dual_residual": 0.0,
+        "primal_status": "optimal",
+        "dual_status": "optimal",
+        "span_rank": 4,
+        "span_reconstruction_residual": 2.761141036823552e-15
+      }
+    ]
+  }
+}

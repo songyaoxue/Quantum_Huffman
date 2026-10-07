@@ -1,0 +1,41 @@
+{
+  "registry_sha256": "5e1a092fef6743380ab828c7ba13a8a1385b87bbc9bc621d9341254484b8c036",
+  "registered_sources": 40,
+  "distinct_priors": 24,
+  "registered_rows": 220,
+  "G0_global_nontrivial_rate_H": 1.0,
+  "G0_global_nontrivial_rate_F": 1.0,
+  "pooled_fixed_trivial_rates": {
+    "G1": 0.6,
+    "G2": 0.08333333333333333,
+    "G3": 0.0
+  },
+  "matched_E1_cases": 179,
+  "matched_E2_cases": 138,
+  "matched_E1_cases_G_gt_1": 139,
+  "matched_E2_cases_G_gt_1": 98,
+  "evaluated_certificates": 220,
+  "robust_positive_counts": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 7,
+    "G3": 1
+  },
+  "positive_distinct_priors": 3,
+  "group_route": "VIABLE",
+  "global_route": "REJECTED",
+  "current_model_route": "SUPPORTED",
+  "eligible_route_cells": [
+    {
+      "group_rule": "G2",
+      "M": 8,
+      "G": 2
+    }
+  ],
+  "certificate_feasibility_rate": 1.0,
+  "max_H_primal_residual": 1.2105911213592768e-14,
+  "max_F_dual_residual": 0.0,
+  "orth_sensitivity_all_agree": true,
+  "summary_csv_sha256": "d537d13fc08a6396d753ef3e37957e64ffd1f81a297143da345e5f4e509f66ba",
+  "post_selection_used": false
+}
