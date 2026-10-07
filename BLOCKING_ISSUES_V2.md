@@ -10,3 +10,16 @@
 | B4 / E | `SM/supplemental.tex` S8 no-QEC nonpositive means disagree with the packaged sweep CSV and its summary. For `G_comp`, `g_rel`, `r_sep`, `r_cost`, the SM table has `0.9288, 0.2557, 0.7966, 0.9783`, while direct aggregation of 13,908 nonpositive no-QEC CSV rows gives `0.561268, 0.181546, 0.788030, 0.565401` (also reported in `favorable_regime_sweep_summary.csv` and main text). | Trace the SM table's source/filter. If it is stale, correct it in a *new v2* SM with the verified values; preserve v1 and document the correction. If it uses a different subset, define that subset explicitly and reproduce it. | **Yes:** confirm the intended SM subset/provenance before editing scientific numbers. |
 
 These issues block a defensible fixed-budget theorem, a fair ablation, and numerical-result migration. No failure of the current Theorem 7's conditional normalized-efficiency implication was established. No claim of an M=16 SDP runtime limit is made without a run.
+
+## Phase 1B blocker closure status
+
+**STOP remains in force; do not enter Phase 2.** The scalar equal-budget theorem is abandoned as the main route. The replacement is provable only as a conditional *specified-pair* Pareto certificate, with no positive matched pair yet in the data.
+
+| ID / stop rule | Finding | Minimum repair | Human decision needed? |
+| --- | --- | --- | --- |
+| C1 / A,D | Under the present upper-bound-only support rule, the fixed class can select disjoint basis supports and achieve success one. A theorem against the class-optimal fixed ensemble cannot yield a strict H success advantage. | Choose a predeclared, non-cherry-picked fixed construction for a pairwise claim, or introduce symmetric nontrivial preparation constraints and a fixed-side bound uniform over that class. | **Yes:** approve the scope and fair generator/constraint model. |
+| C2 / B | A grouped fixed conditional dual is mathematically formulated and the generic solver can process one, but the published pipeline compares grouped H to global same-payload fixed. No matched-partition H/F pair is stored. | Freeze one partition and label for both independently generated ensembles; run both conditional SDPs with matched settings and archive primal/dual feasibility data. | **Yes:** approve partition and optimization protocol before a new experiment. |
+| C3 / E | The six-cell SM Table S8 nonpositive row disagrees with the declared no-QEC packaged sweep, including two more cells than previously recorded in B4. | Determine whether the table represents an undocumented subset; otherwise generate a corrected v2 fragment from the authoritative CSV and document the correction. | **Yes:** confirm intended subset. |
+| C4 / E | Main-text positive-margin `A_Huff` mean `0.00149` does not round from packaged support-overlap CSV mean `0.00148458083951` at five decimal places. | Verify original provenance, then correct only in a v2 manuscript after approval. | **Yes:** confirm CSV as source of truth. |
+
+`NUMERICAL_TRACEABILITY_V2.csv` records 707 checked cells, 700 matches, and 7 mismatches. `DATA_PROVENANCE_AUDIT_V2.md` documents filters, formulas, rounding, first tracked occurrences, and an automatically generated replacement fragment held outside frozen SM. No old results, tables, or theorem statements were changed.

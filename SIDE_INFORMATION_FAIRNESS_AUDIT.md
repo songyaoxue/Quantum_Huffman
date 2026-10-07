@@ -21,3 +21,9 @@ The integer `ceil(log2 G)` is the minimum ideal register width for `G` orthogona
 ## Decision
 
 The current evidence can test whether costed label information helps under the declared scalar metric. It cannot isolate a Huffman-specific side-information benefit or certify equality of operational budgets. No side-information-matched success claim or result is added before the matched design is specified and run.
+
+## Phase 1B addendum: matched-label test
+
+For a fair pairwise test, both H and F must use identical priors, ambient dimension, `n_max`, `g(i)`, `G`, orthogonal label states, and `C_A=ceil(log2 G)`. Both receive the same conditional POVM model, solver and tolerance, and predeclared state-generation effort. The fixed comparator must receive its own grouped conditional dual, aggregated with the group priors; the old global fixed dual is not a matched upper certificate. The existing CSVs do not store such a pair, so `GROUP_SIDE_INFORMATION_MATCHED=NO` for current evidence.
+
+The vector `(Lbar,C_A)` versus `(n_fix,C_A)` avoids a scalar cost in the pairwise mathematical test. It does not establish operational equality of the source-correlated label channel or physical payload resources. More seriously, an unrestricted fixed-ensemble optimization under the current support cap attains success one with disjoint supports. A scientifically meaningful pairwise comparison requires a predeclared fixed-state generator, while a class-optimal theorem requires additional symmetric admissibility constraints and a uniform fixed-side bound. See `MATCHED_BASELINE_DEFINITION.md` and `PARETO_CERTIFICATE_AUDIT.md`. No matched advantage is currently observed or claimed.

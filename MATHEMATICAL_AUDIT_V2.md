@@ -28,3 +28,11 @@ The current Theorem 7 supplies `underline P_group/(bar L+C_A)>overline P_fix/n_f
 `code/decoding_sdp.py` uses CVXPY/SCS with `eps=5e-6`, `max_iters=25000`, postprocessed POVM effects, and a shifted dual operator. Reported residuals are floating-point diagnostics. Thus existing positive rows are numerical finite-instance certificates subject to those checks, not exact rational/interval-verified inequalities and not an upper bound over an ensemble-design strategy class.
 
 **Next proof gate:** obtain an agreed operational cost model and matched fixed-side admissible set, derive a fixed-side bound that covers its entire `F_fix(B)`, and rerun the numerical comparison under that definition. Until then, `Delta_cert(B)` is a research objective rather than a theorem or reported result.
+
+## Phase 1B addendum: matched-side-information Pareto route
+
+The proposed scalar equal-budget theorem is set aside. For positive priors, integer binary prefix lengths, and `M>=2`, the uniform `n_fix=ceil(log2 M)` code is feasible because `M*2^(-n_fix)<=1`; Huffman optimality therefore proves `Lbar<=n_fix`, including non-power-of-two `M` and tied priors. Equality is allowed. This is an ordering of length-derived support-budget coordinates, not of physical qubit transmission costs. See `RESOURCE_SEMANTICS_AUDIT.md`.
+
+For two *specified* H and F ensembles with the same group map and orthogonal label, a feasible grouped H POVM lower value exceeding the aggregate grouped F dual upper value proves strict success ordering. Together with `Lbar<=n_fix` and equal `C_A`, this gives standard Pareto dominance in `(success up, support index down, label width down)`; equal length costs do not defeat strict dominance because success is strict. The conditional dual and its group-prior weighting are derived in `PARETO_CERTIFICATE_AUDIT.md`.
+
+The broad claim against the optimal fixed ensemble remains blocked: the current support caps permit disjoint orthogonal fixed states and thus fixed success one. Neither the existing global fixed dual nor the one M=4 smoke test gives an upper bound over all fixed designs. Existing samples do not freeze one partition across independently generated H and F ensembles. No new theorem or numerical advantage claim enters the manuscript, and seven source-to-text numerical mismatches separately block Phase 2.
