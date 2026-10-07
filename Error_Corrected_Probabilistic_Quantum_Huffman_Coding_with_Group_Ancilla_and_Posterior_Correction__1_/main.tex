@@ -163,6 +163,7 @@ For clarity, Table~\ref{tab:notation} summarizes the notation used throughout th
 \end{table*}
 
 \paragraph*{Formal result roadmap.}
+\nocite{koashi2001compressibility,koashi2002operations,fowler2012surface,campbell2017roads,hausladen1994pretty,eldar2001quantum,barnum2002reversing}
 The formal results follow the construction order. Proposition~\ref{prop:support-allocation} establishes that Kraft-compatible Huffman lengths define feasible support budgets in the common Hilbert space, and Definition~\ref{def:huffman-ensemble} fixes the resulting source-shaped ensemble. Proposition~\ref{prop:group-guess-floor} and Theorem~\ref{thm:group-nondegradation} give the posterior guessing floor and ideal non-degradation supplied by an orthogonal group label. Proposition~\ref{prop:no-free-lunch} identifies the need for resource normalization. Theorem~\ref{thm:bounded-overlap} then gives a sufficient condition within a bounded-overlap comparison model, while Theorem~\ref{thm:sdp-resource} replaces that model by a feasible grouped primal certificate and a fixed-length dual upper certificate. Corollary~\ref{cor:qec-sdp} inserts the effective QEC reliability layer into the same certificate logic. The numerical diagnostics and Supplemental Material~\cite{supplemental_material} provide finite-instance tests of this chain.
 
 \begin{figure*}[t]
@@ -1432,7 +1433,7 @@ Figure~\ref{fig:app-sdp-cert} separates support feasibility from certified advan
 \FloatBarrier
 \section*{Data availability}
 
-The data and code supporting the findings of this study are provided in the Supplemental Material~\cite{supplemental_material} and in the accompanying reproducibility package. The package contains scripts to reproduce Huffman support allocation, support-constrained payload generation, group-conditioned SDP/PGM decoding, QEC reliability proxies, certificate search, resource-sensitivity diagnostics, favorable-regime analysis, support-overlap analysis, and all figures used in the manuscript.
+The data and code supporting the findings of this study are publicly available in Ref.~\cite{xue_zhang_zenodo_2026}. Additional numerical diagnostics are provided in the Supplemental Material~\cite{supplemental_material}.
 
 \bibliographystyle{apsrev4-2}
 \bibliography{references}
