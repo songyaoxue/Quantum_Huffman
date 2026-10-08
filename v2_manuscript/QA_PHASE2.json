@@ -1,0 +1,36 @@
+{
+  "main": {
+    "status": "PASS",
+    "pages": 10,
+    "labels": 33,
+    "figures": 5,
+    "tables": 3,
+    "undefined_references": 0,
+    "missing_citations": 0,
+    "duplicate_labels": 0,
+    "overfull_boxes": 0
+  },
+  "supplement": {
+    "status": "PASS",
+    "pages": 25,
+    "labels": 57,
+    "figures": 12,
+    "tables": 5,
+    "undefined_references": 0,
+    "missing_citations": 0,
+    "duplicate_labels": 0,
+    "overfull_boxes": 0
+  },
+  "abstract_words_whitespace_count": 204,
+  "legacy_traceability": "707/707",
+  "phase1d_traceability": "220/220; 1040 conditional sets",
+  "statistical_tables": "generated, all 11 cells and all 220 rows checked",
+  "new_solver_calls": 0,
+  "frozen_sources_changed": false,
+  "zenodo_published": false,
+  "benign_warnings": [
+    "REVTeX/nameref label definition warning",
+    "SM publisher placeholder has no publication year"
+  ],
+  "status": "PASS"
+}

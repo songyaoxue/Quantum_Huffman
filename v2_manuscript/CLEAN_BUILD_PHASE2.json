@@ -1,0 +1,28 @@
+{
+  "main": {
+    "status": "PASS",
+    "pages": 10,
+    "labels": 33,
+    "figures": 5,
+    "tables": 3,
+    "undefined_references": 0,
+    "missing_citations": 0,
+    "duplicate_labels": 0,
+    "overfull_boxes": 0,
+    "independent_minimal_clean_build": true
+  },
+  "supplement": {
+    "status": "PASS",
+    "pages": 25,
+    "labels": 57,
+    "figures": 12,
+    "tables": 5,
+    "undefined_references": 0,
+    "missing_citations": 0,
+    "duplicate_labels": 0,
+    "overfull_boxes": 0,
+    "independent_minimal_clean_build": true
+  },
+  "status": "PASS",
+  "scientific_data_or_python_needed_for_compile": false
+}

@@ -1,4 +1,14 @@
-# Quantum-Huffman-Inspired Probabilistic Source Decoding
+# Finite-Instance Resource Certification
+
+## Current v2 manuscript
+
+The reconstructed manuscript is `v2_manuscript/main.tex`, with PDF adjacent; its independently compilable supplement is `v2_manuscript/SM/supplemental.tex`. The title is **Finite-Instance Resource Certification for Group-Conditioned Discrimination of Huffman-Shaped Quantum Ensembles**.
+
+The main theorem concerns a specified matched constrained encoder pair, identical group side information, and a support-index/label resource vector. The 220-row preregistered matrix contains 40 source entries and 24 priors. G2 has seven robust-positive rows; its validated M=8/G=2 E2 subset has six rows but only two distinct priors. No additional experiments were run during reconstruction. See `RESULT_COUNTING_POLICY.md`, `PHASE2_RESTRUCTURE_REPORT.md`, and the v2 directory README for sources, compilation, and artifact generation.
+
+The previous manuscript folder is the preserved repaired legacy baseline (707/707 numerical traceability), not the reconstructed source. The original PRA snapshot remains at `pra-submission-v1-before-v2`, and Zenodo Version 1.0.0 is unchanged. New matched data accompany the v2 supplement; public v2 release is planned separately.
+
+## Legacy manuscript and reproduction package
 
 本仓库包含量子 Huffman 启发的有限资源概率源译码论文、数值实验代码、正式图件与复现数据。
 

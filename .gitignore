@@ -37,6 +37,18 @@
 !/code/src/
 !/code/src/**
 
+# V2 manuscript and deterministic reconstruction deliverables
+!/v2_manuscript/
+!/v2_manuscript/**
+!/*_V2.md
+!/PHASE2_RESTRUCTURE_REPORT.md
+!/RESULT_COUNTING_POLICY.md
+!/SIDE_INFORMATION_FAIRNESS_AUDIT.md
+!/ZENODO_V2_RELEASE_PLAN.md
+!/CONFIRMATORY_EXPERIMENT_PROPOSAL.md
+!/scripts/
+!/scripts/*.py
+
 # Never track local/runtime artifacts inside retained directories
 **/.DS_Store
 **/.idea/
@@ -55,3 +67,6 @@
 *.synctex.gz
 *.fdb_latexmk
 *.fls
+*.blg
+*.bbl
+*Notes.bib

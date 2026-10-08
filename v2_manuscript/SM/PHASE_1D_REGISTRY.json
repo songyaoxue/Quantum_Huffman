@@ -1,0 +1,412 @@
+{
+  "duplicate_policy": "Zipf and strong_skew have deterministic priors at fixed parameter; keep all seeds, report distinct prior hashes and never count seed copies as independent sources",
+  "eligibility": {
+    "E1": "At least one identical positive-mass group is nontrivial in both arms",
+    "E2": "At least one size>=2 group exists and every size>=2 group is nontrivial in both arms",
+    "evaluation": "Evaluate every valid row regardless of E1/E2 or fixed triviality",
+    "group": "size>=2 and offdiag_max>epsilon_orth",
+    "singletons": "Record all; singleton groups excluded from E2 universal quantifier"
+  },
+  "encoder": {
+    "ambient_rule": "max(n_fix,max(Huffman_lengths))+1, common to both arms",
+    "amplitudes": "equal modulus on saturated cyclic supports",
+    "extra_qubits": 1,
+    "mode": "deterministic_phase",
+    "optimizer_iterations": 0,
+    "overlap_shift": 0,
+    "phase_rule": "existing generate_payload deterministic_phase, unchanged",
+    "seed_offset": 100,
+    "support_order": "existing numpy.argsort(-p) and np.unique ordering, unchanged"
+  },
+  "environment": {
+    "cvxpy": "1.8.2",
+    "numpy": "2.4.4",
+    "python": "3.12.5",
+    "scipy": "1.17.1",
+    "scs": "3.2.11"
+  },
+  "epsilon_orth": 1e-10,
+  "epsilon_orth_sensitivity": 1e-08,
+  "expected_rows": 220,
+  "file_sha256": {
+    "code/decoding_sdp.py": "2147d9a2a4ccb6b08e2ca95bd55d380285a6728e844aef8b8604b195eef1f3f6",
+    "code/huffman_support.py": "578a787833648c8cf1c7ae4e787cac9877847a3f8ebbc859caf2aa4b6fb15bb8",
+    "code/payload_generation.py": "178a1d6bf0846cd37e624caf7d5746fdb0986ef377528365b563ccdeb09e39e7",
+    "scripts/freeze_phase1d_registry.py": "73d6fe02ce156146c6a0b0f33af1d09614fccff6edbfcd4fef9c305d4b0e8402",
+    "scripts/pairwise_matched_smoke_v2.py": "c7cee38adb0e4361acae0dafe926fd2f8de785ec23c48c832aab3dab81093261",
+    "scripts/phase1d_model.py": "45ac0f1a25408e82af9cc92a7a5704582fb57f939860cfcabf5f214cbf32153f",
+    "scripts/run_phase1d_registered.py": "c6b383e1f1fa159173729b15101cb4b78959de7bf7b0e9d13e284cf130f08988",
+    "scripts/verify_phase1d_registered.py": "c2df0c14c968c4ba176c9f1b9bdb7b73ebdbb2f7c99d760ee6a5f451bb8ede9c"
+  },
+  "group_counts": {
+    "4": [
+      2
+    ],
+    "8": [
+      2,
+      4
+    ]
+  },
+  "group_rules": {
+    "G0": "One group, all zero-based symbol indices; G=1 and C_A=0",
+    "G1": "g(i)=i mod G for zero-based indices i=0,...,M-1; uses only indices/M/G",
+    "G2": "Sort (-p_i,i); assign each to min(current_mass,group_index); sort members",
+    "G3": "Binary Huffman heap ties by leaf index then increasing merge serial; split shallowest nonleaf frontier node, ties by minimum leaf index then serial; label final subtrees by minimum leaf index"
+  },
+  "overlap_aware": "Excluded from registry and Main Theorem eligibility; old results remain post-hoc heuristic diagnostics",
+  "parent_commit": "3c816dc",
+  "purpose": "Outcome-independent nontriviality and route gate; no manuscript claims",
+  "registry_id": "PHASE1D-DETERMINISTIC-CYCLIC-001",
+  "robustness": {
+    "k": 100,
+    "numerical_tolerance": 5e-06,
+    "replication": "Independently verify all rows and re-solve every robust positive with identical settings",
+    "threshold": 0.0005
+  },
+  "route_gate": {
+    "case_B": "Group gate fails, every G>1 rule aggregated fixed_trivial_rate>=0.9, and global gate passes: reject group contribution and propose global pivot",
+    "case_C": "All registered rows valid and verified, and neither G0 nor G>1 has any robust positive: current model not supported; stop searching partitions",
+    "global": "Within one M G0 cell: >=2 matched E2, verified/repeated robust positives with >1 seed and >1 distinct prior hash",
+    "group": "Within one fixed (M,rule,G) G>1 cell: fixed_trivial_rate<=0.8, >=2 matched E1 and E2 rows, >=2 independently verified/repeated robust E2 positives with >1 seed and >1 distinct prior hash",
+    "otherwise": "Do not promote isolated/subthreshold/failed or nonrepeated evidence: inconclusive"
+  },
+  "sdp": {
+    "accepted_statuses": [
+      "optimal",
+      "optimal_inaccurate",
+      "analytic_singleton"
+    ],
+    "aggregation_tolerance": 1e-12,
+    "compression": "Group state-span solver variables; lift and repair certificates, then check original ambient-space inequalities",
+    "dual_safety_shift": 5e-08,
+    "eps": 5e-06,
+    "failure_policy": "No retries or row deletion; FAILED retained, robust_positive false",
+    "feasibility_tolerance": 1e-07,
+    "max_iters": 25000,
+    "solver": "SCS",
+    "span_rank_tolerance": 1e-12,
+    "time_limit_secs": 30.0
+  },
+  "sources": [
+    {
+      "M": 4,
+      "parameter": 0.04,
+      "seed": 3044,
+      "source_family": "near_uniform",
+      "source_id": "M4_near_uniform_t0",
+      "trial": 0
+    },
+    {
+      "M": 4,
+      "parameter": 0.04,
+      "seed": 3061,
+      "source_family": "near_uniform",
+      "source_id": "M4_near_uniform_t1",
+      "trial": 1
+    },
+    {
+      "M": 4,
+      "parameter": 0.04,
+      "seed": 3078,
+      "source_family": "near_uniform",
+      "source_id": "M4_near_uniform_t2",
+      "trial": 2
+    },
+    {
+      "M": 4,
+      "parameter": 0.04,
+      "seed": 3095,
+      "source_family": "near_uniform",
+      "source_id": "M4_near_uniform_t3",
+      "trial": 3
+    },
+    {
+      "M": 4,
+      "parameter": 0.04,
+      "seed": 3112,
+      "source_family": "near_uniform",
+      "source_id": "M4_near_uniform_t4",
+      "trial": 4
+    },
+    {
+      "M": 4,
+      "parameter": 0.8,
+      "seed": 51408,
+      "source_family": "zipf",
+      "source_id": "M4_zipf_t0",
+      "trial": 0
+    },
+    {
+      "M": 4,
+      "parameter": 0.8,
+      "seed": 51425,
+      "source_family": "zipf",
+      "source_id": "M4_zipf_t1",
+      "trial": 1
+    },
+    {
+      "M": 4,
+      "parameter": 0.8,
+      "seed": 51442,
+      "source_family": "zipf",
+      "source_id": "M4_zipf_t2",
+      "trial": 2
+    },
+    {
+      "M": 4,
+      "parameter": 0.8,
+      "seed": 51459,
+      "source_family": "zipf",
+      "source_id": "M4_zipf_t3",
+      "trial": 3
+    },
+    {
+      "M": 4,
+      "parameter": 0.8,
+      "seed": 51476,
+      "source_family": "zipf",
+      "source_id": "M4_zipf_t4",
+      "trial": 4
+    },
+    {
+      "M": 4,
+      "parameter": 2.0,
+      "seed": 2420,
+      "source_family": "dirichlet",
+      "source_id": "M4_dirichlet_t0",
+      "trial": 0
+    },
+    {
+      "M": 4,
+      "parameter": 2.0,
+      "seed": 2437,
+      "source_family": "dirichlet",
+      "source_id": "M4_dirichlet_t1",
+      "trial": 1
+    },
+    {
+      "M": 4,
+      "parameter": 2.0,
+      "seed": 2454,
+      "source_family": "dirichlet",
+      "source_id": "M4_dirichlet_t2",
+      "trial": 2
+    },
+    {
+      "M": 4,
+      "parameter": 2.0,
+      "seed": 2471,
+      "source_family": "dirichlet",
+      "source_id": "M4_dirichlet_t3",
+      "trial": 3
+    },
+    {
+      "M": 4,
+      "parameter": 2.0,
+      "seed": 2488,
+      "source_family": "dirichlet",
+      "source_id": "M4_dirichlet_t4",
+      "trial": 4
+    },
+    {
+      "M": 4,
+      "parameter": 0.75,
+      "seed": 4115,
+      "source_family": "strong_skew",
+      "source_id": "M4_strong_skew_t0",
+      "trial": 0
+    },
+    {
+      "M": 4,
+      "parameter": 0.75,
+      "seed": 4132,
+      "source_family": "strong_skew",
+      "source_id": "M4_strong_skew_t1",
+      "trial": 1
+    },
+    {
+      "M": 4,
+      "parameter": 0.75,
+      "seed": 4149,
+      "source_family": "strong_skew",
+      "source_id": "M4_strong_skew_t2",
+      "trial": 2
+    },
+    {
+      "M": 4,
+      "parameter": 0.75,
+      "seed": 4166,
+      "source_family": "strong_skew",
+      "source_id": "M4_strong_skew_t3",
+      "trial": 3
+    },
+    {
+      "M": 4,
+      "parameter": 0.75,
+      "seed": 4183,
+      "source_family": "strong_skew",
+      "source_id": "M4_strong_skew_t4",
+      "trial": 4
+    },
+    {
+      "M": 8,
+      "parameter": 0.04,
+      "seed": 3084,
+      "source_family": "near_uniform",
+      "source_id": "M8_near_uniform_t0",
+      "trial": 0
+    },
+    {
+      "M": 8,
+      "parameter": 0.04,
+      "seed": 3101,
+      "source_family": "near_uniform",
+      "source_id": "M8_near_uniform_t1",
+      "trial": 1
+    },
+    {
+      "M": 8,
+      "parameter": 0.04,
+      "seed": 3118,
+      "source_family": "near_uniform",
+      "source_id": "M8_near_uniform_t2",
+      "trial": 2
+    },
+    {
+      "M": 8,
+      "parameter": 0.04,
+      "seed": 3135,
+      "source_family": "near_uniform",
+      "source_id": "M8_near_uniform_t3",
+      "trial": 3
+    },
+    {
+      "M": 8,
+      "parameter": 0.04,
+      "seed": 3152,
+      "source_family": "near_uniform",
+      "source_id": "M8_near_uniform_t4",
+      "trial": 4
+    },
+    {
+      "M": 8,
+      "parameter": 0.8,
+      "seed": 51808,
+      "source_family": "zipf",
+      "source_id": "M8_zipf_t0",
+      "trial": 0
+    },
+    {
+      "M": 8,
+      "parameter": 0.8,
+      "seed": 51825,
+      "source_family": "zipf",
+      "source_id": "M8_zipf_t1",
+      "trial": 1
+    },
+    {
+      "M": 8,
+      "parameter": 0.8,
+      "seed": 51842,
+      "source_family": "zipf",
+      "source_id": "M8_zipf_t2",
+      "trial": 2
+    },
+    {
+      "M": 8,
+      "parameter": 0.8,
+      "seed": 51859,
+      "source_family": "zipf",
+      "source_id": "M8_zipf_t3",
+      "trial": 3
+    },
+    {
+      "M": 8,
+      "parameter": 0.8,
+      "seed": 51876,
+      "source_family": "zipf",
+      "source_id": "M8_zipf_t4",
+      "trial": 4
+    },
+    {
+      "M": 8,
+      "parameter": 2.0,
+      "seed": 2820,
+      "source_family": "dirichlet",
+      "source_id": "M8_dirichlet_t0",
+      "trial": 0
+    },
+    {
+      "M": 8,
+      "parameter": 2.0,
+      "seed": 2837,
+      "source_family": "dirichlet",
+      "source_id": "M8_dirichlet_t1",
+      "trial": 1
+    },
+    {
+      "M": 8,
+      "parameter": 2.0,
+      "seed": 2854,
+      "source_family": "dirichlet",
+      "source_id": "M8_dirichlet_t2",
+      "trial": 2
+    },
+    {
+      "M": 8,
+      "parameter": 2.0,
+      "seed": 2871,
+      "source_family": "dirichlet",
+      "source_id": "M8_dirichlet_t3",
+      "trial": 3
+    },
+    {
+      "M": 8,
+      "parameter": 2.0,
+      "seed": 2888,
+      "source_family": "dirichlet",
+      "source_id": "M8_dirichlet_t4",
+      "trial": 4
+    },
+    {
+      "M": 8,
+      "parameter": 0.75,
+      "seed": 4155,
+      "source_family": "strong_skew",
+      "source_id": "M8_strong_skew_t0",
+      "trial": 0
+    },
+    {
+      "M": 8,
+      "parameter": 0.75,
+      "seed": 4172,
+      "source_family": "strong_skew",
+      "source_id": "M8_strong_skew_t1",
+      "trial": 1
+    },
+    {
+      "M": 8,
+      "parameter": 0.75,
+      "seed": 4189,
+      "source_family": "strong_skew",
+      "source_id": "M8_strong_skew_t2",
+      "trial": 2
+    },
+    {
+      "M": 8,
+      "parameter": 0.75,
+      "seed": 4206,
+      "source_family": "strong_skew",
+      "source_id": "M8_strong_skew_t3",
+      "trial": 3
+    },
+    {
+      "M": 8,
+      "parameter": 0.75,
+      "seed": 4223,
+      "source_family": "strong_skew",
+      "source_id": "M8_strong_skew_t4",
+      "trial": 4
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "traced_rows": 220,
+  "gram_matrices": 1120,
+  "status": "PASS",
+  "registry_sha256": "5e1a092fef6743380ab828c7ba13a8a1385b87bbc9bc621d9341254484b8c036",
+  "gram_archive_sha256": "47d49926a2f1aa65e1d558ef88bd918d036c6aeea589f4295c4d4f5eda5e8f9c",
+  "trace_csv_sha256": "84671f2f94dbb825dc240d219788afb4239a7f9779acd5c94e7fe3d59de60bfe"
+}

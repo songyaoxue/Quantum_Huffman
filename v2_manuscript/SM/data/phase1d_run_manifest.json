@@ -1,0 +1,4984 @@
+{
+  "registry_id": "PHASE1D-DETERMINISTIC-CYCLIC-001",
+  "registry_sha256": "5e1a092fef6743380ab828c7ba13a8a1385b87bbc9bc621d9341254484b8c036",
+  "preregistration_commit": "830fe5a91348088710b1409de9f4c329d09f5419",
+  "sources": [
+    {
+      "M": 4,
+      "parameter": 0.04,
+      "seed": 3044,
+      "source_family": "near_uniform",
+      "source_id": "M4_near_uniform_t0",
+      "trial": 0,
+      "source_hash": "aecdcfc466ea284a67ca6a34f98d5252865be8f21e0f55a3b1ca1b65c8d5d010",
+      "file": "data/phase1d_evidence/M4_near_uniform_t0.npz",
+      "sha256": "92c8506934571659fcffb3f951d93e519275601b3b015d3d7f2ff9cfdde4f39b",
+      "H_supports": [
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "F_supports": [
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 0.04,
+      "seed": 3061,
+      "source_family": "near_uniform",
+      "source_id": "M4_near_uniform_t1",
+      "trial": 1,
+      "source_hash": "5df8d7186ee6fd4ca6cb2ffb14c56969bae0b1f4a4985c74b4d70629178822f8",
+      "file": "data/phase1d_evidence/M4_near_uniform_t1.npz",
+      "sha256": "09b465802efd1b11227071629fd7999991dbece42ff46ca28a5da4e1791e1e71",
+      "H_supports": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 0.04,
+      "seed": 3078,
+      "source_family": "near_uniform",
+      "source_id": "M4_near_uniform_t2",
+      "trial": 2,
+      "source_hash": "dd5232737b12edb2b66e6627e72209279c4145c47a22b044014c37c10483aa38",
+      "file": "data/phase1d_evidence/M4_near_uniform_t2.npz",
+      "sha256": "f1dc9ed7e5652e3f4b4ea39d1565aa6210e4f31989f1163844aa13feaefece1f",
+      "H_supports": [
+        [
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "F_supports": [
+        [
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 0.04,
+      "seed": 3095,
+      "source_family": "near_uniform",
+      "source_id": "M4_near_uniform_t3",
+      "trial": 3,
+      "source_hash": "14205b6fa35d835f148edde0353c015c5e592c664f059dacf90d45de81af26af",
+      "file": "data/phase1d_evidence/M4_near_uniform_t3.npz",
+      "sha256": "962fbf4b75c1b2bb0e49ac66ba3acdebf50623feea41a70cba9312eb9b7e4224",
+      "H_supports": [
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "F_supports": [
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 0.04,
+      "seed": 3112,
+      "source_family": "near_uniform",
+      "source_id": "M4_near_uniform_t4",
+      "trial": 4,
+      "source_hash": "8871d303e724c00aaac37e2de560fc9f57333dc13794482de33652b25a9c9a8d",
+      "file": "data/phase1d_evidence/M4_near_uniform_t4.npz",
+      "sha256": "90cf49261daeb21697659abac645223e2eab554b3c5a08bae805b27460a3f57d",
+      "H_supports": [
+        [
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "F_supports": [
+        [
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 0.8,
+      "seed": 51408,
+      "source_family": "zipf",
+      "source_id": "M4_zipf_t0",
+      "trial": 0,
+      "source_hash": "528b446196582cbc43dc39d830216172aaaa74520583435179df56618ab2bd33",
+      "file": "data/phase1d_evidence/M4_zipf_t0.npz",
+      "sha256": "abfeb9daea79ad18b6ea59c3a5403be0854b7a615d3132717ffe0eb6524f5273",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 0.8,
+      "seed": 51425,
+      "source_family": "zipf",
+      "source_id": "M4_zipf_t1",
+      "trial": 1,
+      "source_hash": "528b446196582cbc43dc39d830216172aaaa74520583435179df56618ab2bd33",
+      "file": "data/phase1d_evidence/M4_zipf_t1.npz",
+      "sha256": "abfeb9daea79ad18b6ea59c3a5403be0854b7a615d3132717ffe0eb6524f5273",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 0.8,
+      "seed": 51442,
+      "source_family": "zipf",
+      "source_id": "M4_zipf_t2",
+      "trial": 2,
+      "source_hash": "528b446196582cbc43dc39d830216172aaaa74520583435179df56618ab2bd33",
+      "file": "data/phase1d_evidence/M4_zipf_t2.npz",
+      "sha256": "abfeb9daea79ad18b6ea59c3a5403be0854b7a615d3132717ffe0eb6524f5273",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 0.8,
+      "seed": 51459,
+      "source_family": "zipf",
+      "source_id": "M4_zipf_t3",
+      "trial": 3,
+      "source_hash": "528b446196582cbc43dc39d830216172aaaa74520583435179df56618ab2bd33",
+      "file": "data/phase1d_evidence/M4_zipf_t3.npz",
+      "sha256": "abfeb9daea79ad18b6ea59c3a5403be0854b7a615d3132717ffe0eb6524f5273",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 0.8,
+      "seed": 51476,
+      "source_family": "zipf",
+      "source_id": "M4_zipf_t4",
+      "trial": 4,
+      "source_hash": "528b446196582cbc43dc39d830216172aaaa74520583435179df56618ab2bd33",
+      "file": "data/phase1d_evidence/M4_zipf_t4.npz",
+      "sha256": "abfeb9daea79ad18b6ea59c3a5403be0854b7a615d3132717ffe0eb6524f5273",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 2.0,
+      "seed": 2420,
+      "source_family": "dirichlet",
+      "source_id": "M4_dirichlet_t0",
+      "trial": 0,
+      "source_hash": "222f63c40c922d9ff517213b17e3767c59b353eeb86c81c352fea46854da9000",
+      "file": "data/phase1d_evidence/M4_dirichlet_t0.npz",
+      "sha256": "c208c5e02f7cf904bf5a9913e6b2a02989ac823217bf4e501cc39357af630a38",
+      "H_supports": [
+        [
+          6,
+          7
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "F_supports": [
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 2.0,
+      "seed": 2437,
+      "source_family": "dirichlet",
+      "source_id": "M4_dirichlet_t1",
+      "trial": 1,
+      "source_hash": "ce2f440bda59bda650a4683cdc9ff69eb7f18b6e57087afe0d44f288278860b0",
+      "file": "data/phase1d_evidence/M4_dirichlet_t1.npz",
+      "sha256": "b4066bd710f388f032bb65d25b3900d386347f83adc7d848b02fa6cdbbe40a45",
+      "H_supports": [
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "F_supports": [
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 2.0,
+      "seed": 2454,
+      "source_family": "dirichlet",
+      "source_id": "M4_dirichlet_t2",
+      "trial": 2,
+      "source_hash": "bd91b09676ef78ac210014d01ce3bb5110c2517111d54383f9bd8a462c3e2470",
+      "file": "data/phase1d_evidence/M4_dirichlet_t2.npz",
+      "sha256": "3ff0ca210b0e4eda90d0d5e830eb057e94edfff19c898cd0c04c24b79187d798",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 2.0,
+      "seed": 2471,
+      "source_family": "dirichlet",
+      "source_id": "M4_dirichlet_t3",
+      "trial": 3,
+      "source_hash": "753b204586ac4800bf2a0f8ed15315c634041b8617c1a8614fb479364c3db771",
+      "file": "data/phase1d_evidence/M4_dirichlet_t3.npz",
+      "sha256": "b9486584b46fd8521bc041d3f91a3b4f69afd693287a7d6c263c2315c9979845",
+      "H_supports": [
+        [
+          6,
+          7
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "F_supports": [
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 2.0,
+      "seed": 2488,
+      "source_family": "dirichlet",
+      "source_id": "M4_dirichlet_t4",
+      "trial": 4,
+      "source_hash": "a582758f026d6023ee4447832b6b4aaff4eb8585deee27f759d20c6628f21b9b",
+      "file": "data/phase1d_evidence/M4_dirichlet_t4.npz",
+      "sha256": "4112e872e5fe4abf86d036665f5a8c7da4667efb8d34447a100b2bad9f307fb2",
+      "H_supports": [
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "F_supports": [
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 0.75,
+      "seed": 4115,
+      "source_family": "strong_skew",
+      "source_id": "M4_strong_skew_t0",
+      "trial": 0,
+      "source_hash": "ced7dad604a78a09d103d1c8ab3ad077be05dfe3d09726ba8848b6a0df7360a5",
+      "file": "data/phase1d_evidence/M4_strong_skew_t0.npz",
+      "sha256": "063df440bd691056942fc680f59ec50393d31eb91521a5944fd34cc59ead26d0",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 0.75,
+      "seed": 4132,
+      "source_family": "strong_skew",
+      "source_id": "M4_strong_skew_t1",
+      "trial": 1,
+      "source_hash": "ced7dad604a78a09d103d1c8ab3ad077be05dfe3d09726ba8848b6a0df7360a5",
+      "file": "data/phase1d_evidence/M4_strong_skew_t1.npz",
+      "sha256": "063df440bd691056942fc680f59ec50393d31eb91521a5944fd34cc59ead26d0",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 0.75,
+      "seed": 4149,
+      "source_family": "strong_skew",
+      "source_id": "M4_strong_skew_t2",
+      "trial": 2,
+      "source_hash": "ced7dad604a78a09d103d1c8ab3ad077be05dfe3d09726ba8848b6a0df7360a5",
+      "file": "data/phase1d_evidence/M4_strong_skew_t2.npz",
+      "sha256": "063df440bd691056942fc680f59ec50393d31eb91521a5944fd34cc59ead26d0",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 0.75,
+      "seed": 4166,
+      "source_family": "strong_skew",
+      "source_id": "M4_strong_skew_t3",
+      "trial": 3,
+      "source_hash": "ced7dad604a78a09d103d1c8ab3ad077be05dfe3d09726ba8848b6a0df7360a5",
+      "file": "data/phase1d_evidence/M4_strong_skew_t3.npz",
+      "sha256": "063df440bd691056942fc680f59ec50393d31eb91521a5944fd34cc59ead26d0",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "M": 4,
+      "parameter": 0.75,
+      "seed": 4183,
+      "source_family": "strong_skew",
+      "source_id": "M4_strong_skew_t4",
+      "trial": 4,
+      "source_hash": "ced7dad604a78a09d103d1c8ab3ad077be05dfe3d09726ba8848b6a0df7360a5",
+      "file": "data/phase1d_evidence/M4_strong_skew_t4.npz",
+      "sha256": "063df440bd691056942fc680f59ec50393d31eb91521a5944fd34cc59ead26d0",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.04,
+      "seed": 3084,
+      "source_family": "near_uniform",
+      "source_id": "M8_near_uniform_t0",
+      "trial": 0,
+      "source_hash": "7f68276af182c1276d224688c8d2b0219f62b3b59e05ec0ae53510ccaa62fc55",
+      "file": "data/phase1d_evidence/M8_near_uniform_t0.npz",
+      "sha256": "daf66bf962a7acd4b52646ec5d5576e3a234e14c93b95c657fda0ef7d5a3fd34",
+      "H_supports": [
+        [
+          6,
+          7
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "F_supports": [
+        [
+          6,
+          7
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.04,
+      "seed": 3101,
+      "source_family": "near_uniform",
+      "source_id": "M8_near_uniform_t1",
+      "trial": 1,
+      "source_hash": "1f39409ce70256d24250f5953da209ccf86accdf660c8a6f98889ac315504996",
+      "file": "data/phase1d_evidence/M8_near_uniform_t1.npz",
+      "sha256": "83e7fa1ae1aebc1a46478f90127f8ca48634a0cf02864211911a0d962b33a7ba",
+      "H_supports": [
+        [
+          5,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "F_supports": [
+        [
+          5,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.04,
+      "seed": 3118,
+      "source_family": "near_uniform",
+      "source_id": "M8_near_uniform_t2",
+      "trial": 2,
+      "source_hash": "a7ac6780219e147ee4e8b30d5e487a41a7f5484c633c7f375aace9b3e4d636e3",
+      "file": "data/phase1d_evidence/M8_near_uniform_t2.npz",
+      "sha256": "c647dbb902fec394b666dec1848089456b88f170ed1a8c85f18117bad9d2d791",
+      "H_supports": [
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "F_supports": [
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.04,
+      "seed": 3135,
+      "source_family": "near_uniform",
+      "source_id": "M8_near_uniform_t3",
+      "trial": 3,
+      "source_hash": "76bee77af9fc43ddbaac8c71552dbabe5571a1fc21a153cb8d7e8f31ca086d37",
+      "file": "data/phase1d_evidence/M8_near_uniform_t3.npz",
+      "sha256": "2d048f0893fb71b9cd0b42624717e354ea4d9199ddd9688017e3e30ee6436412",
+      "H_supports": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "F_supports": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.04,
+      "seed": 3152,
+      "source_family": "near_uniform",
+      "source_id": "M8_near_uniform_t4",
+      "trial": 4,
+      "source_hash": "4e1cd88fbbe2f56de3caca7e77b01c4c3f68111b6c7e0a0514dabeebcee4b6e7",
+      "file": "data/phase1d_evidence/M8_near_uniform_t4.npz",
+      "sha256": "2b1c2435abc650e04c8bd6ff8a6eeeecb7da7d9678869d89900b6092449a2953",
+      "H_supports": [
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "F_supports": [
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.8,
+      "seed": 51808,
+      "source_family": "zipf",
+      "source_id": "M8_zipf_t0",
+      "trial": 0,
+      "source_hash": "54f6c7a98bf4b45fd3f977387c43f54799dbf774587eda998b7bd2e61b4e85f3",
+      "file": "data/phase1d_evidence/M8_zipf_t0.npz",
+      "sha256": "47733fdfe6484c154e9add59d345cd046e3e86b66948d2cbf31e2ef1a58c157d",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.8,
+      "seed": 51825,
+      "source_family": "zipf",
+      "source_id": "M8_zipf_t1",
+      "trial": 1,
+      "source_hash": "54f6c7a98bf4b45fd3f977387c43f54799dbf774587eda998b7bd2e61b4e85f3",
+      "file": "data/phase1d_evidence/M8_zipf_t1.npz",
+      "sha256": "47733fdfe6484c154e9add59d345cd046e3e86b66948d2cbf31e2ef1a58c157d",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.8,
+      "seed": 51842,
+      "source_family": "zipf",
+      "source_id": "M8_zipf_t2",
+      "trial": 2,
+      "source_hash": "54f6c7a98bf4b45fd3f977387c43f54799dbf774587eda998b7bd2e61b4e85f3",
+      "file": "data/phase1d_evidence/M8_zipf_t2.npz",
+      "sha256": "47733fdfe6484c154e9add59d345cd046e3e86b66948d2cbf31e2ef1a58c157d",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.8,
+      "seed": 51859,
+      "source_family": "zipf",
+      "source_id": "M8_zipf_t3",
+      "trial": 3,
+      "source_hash": "54f6c7a98bf4b45fd3f977387c43f54799dbf774587eda998b7bd2e61b4e85f3",
+      "file": "data/phase1d_evidence/M8_zipf_t3.npz",
+      "sha256": "47733fdfe6484c154e9add59d345cd046e3e86b66948d2cbf31e2ef1a58c157d",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.8,
+      "seed": 51876,
+      "source_family": "zipf",
+      "source_id": "M8_zipf_t4",
+      "trial": 4,
+      "source_hash": "54f6c7a98bf4b45fd3f977387c43f54799dbf774587eda998b7bd2e61b4e85f3",
+      "file": "data/phase1d_evidence/M8_zipf_t4.npz",
+      "sha256": "47733fdfe6484c154e9add59d345cd046e3e86b66948d2cbf31e2ef1a58c157d",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 2.0,
+      "seed": 2820,
+      "source_family": "dirichlet",
+      "source_id": "M8_dirichlet_t0",
+      "trial": 0,
+      "source_hash": "c9536a127956b117958b0aa0258ed0325e58305c8f090a0bedf931e95d787496",
+      "file": "data/phase1d_evidence/M8_dirichlet_t0.npz",
+      "sha256": "e2ffac390b24cbe00078300f4a82cc9948a0c5436bf43ea0934fc8b512cc188a",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 2.0,
+      "seed": 2837,
+      "source_family": "dirichlet",
+      "source_id": "M8_dirichlet_t1",
+      "trial": 1,
+      "source_hash": "304849cdb0ccfb2a740c82c9c04fad694c242dfc8fbfaa93bafb6159e2464781",
+      "file": "data/phase1d_evidence/M8_dirichlet_t1.npz",
+      "sha256": "9082bb36154d11701d9367a725882a433e1301798d0b4dea2aac8979341dbfb6",
+      "H_supports": [
+        [
+          30,
+          31
+        ],
+        [
+          31,
+          32
+        ],
+        [
+          28,
+          29,
+          30,
+          31
+        ],
+        [
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ]
+      ],
+      "F_supports": [
+        [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        [
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        [
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 2.0,
+      "seed": 2854,
+      "source_family": "dirichlet",
+      "source_id": "M8_dirichlet_t2",
+      "trial": 2,
+      "source_hash": "0b546be2fe22660f5f1f1067b3b2b69fee239d077d24687a4ccd3af198e680a7",
+      "file": "data/phase1d_evidence/M8_dirichlet_t2.npz",
+      "sha256": "87384cc0db9804865c244641d58fa95c05c0a0923f561a29e68e12365c1c84ad",
+      "H_supports": [
+        [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          30,
+          31
+        ],
+        [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        [
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        [
+          28,
+          29,
+          30,
+          31
+        ],
+        [
+          31,
+          32
+        ],
+        [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ]
+      ],
+      "F_supports": [
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        [
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        [
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 2.0,
+      "seed": 2871,
+      "source_family": "dirichlet",
+      "source_id": "M8_dirichlet_t3",
+      "trial": 3,
+      "source_hash": "f50e75cf62a2036141e0e06dd4ed06569a5d109148d0d369f7e38e98d9de0a4b",
+      "file": "data/phase1d_evidence/M8_dirichlet_t3.npz",
+      "sha256": "9d9f688db9e2a157600b33c79786b0a95136e4d2bb937c1b0ed991ef2b5327f1",
+      "H_supports": [
+        [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        [
+          31,
+          32
+        ],
+        [
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        [
+          28,
+          29,
+          30,
+          31
+        ],
+        [
+          30,
+          31
+        ],
+        [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      ],
+      "F_supports": [
+        [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 2.0,
+      "seed": 2888,
+      "source_family": "dirichlet",
+      "source_id": "M8_dirichlet_t4",
+      "trial": 4,
+      "source_hash": "7e6033403e0cb69d6e9f1cdd0978a1d0355099aee006af28c723d70bc037efd4",
+      "file": "data/phase1d_evidence/M8_dirichlet_t4.npz",
+      "sha256": "2363a94ce93e5f1a9523bf27e9ddcb4801eca09289dde86fe9c9ba7821cc3094",
+      "H_supports": [
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          13,
+          14
+        ]
+      ],
+      "F_supports": [
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.75,
+      "seed": 4155,
+      "source_family": "strong_skew",
+      "source_id": "M8_strong_skew_t0",
+      "trial": 0,
+      "source_hash": "e0660b975a3c6fb7e23f4b5f75a32fc4fd5b8b833f38873f07957c75edc1c63e",
+      "file": "data/phase1d_evidence/M8_strong_skew_t0.npz",
+      "sha256": "5f1fecb7d88e329b993a4f5dbb4eb28d264b5c0f9f348d5a90d7e4b5968c258c",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.75,
+      "seed": 4172,
+      "source_family": "strong_skew",
+      "source_id": "M8_strong_skew_t1",
+      "trial": 1,
+      "source_hash": "e0660b975a3c6fb7e23f4b5f75a32fc4fd5b8b833f38873f07957c75edc1c63e",
+      "file": "data/phase1d_evidence/M8_strong_skew_t1.npz",
+      "sha256": "5f1fecb7d88e329b993a4f5dbb4eb28d264b5c0f9f348d5a90d7e4b5968c258c",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.75,
+      "seed": 4189,
+      "source_family": "strong_skew",
+      "source_id": "M8_strong_skew_t2",
+      "trial": 2,
+      "source_hash": "e0660b975a3c6fb7e23f4b5f75a32fc4fd5b8b833f38873f07957c75edc1c63e",
+      "file": "data/phase1d_evidence/M8_strong_skew_t2.npz",
+      "sha256": "5f1fecb7d88e329b993a4f5dbb4eb28d264b5c0f9f348d5a90d7e4b5968c258c",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.75,
+      "seed": 4206,
+      "source_family": "strong_skew",
+      "source_id": "M8_strong_skew_t3",
+      "trial": 3,
+      "source_hash": "e0660b975a3c6fb7e23f4b5f75a32fc4fd5b8b833f38873f07957c75edc1c63e",
+      "file": "data/phase1d_evidence/M8_strong_skew_t3.npz",
+      "sha256": "5f1fecb7d88e329b993a4f5dbb4eb28d264b5c0f9f348d5a90d7e4b5968c258c",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ]
+    },
+    {
+      "M": 8,
+      "parameter": 0.75,
+      "seed": 4223,
+      "source_family": "strong_skew",
+      "source_id": "M8_strong_skew_t4",
+      "trial": 4,
+      "source_hash": "e0660b975a3c6fb7e23f4b5f75a32fc4fd5b8b833f38873f07957c75edc1c63e",
+      "file": "data/phase1d_evidence/M8_strong_skew_t4.npz",
+      "sha256": "5f1fecb7d88e329b993a4f5dbb4eb28d264b5c0f9f348d5a90d7e4b5968c258c",
+      "H_supports": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ],
+      "F_supports": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          14,
+          15,
+          16,
+          17
+        ]
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "row_id": "M4_near_uniform_t0_G0_G1",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t0_G0_G1.npz",
+      "operators_sha256": "29b5d36ee15abf9d024f1f16b0c945685e9d6a10e0ea42026be068b4e4d2c61f",
+      "details": "data/phase1d_evidence/M4_near_uniform_t0_G0_G1.json",
+      "details_sha256": "0bd25e6d02cd3d748345aa61ef08bbfd272c25ee0c61931b8748ae0aca1efbdc"
+    },
+    {
+      "row_id": "M4_near_uniform_t0_G1_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t0_G1_G2.npz",
+      "operators_sha256": "732f820072842cad69721018aca1a9fc5e5768a699092e85bada6d368d68adca",
+      "details": "data/phase1d_evidence/M4_near_uniform_t0_G1_G2.json",
+      "details_sha256": "eb967a3c6e507ceca49f8a544e2a7c896bed553f9ac7e4888a0a8e109a717a3e"
+    },
+    {
+      "row_id": "M4_near_uniform_t0_G2_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t0_G2_G2.npz",
+      "operators_sha256": "732f820072842cad69721018aca1a9fc5e5768a699092e85bada6d368d68adca",
+      "details": "data/phase1d_evidence/M4_near_uniform_t0_G2_G2.json",
+      "details_sha256": "c2e9d9d8ac90e07fada5b7d2337c2831d0c333568dac01a89c83c6a7431f45b3"
+    },
+    {
+      "row_id": "M4_near_uniform_t0_G3_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t0_G3_G2.npz",
+      "operators_sha256": "1fdadea43e4a3b960e7632fd7a80c3d7853ffcac442ed0142975fe8d74001824",
+      "details": "data/phase1d_evidence/M4_near_uniform_t0_G3_G2.json",
+      "details_sha256": "2a6d5a41a14ff49df4efe8e995318e70344fa5061ec2c5bf71648e9590727214"
+    },
+    {
+      "row_id": "M4_near_uniform_t1_G0_G1",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t1_G0_G1.npz",
+      "operators_sha256": "0195a9923de50a7650772ada6587ad7716a7c7f143deeffe832a6bcec683a758",
+      "details": "data/phase1d_evidence/M4_near_uniform_t1_G0_G1.json",
+      "details_sha256": "979be284ade7731fac2778a5ffd9126c85e57e9822c0667374bb2634dd2e414c"
+    },
+    {
+      "row_id": "M4_near_uniform_t1_G1_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t1_G1_G2.npz",
+      "operators_sha256": "1ef003ecfc95f6a501780411907723faf72fbafc431978510acf82271fab6129",
+      "details": "data/phase1d_evidence/M4_near_uniform_t1_G1_G2.json",
+      "details_sha256": "2d25aaa8c5ee74d1483b1d2024013bf4c85f76fbba4741d8e6b426ad359dd584"
+    },
+    {
+      "row_id": "M4_near_uniform_t1_G2_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t1_G2_G2.npz",
+      "operators_sha256": "1ef003ecfc95f6a501780411907723faf72fbafc431978510acf82271fab6129",
+      "details": "data/phase1d_evidence/M4_near_uniform_t1_G2_G2.json",
+      "details_sha256": "5f7182bb64e202e8dbb9b1ddcceabfceda71a26b5a266d872bf33a93f410d700"
+    },
+    {
+      "row_id": "M4_near_uniform_t1_G3_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t1_G3_G2.npz",
+      "operators_sha256": "daf707a70b82e127b91ad067330589f275b1b73d15397422f1a65d5128106830",
+      "details": "data/phase1d_evidence/M4_near_uniform_t1_G3_G2.json",
+      "details_sha256": "110679c84b46026790833949fe71e536928a1aaa05ba43ba98800fac305db757"
+    },
+    {
+      "row_id": "M4_near_uniform_t2_G0_G1",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t2_G0_G1.npz",
+      "operators_sha256": "3d2e15b45ad7fdecb310e8d40d792d5119a985053fa537238690742fc7d19705",
+      "details": "data/phase1d_evidence/M4_near_uniform_t2_G0_G1.json",
+      "details_sha256": "d8ced4e6831f40a7b8edc432ea51c70cd7233acb33d07423e0024f5d960f5947"
+    },
+    {
+      "row_id": "M4_near_uniform_t2_G1_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t2_G1_G2.npz",
+      "operators_sha256": "709ddb05cef1a41b9c31f8b2add0318b4c39d58103306f32528583ad99fc0bd8",
+      "details": "data/phase1d_evidence/M4_near_uniform_t2_G1_G2.json",
+      "details_sha256": "32007008d132294945f1507afdaf8c039159968c3cf47d2986210ae7500a4407"
+    },
+    {
+      "row_id": "M4_near_uniform_t2_G2_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t2_G2_G2.npz",
+      "operators_sha256": "0f888c57eb185f5e1411b49b1574f1a7b1e64a04264a93b4c320e6a3aceaa82f",
+      "details": "data/phase1d_evidence/M4_near_uniform_t2_G2_G2.json",
+      "details_sha256": "9843b959df4eab12b2d083780e6de7a7daf23ade10b27252da779130d40d5372"
+    },
+    {
+      "row_id": "M4_near_uniform_t2_G3_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t2_G3_G2.npz",
+      "operators_sha256": "0b9d856eec6f4e996e3473a19bb68b1ef51d7f14c0496a335e386033cb888e01",
+      "details": "data/phase1d_evidence/M4_near_uniform_t2_G3_G2.json",
+      "details_sha256": "2c1d77a4ff6f6493531766ffaa50006f6c2a047b94b0254efe45869023e0fb7f"
+    },
+    {
+      "row_id": "M4_near_uniform_t3_G0_G1",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t3_G0_G1.npz",
+      "operators_sha256": "217221273a4ddda76a1578797d0683550461c93561d3e44edb4d69677c7c4f8a",
+      "details": "data/phase1d_evidence/M4_near_uniform_t3_G0_G1.json",
+      "details_sha256": "a365f176fd77da6322826ffedb8bda1a71c1d05cd83048fc08286d8278068d67"
+    },
+    {
+      "row_id": "M4_near_uniform_t3_G1_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t3_G1_G2.npz",
+      "operators_sha256": "85b6f44fc9ca4d6a07d0b6e742114c7a6c1d91d4f77741e3e8214ae494b6fe82",
+      "details": "data/phase1d_evidence/M4_near_uniform_t3_G1_G2.json",
+      "details_sha256": "44bf350c064e0af4e2b4a18cac5e820ed9211cc72f3926f35286125644427a5f"
+    },
+    {
+      "row_id": "M4_near_uniform_t3_G2_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t3_G2_G2.npz",
+      "operators_sha256": "af39c1067c0b896976c9a058679e893a3eeed9f7d950b1ae3d2c75c489b4a3b0",
+      "details": "data/phase1d_evidence/M4_near_uniform_t3_G2_G2.json",
+      "details_sha256": "cc92953118ea266aed063d9c70d34cdd4a06888f1c369fadaa2fec4bfceab406"
+    },
+    {
+      "row_id": "M4_near_uniform_t3_G3_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t3_G3_G2.npz",
+      "operators_sha256": "85b6f44fc9ca4d6a07d0b6e742114c7a6c1d91d4f77741e3e8214ae494b6fe82",
+      "details": "data/phase1d_evidence/M4_near_uniform_t3_G3_G2.json",
+      "details_sha256": "dea797139ed0590208944dc47cd79ed3347a0da47bd1ef7053d33a18ff675be4"
+    },
+    {
+      "row_id": "M4_near_uniform_t4_G0_G1",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t4_G0_G1.npz",
+      "operators_sha256": "42148b67e34cb309479adbe44bd49ce274e58b87e3a4f1336c5a9d04e4b33e2a",
+      "details": "data/phase1d_evidence/M4_near_uniform_t4_G0_G1.json",
+      "details_sha256": "7e7a45ab4433235d39742b48353e6ce863d65c50531f92609e6c25ec222ffa30"
+    },
+    {
+      "row_id": "M4_near_uniform_t4_G1_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t4_G1_G2.npz",
+      "operators_sha256": "4ef6d7a6215fc9f6f707de83f612e7755d0f9756859c0df1dba9d5c03bacb7e0",
+      "details": "data/phase1d_evidence/M4_near_uniform_t4_G1_G2.json",
+      "details_sha256": "3e0fe3aa781cbaacfa8c2c507e479012bca9f8bb0e2ebaa7e0582b9b9185f6bd"
+    },
+    {
+      "row_id": "M4_near_uniform_t4_G2_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t4_G2_G2.npz",
+      "operators_sha256": "a019ac6c7af4cb0474b8737a1ef48b7fac4c00336417f2285c70012ff77b6987",
+      "details": "data/phase1d_evidence/M4_near_uniform_t4_G2_G2.json",
+      "details_sha256": "90f0fad5725653930dc428a1b5521bf47b2cc5261c24a6430498c32eda46d6a0"
+    },
+    {
+      "row_id": "M4_near_uniform_t4_G3_G2",
+      "operators": "data/phase1d_evidence/M4_near_uniform_t4_G3_G2.npz",
+      "operators_sha256": "97dcbe1c04b0d97bccfbb750c53fd9f3e5e6d33dd7c129339b515209b1f62ea6",
+      "details": "data/phase1d_evidence/M4_near_uniform_t4_G3_G2.json",
+      "details_sha256": "b2adf2d32d1ee7b7f8b6703ec8a6a76254f1204179b169871b3811b17ae6c998"
+    },
+    {
+      "row_id": "M4_zipf_t0_G0_G1",
+      "operators": "data/phase1d_evidence/M4_zipf_t0_G0_G1.npz",
+      "operators_sha256": "645e631ddfd94849711ad6a75a6ed521d1c6064b3d3a6d7ae36a6c8f1fb19d20",
+      "details": "data/phase1d_evidence/M4_zipf_t0_G0_G1.json",
+      "details_sha256": "e72b4a627825a367f7e946149258d717c81c3b8362d4953ae967ec651e6c3d8c"
+    },
+    {
+      "row_id": "M4_zipf_t0_G1_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t0_G1_G2.npz",
+      "operators_sha256": "7349f704fb4358dd87e11cb0c3771dad799b6b7c7056f49fa459d14688d8509f",
+      "details": "data/phase1d_evidence/M4_zipf_t0_G1_G2.json",
+      "details_sha256": "bf0d58025cd991790d33d03bff0b2668d8ffb76243b19871bebaa6fab4da17a9"
+    },
+    {
+      "row_id": "M4_zipf_t0_G2_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t0_G2_G2.npz",
+      "operators_sha256": "7a1f4c48365522b0ed516cd55998c94637de853f484aad05f43ed1fd6d6a590c",
+      "details": "data/phase1d_evidence/M4_zipf_t0_G2_G2.json",
+      "details_sha256": "64f746c170370c21bfa4d5d8dea738c4eaddf2f375163bb2daaf8b25d68ce482"
+    },
+    {
+      "row_id": "M4_zipf_t0_G3_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t0_G3_G2.npz",
+      "operators_sha256": "7a1f4c48365522b0ed516cd55998c94637de853f484aad05f43ed1fd6d6a590c",
+      "details": "data/phase1d_evidence/M4_zipf_t0_G3_G2.json",
+      "details_sha256": "6e482dfbad4d1389e96e919543e04bd733c6deed72891eb67660723bbc7eff72"
+    },
+    {
+      "row_id": "M4_zipf_t1_G0_G1",
+      "operators": "data/phase1d_evidence/M4_zipf_t1_G0_G1.npz",
+      "operators_sha256": "645e631ddfd94849711ad6a75a6ed521d1c6064b3d3a6d7ae36a6c8f1fb19d20",
+      "details": "data/phase1d_evidence/M4_zipf_t1_G0_G1.json",
+      "details_sha256": "244cb77e3ce735d8fc03c406e3a8d5098fa5e70f5d3c2a2695b60eaff0bac525"
+    },
+    {
+      "row_id": "M4_zipf_t1_G1_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t1_G1_G2.npz",
+      "operators_sha256": "7349f704fb4358dd87e11cb0c3771dad799b6b7c7056f49fa459d14688d8509f",
+      "details": "data/phase1d_evidence/M4_zipf_t1_G1_G2.json",
+      "details_sha256": "859f48144cccdb1f031b2cc23259d06d759f30b5a602d7f491cfa0cf79a9d66a"
+    },
+    {
+      "row_id": "M4_zipf_t1_G2_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t1_G2_G2.npz",
+      "operators_sha256": "7a1f4c48365522b0ed516cd55998c94637de853f484aad05f43ed1fd6d6a590c",
+      "details": "data/phase1d_evidence/M4_zipf_t1_G2_G2.json",
+      "details_sha256": "bb0f6d5fe177a2d5948fa0fda1659c926dc23fb1ddf9d266b257c3326828bd32"
+    },
+    {
+      "row_id": "M4_zipf_t1_G3_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t1_G3_G2.npz",
+      "operators_sha256": "7a1f4c48365522b0ed516cd55998c94637de853f484aad05f43ed1fd6d6a590c",
+      "details": "data/phase1d_evidence/M4_zipf_t1_G3_G2.json",
+      "details_sha256": "42e157c0a4f59d73ad7390a55ac2afdc7d903df6d96cc8ba33b667467db9e09f"
+    },
+    {
+      "row_id": "M4_zipf_t2_G0_G1",
+      "operators": "data/phase1d_evidence/M4_zipf_t2_G0_G1.npz",
+      "operators_sha256": "645e631ddfd94849711ad6a75a6ed521d1c6064b3d3a6d7ae36a6c8f1fb19d20",
+      "details": "data/phase1d_evidence/M4_zipf_t2_G0_G1.json",
+      "details_sha256": "d5bbc7bb14d58a7511145af847f9fb841f44c0edff83f0210ce8be50980ccd5f"
+    },
+    {
+      "row_id": "M4_zipf_t2_G1_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t2_G1_G2.npz",
+      "operators_sha256": "7349f704fb4358dd87e11cb0c3771dad799b6b7c7056f49fa459d14688d8509f",
+      "details": "data/phase1d_evidence/M4_zipf_t2_G1_G2.json",
+      "details_sha256": "9b8d9af0a9dbf6576d75af8185796cbf706d22b1a36c2486ee098eefebf98e6b"
+    },
+    {
+      "row_id": "M4_zipf_t2_G2_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t2_G2_G2.npz",
+      "operators_sha256": "7a1f4c48365522b0ed516cd55998c94637de853f484aad05f43ed1fd6d6a590c",
+      "details": "data/phase1d_evidence/M4_zipf_t2_G2_G2.json",
+      "details_sha256": "14efc5aaaf34663b03d549b6188b00b060379a054102d65ad1303477b64c7514"
+    },
+    {
+      "row_id": "M4_zipf_t2_G3_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t2_G3_G2.npz",
+      "operators_sha256": "7a1f4c48365522b0ed516cd55998c94637de853f484aad05f43ed1fd6d6a590c",
+      "details": "data/phase1d_evidence/M4_zipf_t2_G3_G2.json",
+      "details_sha256": "9360d52587f4de495854c46f0cba764d784ccbc1f105de411675785ee0a3987f"
+    },
+    {
+      "row_id": "M4_zipf_t3_G0_G1",
+      "operators": "data/phase1d_evidence/M4_zipf_t3_G0_G1.npz",
+      "operators_sha256": "645e631ddfd94849711ad6a75a6ed521d1c6064b3d3a6d7ae36a6c8f1fb19d20",
+      "details": "data/phase1d_evidence/M4_zipf_t3_G0_G1.json",
+      "details_sha256": "c2cc9401ab898411cea2c5308b9640406c20471fa6c507c9a275dc2e60df0e1c"
+    },
+    {
+      "row_id": "M4_zipf_t3_G1_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t3_G1_G2.npz",
+      "operators_sha256": "7349f704fb4358dd87e11cb0c3771dad799b6b7c7056f49fa459d14688d8509f",
+      "details": "data/phase1d_evidence/M4_zipf_t3_G1_G2.json",
+      "details_sha256": "81b449652f2f4acb34f5d9eca4ad13a9e84c1ab848028bc8c6e1da5a01e21bfa"
+    },
+    {
+      "row_id": "M4_zipf_t3_G2_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t3_G2_G2.npz",
+      "operators_sha256": "7a1f4c48365522b0ed516cd55998c94637de853f484aad05f43ed1fd6d6a590c",
+      "details": "data/phase1d_evidence/M4_zipf_t3_G2_G2.json",
+      "details_sha256": "abc4b908f49618a8b7829b6fcd985d75efc29157a792639ec2c46abf7a09a248"
+    },
+    {
+      "row_id": "M4_zipf_t3_G3_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t3_G3_G2.npz",
+      "operators_sha256": "7a1f4c48365522b0ed516cd55998c94637de853f484aad05f43ed1fd6d6a590c",
+      "details": "data/phase1d_evidence/M4_zipf_t3_G3_G2.json",
+      "details_sha256": "89c26f9457a7e0b8c2b8b037ec97f572b0cee192fd6f1d3a046eef8b053adeae"
+    },
+    {
+      "row_id": "M4_zipf_t4_G0_G1",
+      "operators": "data/phase1d_evidence/M4_zipf_t4_G0_G1.npz",
+      "operators_sha256": "645e631ddfd94849711ad6a75a6ed521d1c6064b3d3a6d7ae36a6c8f1fb19d20",
+      "details": "data/phase1d_evidence/M4_zipf_t4_G0_G1.json",
+      "details_sha256": "2985aeb121730d901a74257503b5af10d9bb50833eff98362f49596c13f5673c"
+    },
+    {
+      "row_id": "M4_zipf_t4_G1_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t4_G1_G2.npz",
+      "operators_sha256": "7349f704fb4358dd87e11cb0c3771dad799b6b7c7056f49fa459d14688d8509f",
+      "details": "data/phase1d_evidence/M4_zipf_t4_G1_G2.json",
+      "details_sha256": "95f70ab17e60ccfd9499352421164c8daf8d36735949b84dc091fa1381d8478f"
+    },
+    {
+      "row_id": "M4_zipf_t4_G2_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t4_G2_G2.npz",
+      "operators_sha256": "7a1f4c48365522b0ed516cd55998c94637de853f484aad05f43ed1fd6d6a590c",
+      "details": "data/phase1d_evidence/M4_zipf_t4_G2_G2.json",
+      "details_sha256": "6d84df8fb0b6b8958e779b9712c7a978499ad6ca3ea0c1e977da5b25b75d64a9"
+    },
+    {
+      "row_id": "M4_zipf_t4_G3_G2",
+      "operators": "data/phase1d_evidence/M4_zipf_t4_G3_G2.npz",
+      "operators_sha256": "7a1f4c48365522b0ed516cd55998c94637de853f484aad05f43ed1fd6d6a590c",
+      "details": "data/phase1d_evidence/M4_zipf_t4_G3_G2.json",
+      "details_sha256": "2047ab0cc4f2e8cd4d79e3db311be3f26199a683f42be2ecfe550445511c6b67"
+    },
+    {
+      "row_id": "M4_dirichlet_t0_G0_G1",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t0_G0_G1.npz",
+      "operators_sha256": "5e686a2e3efa9fd372e8acd0459f0dbc7337c8b0823fabfa319e7b13cfdc6a3d",
+      "details": "data/phase1d_evidence/M4_dirichlet_t0_G0_G1.json",
+      "details_sha256": "62121ffc22e856c15bac558a734e4ce563e9b5b85a5c2cfb11630483f5c11223"
+    },
+    {
+      "row_id": "M4_dirichlet_t0_G1_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t0_G1_G2.npz",
+      "operators_sha256": "717db468d1d0aa809ca1a2e32f3dada5ded56b1af6b5845861be79a37c810436",
+      "details": "data/phase1d_evidence/M4_dirichlet_t0_G1_G2.json",
+      "details_sha256": "ad46eef4ba6a2bee2bc17ff1753b1a8b3e61c7274a0c871f20d964e7acea4338"
+    },
+    {
+      "row_id": "M4_dirichlet_t0_G2_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t0_G2_G2.npz",
+      "operators_sha256": "3be349d2e3ecfb661a6d1e916adb264c20f70f589dab4890139c7338ffc2426c",
+      "details": "data/phase1d_evidence/M4_dirichlet_t0_G2_G2.json",
+      "details_sha256": "4e3a467ef11ec3c5988e124e093cd8c1a469a0d4fb7ee3a95f9992c94b0bb32a"
+    },
+    {
+      "row_id": "M4_dirichlet_t0_G3_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t0_G3_G2.npz",
+      "operators_sha256": "de3626215db9427f99aa4b79382ab68a02501d135577927ba0141a372a6adb6b",
+      "details": "data/phase1d_evidence/M4_dirichlet_t0_G3_G2.json",
+      "details_sha256": "a22544298e04a958fa18fa8b2d14831c0b7ccf34b9906fe4ea73d64928fba661"
+    },
+    {
+      "row_id": "M4_dirichlet_t1_G0_G1",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t1_G0_G1.npz",
+      "operators_sha256": "b12fc566bf4c87cebdb2b499d44f5750f18e47a65abfab57218addf7863d301c",
+      "details": "data/phase1d_evidence/M4_dirichlet_t1_G0_G1.json",
+      "details_sha256": "5e72a5fe73b3cc3d2c29068a7eb90e06b3b388fd182a2f56a4a8b8ec1d2bed89"
+    },
+    {
+      "row_id": "M4_dirichlet_t1_G1_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t1_G1_G2.npz",
+      "operators_sha256": "0b95e208db9b5029951515a17db63c51fe9e14fdd949b96acfa2130dfebf5916",
+      "details": "data/phase1d_evidence/M4_dirichlet_t1_G1_G2.json",
+      "details_sha256": "c791203064db752cb26e709f2db2ed357eeb1a255964b52351d62d8bf0597248"
+    },
+    {
+      "row_id": "M4_dirichlet_t1_G2_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t1_G2_G2.npz",
+      "operators_sha256": "1a1237cf65d4900ce0050d64b3029e6cab8ce3233907359857035eb7d18e7ebc",
+      "details": "data/phase1d_evidence/M4_dirichlet_t1_G2_G2.json",
+      "details_sha256": "2041d4fea8f9f0bd717b431cc8ba6a6c4c5c6a360caf6c4f0facc8f6f6f4d12e"
+    },
+    {
+      "row_id": "M4_dirichlet_t1_G3_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t1_G3_G2.npz",
+      "operators_sha256": "1c801541f62d3e19ccf05b8b71c4f8b5e94553fcc159829b1012152120755c91",
+      "details": "data/phase1d_evidence/M4_dirichlet_t1_G3_G2.json",
+      "details_sha256": "4d2794c95ae6952814cd4f8074945fcbf5c4a4fbf70e3a650195ed74fcbf16e8"
+    },
+    {
+      "row_id": "M4_dirichlet_t2_G0_G1",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t2_G0_G1.npz",
+      "operators_sha256": "7632f83f6cf5e965fc0a30e3a40f8d38d3ecfd519604cbc55e11a9c85ec0dfb8",
+      "details": "data/phase1d_evidence/M4_dirichlet_t2_G0_G1.json",
+      "details_sha256": "c00a8384d471a2ab614a0e9d8283aaf6882f5d3bb328d4a0107c83156de74f83"
+    },
+    {
+      "row_id": "M4_dirichlet_t2_G1_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t2_G1_G2.npz",
+      "operators_sha256": "fbe0653456563371058861b91cd6fe8f2d30df1d37ebade727d8b1deefe4cba6",
+      "details": "data/phase1d_evidence/M4_dirichlet_t2_G1_G2.json",
+      "details_sha256": "a166aff54d4b21be44e280364554a70f287e4f6f5f3350d10f92253ea3e19cff"
+    },
+    {
+      "row_id": "M4_dirichlet_t2_G2_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t2_G2_G2.npz",
+      "operators_sha256": "945dc0cf0313ac3fb58900237deb3d37cccdee44511c6d393fcdab376704d1fe",
+      "details": "data/phase1d_evidence/M4_dirichlet_t2_G2_G2.json",
+      "details_sha256": "109e076a7353dc642346a238e466371e2dd2f04bc547a8306d4d149b608e87e1"
+    },
+    {
+      "row_id": "M4_dirichlet_t2_G3_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t2_G3_G2.npz",
+      "operators_sha256": "088b5032c2f980666f5a98b80af97c49bf0a4b0991cd9bb1db851c33c859030a",
+      "details": "data/phase1d_evidence/M4_dirichlet_t2_G3_G2.json",
+      "details_sha256": "b8a495b6daec8c82f59bc90fe56f91df8c7aa55281aafa9310e99f60c599682b"
+    },
+    {
+      "row_id": "M4_dirichlet_t3_G0_G1",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t3_G0_G1.npz",
+      "operators_sha256": "fe9781d2a0ad746b1f4ed785b0ddb7c26143e8f7df4530c316f5a429a25231a6",
+      "details": "data/phase1d_evidence/M4_dirichlet_t3_G0_G1.json",
+      "details_sha256": "40122b1cf0925f11b306b3cde3d47491c4c7155264591c713cf4b5152e641e99"
+    },
+    {
+      "row_id": "M4_dirichlet_t3_G1_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t3_G1_G2.npz",
+      "operators_sha256": "3161ed1a950040d384058f62f88b0a294a4c6cf51487d0c45c44d0c4585c2e96",
+      "details": "data/phase1d_evidence/M4_dirichlet_t3_G1_G2.json",
+      "details_sha256": "c75417bdc0fd5c3f77b2140226a3c41a725423b9d41ace52425415a0b20485c4"
+    },
+    {
+      "row_id": "M4_dirichlet_t3_G2_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t3_G2_G2.npz",
+      "operators_sha256": "01d8aacd6295a947be5b300e1884409dbc790b6ac58ce200179053faa1fa01fc",
+      "details": "data/phase1d_evidence/M4_dirichlet_t3_G2_G2.json",
+      "details_sha256": "1240f75e785b8dfa30bb1d28ed1d2d164e7a96a9aeae5da43e02498d23b3e91a"
+    },
+    {
+      "row_id": "M4_dirichlet_t3_G3_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t3_G3_G2.npz",
+      "operators_sha256": "40d767783c9e3467a758661a36b95c110eb825af55edf311165e3f1540784030",
+      "details": "data/phase1d_evidence/M4_dirichlet_t3_G3_G2.json",
+      "details_sha256": "dd7cccfe9a88ce55b8476088edf50a3e1298840cc00d5d1633336954eff81b2a"
+    },
+    {
+      "row_id": "M4_dirichlet_t4_G0_G1",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t4_G0_G1.npz",
+      "operators_sha256": "984b28d31419122ba4dda357756954b6eb197b08e975c2df401d6deac7f3151e",
+      "details": "data/phase1d_evidence/M4_dirichlet_t4_G0_G1.json",
+      "details_sha256": "f16f39bd1a4db1d0ecb5c0e89e36c80f5c3e35d369df9cc28a8ce80b88fc37c1"
+    },
+    {
+      "row_id": "M4_dirichlet_t4_G1_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t4_G1_G2.npz",
+      "operators_sha256": "2200eddc8e25e6b5d790ce72effa9b7170b87b38cd1a898dd9bee47e83b12117",
+      "details": "data/phase1d_evidence/M4_dirichlet_t4_G1_G2.json",
+      "details_sha256": "03d6c7d5c54c1dddc31a7d36c45bf2c82cd8ceb56de98f66b1613986735a5257"
+    },
+    {
+      "row_id": "M4_dirichlet_t4_G2_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t4_G2_G2.npz",
+      "operators_sha256": "2968e96ffe005850cbde65a3bb9ea723f9aa93df6fdec013daf5740d3231e0a9",
+      "details": "data/phase1d_evidence/M4_dirichlet_t4_G2_G2.json",
+      "details_sha256": "0645f10f4d961b1f5750e3ee0d8e19602c49ab1e192882648e6d3f302f38aea3"
+    },
+    {
+      "row_id": "M4_dirichlet_t4_G3_G2",
+      "operators": "data/phase1d_evidence/M4_dirichlet_t4_G3_G2.npz",
+      "operators_sha256": "8bc12cc84550e6a3ea4fa8d8408e2d7776d42b8033961dbba33a8fcc7a72ba04",
+      "details": "data/phase1d_evidence/M4_dirichlet_t4_G3_G2.json",
+      "details_sha256": "17f48e676cf1e68dd7998d936a0d91e07016dfcff9bd0b7c1014b02d8edf35e6"
+    },
+    {
+      "row_id": "M4_strong_skew_t0_G0_G1",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t0_G0_G1.npz",
+      "operators_sha256": "517821dad6f59acca8a31bb2f877a6344769a5ac86c5766d27b4a16a45688743",
+      "details": "data/phase1d_evidence/M4_strong_skew_t0_G0_G1.json",
+      "details_sha256": "a22db388c4b3fc64b7e1f895e7714d0cdf50ff981457295f91fa3654a4e58756"
+    },
+    {
+      "row_id": "M4_strong_skew_t0_G1_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t0_G1_G2.npz",
+      "operators_sha256": "1f7cb29096a1ee67f94cdb8fc7911ea1abd84d9934b639c44031a7a49761eee0",
+      "details": "data/phase1d_evidence/M4_strong_skew_t0_G1_G2.json",
+      "details_sha256": "47dd5c6e000d316b0ab6b92a2d89793e474a0c9533524585ed74bbd7c08c22e2"
+    },
+    {
+      "row_id": "M4_strong_skew_t0_G2_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t0_G2_G2.npz",
+      "operators_sha256": "7db04b860163ac85fe499998c2ded07672d12d1518ff7273354b153daa7871bd",
+      "details": "data/phase1d_evidence/M4_strong_skew_t0_G2_G2.json",
+      "details_sha256": "47418a4c52f6fe020ff8c1a80994b10877255dc7563c47c1f34866032ce47a2e"
+    },
+    {
+      "row_id": "M4_strong_skew_t0_G3_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t0_G3_G2.npz",
+      "operators_sha256": "7db04b860163ac85fe499998c2ded07672d12d1518ff7273354b153daa7871bd",
+      "details": "data/phase1d_evidence/M4_strong_skew_t0_G3_G2.json",
+      "details_sha256": "797d7d0835b3727e353e3c45fdc9fb474f0060d661c6c661bfd1c646be7f6ed7"
+    },
+    {
+      "row_id": "M4_strong_skew_t1_G0_G1",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t1_G0_G1.npz",
+      "operators_sha256": "517821dad6f59acca8a31bb2f877a6344769a5ac86c5766d27b4a16a45688743",
+      "details": "data/phase1d_evidence/M4_strong_skew_t1_G0_G1.json",
+      "details_sha256": "4d67dbbbed72cb30afbdc5d26a0800ee123acd1cbf8f53b279eb06227be0a900"
+    },
+    {
+      "row_id": "M4_strong_skew_t1_G1_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t1_G1_G2.npz",
+      "operators_sha256": "1f7cb29096a1ee67f94cdb8fc7911ea1abd84d9934b639c44031a7a49761eee0",
+      "details": "data/phase1d_evidence/M4_strong_skew_t1_G1_G2.json",
+      "details_sha256": "7341a283261fdecc824d0c7bb180009ddbcd05fb9f726e3af68bbaf6cd63baa3"
+    },
+    {
+      "row_id": "M4_strong_skew_t1_G2_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t1_G2_G2.npz",
+      "operators_sha256": "7db04b860163ac85fe499998c2ded07672d12d1518ff7273354b153daa7871bd",
+      "details": "data/phase1d_evidence/M4_strong_skew_t1_G2_G2.json",
+      "details_sha256": "e6216fabdc75a4191f6947aef9ae6a4e22068f78cd3c1ae9b21bbc964dd5374a"
+    },
+    {
+      "row_id": "M4_strong_skew_t1_G3_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t1_G3_G2.npz",
+      "operators_sha256": "7db04b860163ac85fe499998c2ded07672d12d1518ff7273354b153daa7871bd",
+      "details": "data/phase1d_evidence/M4_strong_skew_t1_G3_G2.json",
+      "details_sha256": "027786e65d7e25eea3ac98541781ec13bfe0e1db6e3db3f47d521b0a2ec3ee15"
+    },
+    {
+      "row_id": "M4_strong_skew_t2_G0_G1",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t2_G0_G1.npz",
+      "operators_sha256": "517821dad6f59acca8a31bb2f877a6344769a5ac86c5766d27b4a16a45688743",
+      "details": "data/phase1d_evidence/M4_strong_skew_t2_G0_G1.json",
+      "details_sha256": "ec9e0d039d71523b2fa0a88b4c6b30b678771b679887a91965c9c201734010fe"
+    },
+    {
+      "row_id": "M4_strong_skew_t2_G1_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t2_G1_G2.npz",
+      "operators_sha256": "1f7cb29096a1ee67f94cdb8fc7911ea1abd84d9934b639c44031a7a49761eee0",
+      "details": "data/phase1d_evidence/M4_strong_skew_t2_G1_G2.json",
+      "details_sha256": "22596d8179e33496dc628823e555b02d18840206d75ca0b466a982443c17282a"
+    },
+    {
+      "row_id": "M4_strong_skew_t2_G2_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t2_G2_G2.npz",
+      "operators_sha256": "7db04b860163ac85fe499998c2ded07672d12d1518ff7273354b153daa7871bd",
+      "details": "data/phase1d_evidence/M4_strong_skew_t2_G2_G2.json",
+      "details_sha256": "d0fb9cb4a108523bfa33d59ae489af68d41e7712ac23500221fadc4e871e583c"
+    },
+    {
+      "row_id": "M4_strong_skew_t2_G3_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t2_G3_G2.npz",
+      "operators_sha256": "7db04b860163ac85fe499998c2ded07672d12d1518ff7273354b153daa7871bd",
+      "details": "data/phase1d_evidence/M4_strong_skew_t2_G3_G2.json",
+      "details_sha256": "110777a533af003506132e3f1593629543031b5f70cf368fd0900a9ff01dd4e2"
+    },
+    {
+      "row_id": "M4_strong_skew_t3_G0_G1",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t3_G0_G1.npz",
+      "operators_sha256": "517821dad6f59acca8a31bb2f877a6344769a5ac86c5766d27b4a16a45688743",
+      "details": "data/phase1d_evidence/M4_strong_skew_t3_G0_G1.json",
+      "details_sha256": "afc3e62018aec709c8cc050d946981a05920d35ed7fdfd2b657e6be0b8d5cc2c"
+    },
+    {
+      "row_id": "M4_strong_skew_t3_G1_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t3_G1_G2.npz",
+      "operators_sha256": "1f7cb29096a1ee67f94cdb8fc7911ea1abd84d9934b639c44031a7a49761eee0",
+      "details": "data/phase1d_evidence/M4_strong_skew_t3_G1_G2.json",
+      "details_sha256": "3ab0062c8b1c3798efa4a4da9a2cbaf728769eb22f7f74afd18479b462de6933"
+    },
+    {
+      "row_id": "M4_strong_skew_t3_G2_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t3_G2_G2.npz",
+      "operators_sha256": "7db04b860163ac85fe499998c2ded07672d12d1518ff7273354b153daa7871bd",
+      "details": "data/phase1d_evidence/M4_strong_skew_t3_G2_G2.json",
+      "details_sha256": "1068c14bbba4b1964e9eaba74205d1c0d4817a401961b85361c8c0cc928ed682"
+    },
+    {
+      "row_id": "M4_strong_skew_t3_G3_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t3_G3_G2.npz",
+      "operators_sha256": "7db04b860163ac85fe499998c2ded07672d12d1518ff7273354b153daa7871bd",
+      "details": "data/phase1d_evidence/M4_strong_skew_t3_G3_G2.json",
+      "details_sha256": "1e403131c27f685132e1180085a2faab8eabb5a6cfee43565e34d59708ab753d"
+    },
+    {
+      "row_id": "M4_strong_skew_t4_G0_G1",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t4_G0_G1.npz",
+      "operators_sha256": "517821dad6f59acca8a31bb2f877a6344769a5ac86c5766d27b4a16a45688743",
+      "details": "data/phase1d_evidence/M4_strong_skew_t4_G0_G1.json",
+      "details_sha256": "a7acd36cf295e6fd2c6744312e978b63888f89dd4f4b525ee1585577d66700ba"
+    },
+    {
+      "row_id": "M4_strong_skew_t4_G1_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t4_G1_G2.npz",
+      "operators_sha256": "1f7cb29096a1ee67f94cdb8fc7911ea1abd84d9934b639c44031a7a49761eee0",
+      "details": "data/phase1d_evidence/M4_strong_skew_t4_G1_G2.json",
+      "details_sha256": "7687912fdba0df75abc236094910f6e9dfa992b90074c5932e6e8bf41c2ef574"
+    },
+    {
+      "row_id": "M4_strong_skew_t4_G2_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t4_G2_G2.npz",
+      "operators_sha256": "7db04b860163ac85fe499998c2ded07672d12d1518ff7273354b153daa7871bd",
+      "details": "data/phase1d_evidence/M4_strong_skew_t4_G2_G2.json",
+      "details_sha256": "5aa8191144fcf762ff1d9fb88e48bc48647a7807b039b24ff35bbddfa5f9bd3b"
+    },
+    {
+      "row_id": "M4_strong_skew_t4_G3_G2",
+      "operators": "data/phase1d_evidence/M4_strong_skew_t4_G3_G2.npz",
+      "operators_sha256": "7db04b860163ac85fe499998c2ded07672d12d1518ff7273354b153daa7871bd",
+      "details": "data/phase1d_evidence/M4_strong_skew_t4_G3_G2.json",
+      "details_sha256": "b12a83561f66b91a6af92a8b70a6e6b2d3f032bd19b94cc7591a570628dd5928"
+    },
+    {
+      "row_id": "M8_near_uniform_t0_G0_G1",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t0_G0_G1.npz",
+      "operators_sha256": "9221777f77bbb93618ca2cea6d71047dd3ab98883653245ace051e6a7298bd57",
+      "details": "data/phase1d_evidence/M8_near_uniform_t0_G0_G1.json",
+      "details_sha256": "0022be6eb8dbd76864ff4eb24b0b449f62abcd72fe97abdf702ac798dceca01e"
+    },
+    {
+      "row_id": "M8_near_uniform_t0_G1_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t0_G1_G2.npz",
+      "operators_sha256": "009048f536bbf86a5ba04bf023ff2d55c8c506e0052a4cef402dac211682e1a1",
+      "details": "data/phase1d_evidence/M8_near_uniform_t0_G1_G2.json",
+      "details_sha256": "2b135f6750cf5204277647076dedb411380b0c9b2d32ca31790cd214cbd26c56"
+    },
+    {
+      "row_id": "M8_near_uniform_t0_G1_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t0_G1_G4.npz",
+      "operators_sha256": "7cc114ba2175a563e2c1a111e52332bab50ec5a7f7a6b35a12d08e8384bb6ba7",
+      "details": "data/phase1d_evidence/M8_near_uniform_t0_G1_G4.json",
+      "details_sha256": "6a67e400531392c094b8cdb66d0100577ed27b43e4b62ba58675fb5bf3809ea1"
+    },
+    {
+      "row_id": "M8_near_uniform_t0_G2_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t0_G2_G2.npz",
+      "operators_sha256": "9b96da7683fa018e105bb1b58a47dece2a63af2006da89b83a93c8392fa5d7e5",
+      "details": "data/phase1d_evidence/M8_near_uniform_t0_G2_G2.json",
+      "details_sha256": "b68a9e1e47e1c68c702492f6cf6f35b9ea9ec7c3acc9999a469552842a0a4bfd"
+    },
+    {
+      "row_id": "M8_near_uniform_t0_G2_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t0_G2_G4.npz",
+      "operators_sha256": "617251ff34253ef803cebd187c958371d1369496e4aa926ab078af9a1e1fedb7",
+      "details": "data/phase1d_evidence/M8_near_uniform_t0_G2_G4.json",
+      "details_sha256": "fec126dab2b3c1db2d6e578f83bc8df1a63580ca4d3227767f84528c6783770a"
+    },
+    {
+      "row_id": "M8_near_uniform_t0_G3_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t0_G3_G2.npz",
+      "operators_sha256": "295d959c446c5d7820ac5266cb0204f22969ae6762b022144630206019d3dce8",
+      "details": "data/phase1d_evidence/M8_near_uniform_t0_G3_G2.json",
+      "details_sha256": "cdb1bc4e7798d203a5721ed5c0073e256f2d504bd79ac46c9b56424e019dd004"
+    },
+    {
+      "row_id": "M8_near_uniform_t0_G3_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t0_G3_G4.npz",
+      "operators_sha256": "dbd2470d8d6d84619ee0343a5f48c73fc4f9d6dd443ff70dc418476ba1af360f",
+      "details": "data/phase1d_evidence/M8_near_uniform_t0_G3_G4.json",
+      "details_sha256": "2a97c5ce7a7f57c67c134626061bcfe4f71bc00c89aed93a942f673e35ac413e"
+    },
+    {
+      "row_id": "M8_near_uniform_t1_G0_G1",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t1_G0_G1.npz",
+      "operators_sha256": "50a6945cc6b8955771aa4e6d01d7c4806d6968a9280975cf0833363c92e0fe78",
+      "details": "data/phase1d_evidence/M8_near_uniform_t1_G0_G1.json",
+      "details_sha256": "4cfe14eb60b312c7eb3c6963022156790d8a2b1e24d7894161bd1088634ce729"
+    },
+    {
+      "row_id": "M8_near_uniform_t1_G1_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t1_G1_G2.npz",
+      "operators_sha256": "2ecdb0c8ae74d7c3a4d1b7a76850ec69eb5a5ae22dc532ae6a86de9e579ac57b",
+      "details": "data/phase1d_evidence/M8_near_uniform_t1_G1_G2.json",
+      "details_sha256": "1bf38e6bc1c30fe54ee38cc131a4b2fb10da4ea12324338f2644119b635e5215"
+    },
+    {
+      "row_id": "M8_near_uniform_t1_G1_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t1_G1_G4.npz",
+      "operators_sha256": "fb5f1e786263a847312ec25f354f4b87d46a673edcc4af25526ea3fab188b5e1",
+      "details": "data/phase1d_evidence/M8_near_uniform_t1_G1_G4.json",
+      "details_sha256": "46d55d34cab04a1586ff92911e7684c9d74122b2400690b7ef9e7e383cc2772e"
+    },
+    {
+      "row_id": "M8_near_uniform_t1_G2_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t1_G2_G2.npz",
+      "operators_sha256": "8171cb1f5441a47b3f41ad86a60c976918a3edb9994adb9ad89fe92059d65d51",
+      "details": "data/phase1d_evidence/M8_near_uniform_t1_G2_G2.json",
+      "details_sha256": "dd37f8d5e06b2d2ee4b91bf3c735b73b90a531687f5e1c2b99dbdd4017925d65"
+    },
+    {
+      "row_id": "M8_near_uniform_t1_G2_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t1_G2_G4.npz",
+      "operators_sha256": "49a26fecb48f1ab109894147f16bb8abd19b01031321f9407487e96be8c5b055",
+      "details": "data/phase1d_evidence/M8_near_uniform_t1_G2_G4.json",
+      "details_sha256": "bd8b3da2360084f817dae2b50c995a1703d4f4f78507c983bdcf25b1b29f6f8e"
+    },
+    {
+      "row_id": "M8_near_uniform_t1_G3_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t1_G3_G2.npz",
+      "operators_sha256": "018ba3d80af2af8b9b8e0f99a2b9090432f2d46da1be26184f5840ac5f6a892d",
+      "details": "data/phase1d_evidence/M8_near_uniform_t1_G3_G2.json",
+      "details_sha256": "6bd02d35dd3b0fc62fe51f725f44e05452623fe328a3d37cc88e4310438930e2"
+    },
+    {
+      "row_id": "M8_near_uniform_t1_G3_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t1_G3_G4.npz",
+      "operators_sha256": "d78ea76fff7cd1d5e6ed406524f8983f23b82c8a907669b811c5f77dc192bf84",
+      "details": "data/phase1d_evidence/M8_near_uniform_t1_G3_G4.json",
+      "details_sha256": "b89b6f755f2139e55764549bc5af70b5916e2c28aba222181fccd5d371935781"
+    },
+    {
+      "row_id": "M8_near_uniform_t2_G0_G1",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t2_G0_G1.npz",
+      "operators_sha256": "ce6db9736ef98afcfc0860d01535e0636496c98fe732ff7ad4abb6fff57bafaa",
+      "details": "data/phase1d_evidence/M8_near_uniform_t2_G0_G1.json",
+      "details_sha256": "d4e07165eed29eda4f3a0fe6815fad3b4f73f31970564b39e87393177a6be880"
+    },
+    {
+      "row_id": "M8_near_uniform_t2_G1_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t2_G1_G2.npz",
+      "operators_sha256": "b80d1436f11e39dc61d5a230f5ac5efe1d2e83ab0f271596f09b82feda241c2f",
+      "details": "data/phase1d_evidence/M8_near_uniform_t2_G1_G2.json",
+      "details_sha256": "762acbd653256cafb5367a4224dabe6c3e61e74f818b15c3bc3a7ad783c808f4"
+    },
+    {
+      "row_id": "M8_near_uniform_t2_G1_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t2_G1_G4.npz",
+      "operators_sha256": "6f620d934874f151180c623e59314100393ef985f16210f2893eacce974410a9",
+      "details": "data/phase1d_evidence/M8_near_uniform_t2_G1_G4.json",
+      "details_sha256": "0264b8f1a26ce519fafdbc8adcbda91fd6ba8df03b1bba6fda48ed65c5c6122c"
+    },
+    {
+      "row_id": "M8_near_uniform_t2_G2_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t2_G2_G2.npz",
+      "operators_sha256": "17065c37d2d3ccde7cb1e7ba808728c68d59af001d4ca3861067e42b9954b416",
+      "details": "data/phase1d_evidence/M8_near_uniform_t2_G2_G2.json",
+      "details_sha256": "1f4faa453d79007009aaf2282338ae1cbdf8cbd20157030adba62671e810765d"
+    },
+    {
+      "row_id": "M8_near_uniform_t2_G2_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t2_G2_G4.npz",
+      "operators_sha256": "122c2b3d49bc6a57a5190306c810942d7d545a25e622e9bde8228216a9409c3d",
+      "details": "data/phase1d_evidence/M8_near_uniform_t2_G2_G4.json",
+      "details_sha256": "69d2ce2245b493e3daa1fcd71a8fdea20a74054039b995ea0185fcb16f674583"
+    },
+    {
+      "row_id": "M8_near_uniform_t2_G3_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t2_G3_G2.npz",
+      "operators_sha256": "2548aaa429325daa764a37619ae34bd5eb5232f03e55a9b60c01579904f28914",
+      "details": "data/phase1d_evidence/M8_near_uniform_t2_G3_G2.json",
+      "details_sha256": "364660c7aa2e62312e3c6ce2429f9530650739a3ffa7972cf57dbe57ba8a7409"
+    },
+    {
+      "row_id": "M8_near_uniform_t2_G3_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t2_G3_G4.npz",
+      "operators_sha256": "6dfcd2272bccd4518ca3be4a2c459641c19f748e10b8303b6f457afe13c5c042",
+      "details": "data/phase1d_evidence/M8_near_uniform_t2_G3_G4.json",
+      "details_sha256": "912126edbeedeec50a2d5c1c521ad7072201c4823386565600d8f7b832beabf5"
+    },
+    {
+      "row_id": "M8_near_uniform_t3_G0_G1",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t3_G0_G1.npz",
+      "operators_sha256": "f09143e62c4d205a97c15a2dc26cdb2f1b91c690aa6e46883daec92c652d685f",
+      "details": "data/phase1d_evidence/M8_near_uniform_t3_G0_G1.json",
+      "details_sha256": "d1bc1ea80ab8ec54f872c7ebd287a03654ed134dbe7a96d19174549059d8cde0"
+    },
+    {
+      "row_id": "M8_near_uniform_t3_G1_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t3_G1_G2.npz",
+      "operators_sha256": "c279dd881a8c2616209909158a37c954299357235d7296eb3f73861476cc3fa8",
+      "details": "data/phase1d_evidence/M8_near_uniform_t3_G1_G2.json",
+      "details_sha256": "61890d7629c8761b56dca397100bbdf9a9ab4e1e22b0d05d805eb4bfe7a20ea5"
+    },
+    {
+      "row_id": "M8_near_uniform_t3_G1_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t3_G1_G4.npz",
+      "operators_sha256": "1e963364f737d744a3491f3e6d203d166a3bec4fa40f6466c09e4bc764802da0",
+      "details": "data/phase1d_evidence/M8_near_uniform_t3_G1_G4.json",
+      "details_sha256": "61ff184111572ebf267e066e652dc59672ea8f7902a92c5944ad22357e4c5198"
+    },
+    {
+      "row_id": "M8_near_uniform_t3_G2_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t3_G2_G2.npz",
+      "operators_sha256": "ad9062b9d44883d20685bbb3c3bb646dbf90046c5ffbb425a1a64583efe6f3f9",
+      "details": "data/phase1d_evidence/M8_near_uniform_t3_G2_G2.json",
+      "details_sha256": "f2163c41764698f61ccf81eb8738ed9ede6c7b21c828c470cf64888610b8b5b2"
+    },
+    {
+      "row_id": "M8_near_uniform_t3_G2_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t3_G2_G4.npz",
+      "operators_sha256": "56dd12f220e82503fc0daba9a786daeac1492416f884e974e367bada1cbc4f2c",
+      "details": "data/phase1d_evidence/M8_near_uniform_t3_G2_G4.json",
+      "details_sha256": "8e9e71831e5f4d5c201a229381eafb643c3967cd85ec4b468e293985376f9504"
+    },
+    {
+      "row_id": "M8_near_uniform_t3_G3_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t3_G3_G2.npz",
+      "operators_sha256": "dec023264eb9a9a00ef9d334bed99b4c2d88a13e788e1b750ab054199bf354c6",
+      "details": "data/phase1d_evidence/M8_near_uniform_t3_G3_G2.json",
+      "details_sha256": "9db38cd2aeab447bd070469f682a66eaafe08fea350d54856ea019b996d60cd4"
+    },
+    {
+      "row_id": "M8_near_uniform_t3_G3_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t3_G3_G4.npz",
+      "operators_sha256": "cbf738dfeaff9c00130e0772d5aaed1cdf749b824e6e6b052ae0b011383852d4",
+      "details": "data/phase1d_evidence/M8_near_uniform_t3_G3_G4.json",
+      "details_sha256": "9dd1fe30e8a0dda91a2e0023d3eb5c1ec5eeb29ec4502da575a12c17e1f67e09"
+    },
+    {
+      "row_id": "M8_near_uniform_t4_G0_G1",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t4_G0_G1.npz",
+      "operators_sha256": "b1a5254f2a6a07c10e9f71d2411188d3f632456810ba25516c19ca78ecdee700",
+      "details": "data/phase1d_evidence/M8_near_uniform_t4_G0_G1.json",
+      "details_sha256": "bd23cc8d3892040ee5ca8b3f4df15e2add9283ea44d43fe7a6725080155c1a7f"
+    },
+    {
+      "row_id": "M8_near_uniform_t4_G1_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t4_G1_G2.npz",
+      "operators_sha256": "eedb6afffd3fb4e2e1e4f09ae0a44771097253e4929cd09ac9ace71eb0a9b2b8",
+      "details": "data/phase1d_evidence/M8_near_uniform_t4_G1_G2.json",
+      "details_sha256": "55c42e095e884a59d66cfdf411a0ef494680499c9897ddac521e34c78763350a"
+    },
+    {
+      "row_id": "M8_near_uniform_t4_G1_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t4_G1_G4.npz",
+      "operators_sha256": "155de07cf3c8b6f03597ab0df443907af547d1a8eaf8ac7738bfdcdf53ba2401",
+      "details": "data/phase1d_evidence/M8_near_uniform_t4_G1_G4.json",
+      "details_sha256": "d264f3eaf0c603816f5879770c834d107e4c220797578135fbcfe45397c52dc8"
+    },
+    {
+      "row_id": "M8_near_uniform_t4_G2_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t4_G2_G2.npz",
+      "operators_sha256": "f395bd10b06c989e6d2ab1308d92610b8622800a4ab18661656cabaae072905e",
+      "details": "data/phase1d_evidence/M8_near_uniform_t4_G2_G2.json",
+      "details_sha256": "3f89901ee6a96e35e9720ab2d1f97f775883fa2298a0e6ab47b23741949133cc"
+    },
+    {
+      "row_id": "M8_near_uniform_t4_G2_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t4_G2_G4.npz",
+      "operators_sha256": "0658cb625286773113b3583f9df127ecaf1ccf49391117440d501d93c6ab163f",
+      "details": "data/phase1d_evidence/M8_near_uniform_t4_G2_G4.json",
+      "details_sha256": "d9be333f5e9187375be4b6ff3f82d8ee1b6ff3ef57fefd663a82941571f74184"
+    },
+    {
+      "row_id": "M8_near_uniform_t4_G3_G2",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t4_G3_G2.npz",
+      "operators_sha256": "6cf0b7389d6e4d419eb6daefcf7e26ee9bb97eb32034db76a4bfab68af6c2371",
+      "details": "data/phase1d_evidence/M8_near_uniform_t4_G3_G2.json",
+      "details_sha256": "7702f555c64305f3ad340ca62a8428abb39f07c7589157c646fd50efcdaa8588"
+    },
+    {
+      "row_id": "M8_near_uniform_t4_G3_G4",
+      "operators": "data/phase1d_evidence/M8_near_uniform_t4_G3_G4.npz",
+      "operators_sha256": "313363d2d98421a70aa3e2e20c16403562060180065b490cc2f725abd086df89",
+      "details": "data/phase1d_evidence/M8_near_uniform_t4_G3_G4.json",
+      "details_sha256": "df298e8fb46fe4f6f46ba3cf0fcaa3580c7d42530e0cde0a4c25019604e36a98"
+    },
+    {
+      "row_id": "M8_zipf_t0_G0_G1",
+      "operators": "data/phase1d_evidence/M8_zipf_t0_G0_G1.npz",
+      "operators_sha256": "73a2372ce409c84d703a9a2b3f6806b1b89a2c98cdaf536af4eb4c85afe51639",
+      "details": "data/phase1d_evidence/M8_zipf_t0_G0_G1.json",
+      "details_sha256": "b2fc1cbdc8ddfb9d53cc10eca9dee2907b7f397f6b4e35331f779211ff8042a7"
+    },
+    {
+      "row_id": "M8_zipf_t0_G1_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t0_G1_G2.npz",
+      "operators_sha256": "134247f6992fccb272b8d5381b9c759cbf92a60cc08d0eff00d60f04d6e682c2",
+      "details": "data/phase1d_evidence/M8_zipf_t0_G1_G2.json",
+      "details_sha256": "6e7b3da2a8a78da984dfaf0938ff5bc57eb70e7544f6c20123209efaf4bb7fc2"
+    },
+    {
+      "row_id": "M8_zipf_t0_G1_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t0_G1_G4.npz",
+      "operators_sha256": "39da2f399f677f19b1bb07a54ab2b9f35478a4d560157f58aa2608fce6d86859",
+      "details": "data/phase1d_evidence/M8_zipf_t0_G1_G4.json",
+      "details_sha256": "e7bafa743516fbb86fa9f396e51ad08decb4168e2b8ebcf18dce3b9f3cd4ca3a"
+    },
+    {
+      "row_id": "M8_zipf_t0_G2_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t0_G2_G2.npz",
+      "operators_sha256": "fc2aeb4efe00d8a2f7e0f54ad0d6e702a22860bee3032021c33f0da9dd70f910",
+      "details": "data/phase1d_evidence/M8_zipf_t0_G2_G2.json",
+      "details_sha256": "1684bc7c12eb165c83f47445c8af649ada39bd3f9f5c5ff613ab88c6ec6c8e68"
+    },
+    {
+      "row_id": "M8_zipf_t0_G2_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t0_G2_G4.npz",
+      "operators_sha256": "c32a5984c522003daaf58a5614e5efb4492ed7608b265a17ef0fcf0c673f1fde",
+      "details": "data/phase1d_evidence/M8_zipf_t0_G2_G4.json",
+      "details_sha256": "50b1d3198d1b584cbe73d28a73be8ba5fb9a76b5c03244174b545ac89df5f1fc"
+    },
+    {
+      "row_id": "M8_zipf_t0_G3_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t0_G3_G2.npz",
+      "operators_sha256": "f10f5520f49f3eccb79fd2026bce1c1785b4b693c5adbf33567d404135d7cde2",
+      "details": "data/phase1d_evidence/M8_zipf_t0_G3_G2.json",
+      "details_sha256": "078c12ae298e9dcbd16a4442a5a0916639332c6342b0cf96bec0f85e9576c6b5"
+    },
+    {
+      "row_id": "M8_zipf_t0_G3_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t0_G3_G4.npz",
+      "operators_sha256": "7305a1826c124879158ba339dfb230a4963e4db5fdf27cb6435282212e40e218",
+      "details": "data/phase1d_evidence/M8_zipf_t0_G3_G4.json",
+      "details_sha256": "cc4e91c9fcba2d1d61eaf487bf450ae7eacd887ec7aacf396fb0511f7aaffaa3"
+    },
+    {
+      "row_id": "M8_zipf_t1_G0_G1",
+      "operators": "data/phase1d_evidence/M8_zipf_t1_G0_G1.npz",
+      "operators_sha256": "73a2372ce409c84d703a9a2b3f6806b1b89a2c98cdaf536af4eb4c85afe51639",
+      "details": "data/phase1d_evidence/M8_zipf_t1_G0_G1.json",
+      "details_sha256": "02cdff7c6e36d7b25c702cf75082162a4caf1b1ad23af818b1f40578be8bd6e1"
+    },
+    {
+      "row_id": "M8_zipf_t1_G1_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t1_G1_G2.npz",
+      "operators_sha256": "134247f6992fccb272b8d5381b9c759cbf92a60cc08d0eff00d60f04d6e682c2",
+      "details": "data/phase1d_evidence/M8_zipf_t1_G1_G2.json",
+      "details_sha256": "0ef8b301c4798bb7540c15a864f3957f9a65b10964bd177463a874b9530389a6"
+    },
+    {
+      "row_id": "M8_zipf_t1_G1_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t1_G1_G4.npz",
+      "operators_sha256": "39da2f399f677f19b1bb07a54ab2b9f35478a4d560157f58aa2608fce6d86859",
+      "details": "data/phase1d_evidence/M8_zipf_t1_G1_G4.json",
+      "details_sha256": "882d4636238eedb53926478bcb9fc22107cfc83c863ac1593172b74dd6c7003f"
+    },
+    {
+      "row_id": "M8_zipf_t1_G2_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t1_G2_G2.npz",
+      "operators_sha256": "fc2aeb4efe00d8a2f7e0f54ad0d6e702a22860bee3032021c33f0da9dd70f910",
+      "details": "data/phase1d_evidence/M8_zipf_t1_G2_G2.json",
+      "details_sha256": "163af56d34e574d8f34301df590f69d6fd86fb423b9134c447112bf81a746a3d"
+    },
+    {
+      "row_id": "M8_zipf_t1_G2_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t1_G2_G4.npz",
+      "operators_sha256": "c32a5984c522003daaf58a5614e5efb4492ed7608b265a17ef0fcf0c673f1fde",
+      "details": "data/phase1d_evidence/M8_zipf_t1_G2_G4.json",
+      "details_sha256": "90b609169dd61c74d5e452b4c7ad383a2b3d21377de8d74f8439f4ea23e59aa2"
+    },
+    {
+      "row_id": "M8_zipf_t1_G3_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t1_G3_G2.npz",
+      "operators_sha256": "f10f5520f49f3eccb79fd2026bce1c1785b4b693c5adbf33567d404135d7cde2",
+      "details": "data/phase1d_evidence/M8_zipf_t1_G3_G2.json",
+      "details_sha256": "c8e046773c0a43031bc62c3963521a03579358cf0c1c71f30e734f75ed33bdd4"
+    },
+    {
+      "row_id": "M8_zipf_t1_G3_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t1_G3_G4.npz",
+      "operators_sha256": "7305a1826c124879158ba339dfb230a4963e4db5fdf27cb6435282212e40e218",
+      "details": "data/phase1d_evidence/M8_zipf_t1_G3_G4.json",
+      "details_sha256": "f21d5886ecc12251a68e4b01dc86ae2b0783c98f54c276fd5ee8da13b9f4375d"
+    },
+    {
+      "row_id": "M8_zipf_t2_G0_G1",
+      "operators": "data/phase1d_evidence/M8_zipf_t2_G0_G1.npz",
+      "operators_sha256": "73a2372ce409c84d703a9a2b3f6806b1b89a2c98cdaf536af4eb4c85afe51639",
+      "details": "data/phase1d_evidence/M8_zipf_t2_G0_G1.json",
+      "details_sha256": "b88b1d7a8745e7a74ff67e698a00e49610dd4414b4f6af246fce5f40217f0a95"
+    },
+    {
+      "row_id": "M8_zipf_t2_G1_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t2_G1_G2.npz",
+      "operators_sha256": "134247f6992fccb272b8d5381b9c759cbf92a60cc08d0eff00d60f04d6e682c2",
+      "details": "data/phase1d_evidence/M8_zipf_t2_G1_G2.json",
+      "details_sha256": "21a67fbf0dbb2864b5bac4994301a476155bb8f665d0e71d71e5e377196f4e44"
+    },
+    {
+      "row_id": "M8_zipf_t2_G1_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t2_G1_G4.npz",
+      "operators_sha256": "39da2f399f677f19b1bb07a54ab2b9f35478a4d560157f58aa2608fce6d86859",
+      "details": "data/phase1d_evidence/M8_zipf_t2_G1_G4.json",
+      "details_sha256": "774e5a939b7fa649bb0f7e1763f4a1c6982efdddc9f05491b14224be83628b99"
+    },
+    {
+      "row_id": "M8_zipf_t2_G2_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t2_G2_G2.npz",
+      "operators_sha256": "fc2aeb4efe00d8a2f7e0f54ad0d6e702a22860bee3032021c33f0da9dd70f910",
+      "details": "data/phase1d_evidence/M8_zipf_t2_G2_G2.json",
+      "details_sha256": "4982d81e8951fe824c52857e8cd3684e5e9f7c07912e7089d8de3ec235d839f5"
+    },
+    {
+      "row_id": "M8_zipf_t2_G2_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t2_G2_G4.npz",
+      "operators_sha256": "c32a5984c522003daaf58a5614e5efb4492ed7608b265a17ef0fcf0c673f1fde",
+      "details": "data/phase1d_evidence/M8_zipf_t2_G2_G4.json",
+      "details_sha256": "49c752ad4e0f8bfd3e9745eaa35d908be56caa2520075f4700d5294e6ca661f6"
+    },
+    {
+      "row_id": "M8_zipf_t2_G3_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t2_G3_G2.npz",
+      "operators_sha256": "f10f5520f49f3eccb79fd2026bce1c1785b4b693c5adbf33567d404135d7cde2",
+      "details": "data/phase1d_evidence/M8_zipf_t2_G3_G2.json",
+      "details_sha256": "28a7faf44fc912e6d6d7f44a8de3cd97814cfbe96779670a83d57c0ee9b54e46"
+    },
+    {
+      "row_id": "M8_zipf_t2_G3_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t2_G3_G4.npz",
+      "operators_sha256": "7305a1826c124879158ba339dfb230a4963e4db5fdf27cb6435282212e40e218",
+      "details": "data/phase1d_evidence/M8_zipf_t2_G3_G4.json",
+      "details_sha256": "514a80ac57264d0ae9b97ba52e8ec8649f637d51501453eb9ccf2aa45aaaf561"
+    },
+    {
+      "row_id": "M8_zipf_t3_G0_G1",
+      "operators": "data/phase1d_evidence/M8_zipf_t3_G0_G1.npz",
+      "operators_sha256": "73a2372ce409c84d703a9a2b3f6806b1b89a2c98cdaf536af4eb4c85afe51639",
+      "details": "data/phase1d_evidence/M8_zipf_t3_G0_G1.json",
+      "details_sha256": "5942bb28d8290bd1b1842321aa848d010fc4b87244d3c75d99ee6a55338c25ca"
+    },
+    {
+      "row_id": "M8_zipf_t3_G1_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t3_G1_G2.npz",
+      "operators_sha256": "134247f6992fccb272b8d5381b9c759cbf92a60cc08d0eff00d60f04d6e682c2",
+      "details": "data/phase1d_evidence/M8_zipf_t3_G1_G2.json",
+      "details_sha256": "d47b67d12997fbfb32ef2269133506992f09b3d12537ff812c143966bfe263a2"
+    },
+    {
+      "row_id": "M8_zipf_t3_G1_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t3_G1_G4.npz",
+      "operators_sha256": "39da2f399f677f19b1bb07a54ab2b9f35478a4d560157f58aa2608fce6d86859",
+      "details": "data/phase1d_evidence/M8_zipf_t3_G1_G4.json",
+      "details_sha256": "dd2a1b208ee6da48c5192ea770db2ce9a6ddd35a4972310d6a84023c7a6cea41"
+    },
+    {
+      "row_id": "M8_zipf_t3_G2_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t3_G2_G2.npz",
+      "operators_sha256": "fc2aeb4efe00d8a2f7e0f54ad0d6e702a22860bee3032021c33f0da9dd70f910",
+      "details": "data/phase1d_evidence/M8_zipf_t3_G2_G2.json",
+      "details_sha256": "dc37b512c970a43a3ca1fe745794f4e5d9a2a31ff50982a28de6021035ac9440"
+    },
+    {
+      "row_id": "M8_zipf_t3_G2_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t3_G2_G4.npz",
+      "operators_sha256": "c32a5984c522003daaf58a5614e5efb4492ed7608b265a17ef0fcf0c673f1fde",
+      "details": "data/phase1d_evidence/M8_zipf_t3_G2_G4.json",
+      "details_sha256": "1e2902fc5a5b734be444f593de33eb299583735539a18908288987d803ceb646"
+    },
+    {
+      "row_id": "M8_zipf_t3_G3_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t3_G3_G2.npz",
+      "operators_sha256": "f10f5520f49f3eccb79fd2026bce1c1785b4b693c5adbf33567d404135d7cde2",
+      "details": "data/phase1d_evidence/M8_zipf_t3_G3_G2.json",
+      "details_sha256": "606257b18a1688de45ed6a742c6efa0414276f60dd276ef908c0b0a5d4e7c7e6"
+    },
+    {
+      "row_id": "M8_zipf_t3_G3_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t3_G3_G4.npz",
+      "operators_sha256": "7305a1826c124879158ba339dfb230a4963e4db5fdf27cb6435282212e40e218",
+      "details": "data/phase1d_evidence/M8_zipf_t3_G3_G4.json",
+      "details_sha256": "16892aacd5f8113931e6e9aecc4ab290b37f1ffa97af88ca715d8faa9b3ae8b0"
+    },
+    {
+      "row_id": "M8_zipf_t4_G0_G1",
+      "operators": "data/phase1d_evidence/M8_zipf_t4_G0_G1.npz",
+      "operators_sha256": "73a2372ce409c84d703a9a2b3f6806b1b89a2c98cdaf536af4eb4c85afe51639",
+      "details": "data/phase1d_evidence/M8_zipf_t4_G0_G1.json",
+      "details_sha256": "8b5b57f4d3bd6610e2ec6d5a9157b7770da0bc7a5d63a1185eeae3be36ec7f92"
+    },
+    {
+      "row_id": "M8_zipf_t4_G1_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t4_G1_G2.npz",
+      "operators_sha256": "134247f6992fccb272b8d5381b9c759cbf92a60cc08d0eff00d60f04d6e682c2",
+      "details": "data/phase1d_evidence/M8_zipf_t4_G1_G2.json",
+      "details_sha256": "c56db5aa9fa72c54b64fa23e1f43d73bfb9fa780bf852aa5bd33110060729839"
+    },
+    {
+      "row_id": "M8_zipf_t4_G1_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t4_G1_G4.npz",
+      "operators_sha256": "39da2f399f677f19b1bb07a54ab2b9f35478a4d560157f58aa2608fce6d86859",
+      "details": "data/phase1d_evidence/M8_zipf_t4_G1_G4.json",
+      "details_sha256": "b69cda18d4ee2ebfa70ce18b0a876e452f28acad9ef5a578e3ccbddbc076925d"
+    },
+    {
+      "row_id": "M8_zipf_t4_G2_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t4_G2_G2.npz",
+      "operators_sha256": "fc2aeb4efe00d8a2f7e0f54ad0d6e702a22860bee3032021c33f0da9dd70f910",
+      "details": "data/phase1d_evidence/M8_zipf_t4_G2_G2.json",
+      "details_sha256": "5284af2df0782a8eba9d5e40b89925d6bc52dcecf8355b751c3801343c81ff4c"
+    },
+    {
+      "row_id": "M8_zipf_t4_G2_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t4_G2_G4.npz",
+      "operators_sha256": "c32a5984c522003daaf58a5614e5efb4492ed7608b265a17ef0fcf0c673f1fde",
+      "details": "data/phase1d_evidence/M8_zipf_t4_G2_G4.json",
+      "details_sha256": "3347115f451efd97f6e8cf9bb080d354dc001cea19cd8fe4d744f3ad35ea1fbf"
+    },
+    {
+      "row_id": "M8_zipf_t4_G3_G2",
+      "operators": "data/phase1d_evidence/M8_zipf_t4_G3_G2.npz",
+      "operators_sha256": "f10f5520f49f3eccb79fd2026bce1c1785b4b693c5adbf33567d404135d7cde2",
+      "details": "data/phase1d_evidence/M8_zipf_t4_G3_G2.json",
+      "details_sha256": "837ece7b0e5f9a6ad1c627ce312b261930646ac89282c6f1cbb4250b284f0b44"
+    },
+    {
+      "row_id": "M8_zipf_t4_G3_G4",
+      "operators": "data/phase1d_evidence/M8_zipf_t4_G3_G4.npz",
+      "operators_sha256": "7305a1826c124879158ba339dfb230a4963e4db5fdf27cb6435282212e40e218",
+      "details": "data/phase1d_evidence/M8_zipf_t4_G3_G4.json",
+      "details_sha256": "75a6c65811790de90e83133fe1e61b9fe3899e59a6fcca8cc459c0ec7c2b0b93"
+    },
+    {
+      "row_id": "M8_dirichlet_t0_G0_G1",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t0_G0_G1.npz",
+      "operators_sha256": "de08ee498997f9905e20fce1998f3b23c720039f8ca66bc72817ba72c10fbd3f",
+      "details": "data/phase1d_evidence/M8_dirichlet_t0_G0_G1.json",
+      "details_sha256": "6d9678fbff7a14df440cee4ac49d280017a0568dbb23969d0df73894af5924d3"
+    },
+    {
+      "row_id": "M8_dirichlet_t0_G1_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t0_G1_G2.npz",
+      "operators_sha256": "2352501a5bbda42d92cc514334ec612085bc80369744c7b7e16005d6f83325f8",
+      "details": "data/phase1d_evidence/M8_dirichlet_t0_G1_G2.json",
+      "details_sha256": "061b1d30bde01c8e8974964932ab688a9ed57029e73d9fe8d1f81478cbc04b3b"
+    },
+    {
+      "row_id": "M8_dirichlet_t0_G1_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t0_G1_G4.npz",
+      "operators_sha256": "4bd703053a16e564eaf570296b7db3d6aac05a6de776a3e7fcdb82ee50e0e863",
+      "details": "data/phase1d_evidence/M8_dirichlet_t0_G1_G4.json",
+      "details_sha256": "77a8f8784bb37c2cd94e6e070851fbad8b7db6874556892907602b3f781667aa"
+    },
+    {
+      "row_id": "M8_dirichlet_t0_G2_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t0_G2_G2.npz",
+      "operators_sha256": "7b0787eadefccf03651a384010d93b2e6e98d799b987e6bcf801052920cecce8",
+      "details": "data/phase1d_evidence/M8_dirichlet_t0_G2_G2.json",
+      "details_sha256": "142bb6c38628feb472ca7e463145be49897d16ebb66333dc7ab57bff1d5a42ce"
+    },
+    {
+      "row_id": "M8_dirichlet_t0_G2_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t0_G2_G4.npz",
+      "operators_sha256": "18283b2513c1349b546f5ee1e4a1dfa6a669427fa08ece0b1cf223e23ff3421f",
+      "details": "data/phase1d_evidence/M8_dirichlet_t0_G2_G4.json",
+      "details_sha256": "6bec99a866e83eeaf20da50c45caa014cb03391ff38347154f753a1abb7b041b"
+    },
+    {
+      "row_id": "M8_dirichlet_t0_G3_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t0_G3_G2.npz",
+      "operators_sha256": "1b99648b5a7afc55d47a613a5f09f5b2470eec092202824f888c1b5e2d947018",
+      "details": "data/phase1d_evidence/M8_dirichlet_t0_G3_G2.json",
+      "details_sha256": "13c2c32b252d9f480106742ab9b303f5e7020e804f29aad6f1e7427064f9b86c"
+    },
+    {
+      "row_id": "M8_dirichlet_t0_G3_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t0_G3_G4.npz",
+      "operators_sha256": "300f4d78ce067373b6f32182bec8e0f9d8be09b4d72032b3a0a214fb57c17418",
+      "details": "data/phase1d_evidence/M8_dirichlet_t0_G3_G4.json",
+      "details_sha256": "98f884d5dc89dbd314e02ec8cf046eb5ad8b00997a7384122088d533d27c7719"
+    },
+    {
+      "row_id": "M8_dirichlet_t1_G0_G1",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t1_G0_G1.npz",
+      "operators_sha256": "fc8e2d26eb21ace0ca0527de3e32cc84d4713bed364c843c52fd7a9f1ec26c95",
+      "details": "data/phase1d_evidence/M8_dirichlet_t1_G0_G1.json",
+      "details_sha256": "b52de9383a34ed3c18778e530e46d45bd82ce48b21a72d3f7c494f9850030c0d"
+    },
+    {
+      "row_id": "M8_dirichlet_t1_G1_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t1_G1_G2.npz",
+      "operators_sha256": "760d67486ce5eaff846e0da67e2786df6f869944ae11f7f339069526a5bc9b43",
+      "details": "data/phase1d_evidence/M8_dirichlet_t1_G1_G2.json",
+      "details_sha256": "2a48f9f0ea2dd73f759624c1a840ec3b8adec4e5a07d21a19fe916c6ff419f22"
+    },
+    {
+      "row_id": "M8_dirichlet_t1_G1_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t1_G1_G4.npz",
+      "operators_sha256": "f542a85b5e806449a0dbe9e16023444bd07271ca8d3445ae41bfe021296ba5e0",
+      "details": "data/phase1d_evidence/M8_dirichlet_t1_G1_G4.json",
+      "details_sha256": "94843d1e85dae9f88bc6c39162e94990a1220ad221cb4b04bcee937d14d3c3fb"
+    },
+    {
+      "row_id": "M8_dirichlet_t1_G2_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t1_G2_G2.npz",
+      "operators_sha256": "99be62a33bf599c6bb1754a26c16fc8b269ca40deff91091830a29c339d341bd",
+      "details": "data/phase1d_evidence/M8_dirichlet_t1_G2_G2.json",
+      "details_sha256": "9aaaf98c66691c7bf803b26cfb7201a8771f31c3651ce506ce13afcbc228cb0a"
+    },
+    {
+      "row_id": "M8_dirichlet_t1_G2_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t1_G2_G4.npz",
+      "operators_sha256": "e493606079adbd48b8aacf5cc2bccffa78c5014595b74b6e5c0ae70bbac4cc01",
+      "details": "data/phase1d_evidence/M8_dirichlet_t1_G2_G4.json",
+      "details_sha256": "f0bfd3abf20469a1fa2b65836a7791fd821e35e73fea5e75aa3e33f550cc35ca"
+    },
+    {
+      "row_id": "M8_dirichlet_t1_G3_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t1_G3_G2.npz",
+      "operators_sha256": "e61b17e72d06be92dd398a53acc87794e822a1a7f7eacf21170800155b4f75a1",
+      "details": "data/phase1d_evidence/M8_dirichlet_t1_G3_G2.json",
+      "details_sha256": "395dcce724fef3dc4c442ddc4a910a87c9b15696f77d7dea363d1e261d687852"
+    },
+    {
+      "row_id": "M8_dirichlet_t1_G3_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t1_G3_G4.npz",
+      "operators_sha256": "535b99b92bd1b0b8f78bb75047b129c0783475f23caffbe87191c4fd586272a9",
+      "details": "data/phase1d_evidence/M8_dirichlet_t1_G3_G4.json",
+      "details_sha256": "74502fbd05174a408a224e5000f6d3392300b8ab7b39547ab86fec8adf9a1983"
+    },
+    {
+      "row_id": "M8_dirichlet_t2_G0_G1",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t2_G0_G1.npz",
+      "operators_sha256": "8f21faa74d27f37fe805e19997866457f97cae77fc68f4f0148b36609098f9fe",
+      "details": "data/phase1d_evidence/M8_dirichlet_t2_G0_G1.json",
+      "details_sha256": "40d90aa503b0fffaeb05876fc15f10f9c6808ec4e88ebf4c408dde538491d93c"
+    },
+    {
+      "row_id": "M8_dirichlet_t2_G1_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t2_G1_G2.npz",
+      "operators_sha256": "307a5374ac2f8d5b45d4d460e5739d81dd3d1654c8a7142e2bc2e1316b3e5e01",
+      "details": "data/phase1d_evidence/M8_dirichlet_t2_G1_G2.json",
+      "details_sha256": "f914fd7d4670a91f144b0f9050e016c697166352051cce5f15b6b4ce5ab2f5eb"
+    },
+    {
+      "row_id": "M8_dirichlet_t2_G1_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t2_G1_G4.npz",
+      "operators_sha256": "7f5626bd4fdfef2945d42a3049fe912a4c9deab3932f1eb5010c7b4c317f3b8b",
+      "details": "data/phase1d_evidence/M8_dirichlet_t2_G1_G4.json",
+      "details_sha256": "aae1a369b693dd7c1aa56b5222ec586c8f073a7c012c7f2d916c8b8b4121383b"
+    },
+    {
+      "row_id": "M8_dirichlet_t2_G2_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t2_G2_G2.npz",
+      "operators_sha256": "23e8d27de25156a0395f47ac3ef9da1a58fd34169cbda7cffd6aa68580eab15b",
+      "details": "data/phase1d_evidence/M8_dirichlet_t2_G2_G2.json",
+      "details_sha256": "72013e3d3c6cc843ba5cc44b407e76135fbaaa1f57f38b89a44e0cd313cb56b4"
+    },
+    {
+      "row_id": "M8_dirichlet_t2_G2_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t2_G2_G4.npz",
+      "operators_sha256": "ade6bb06a825d11194adb19cc4dcfce124df46a71a9c7b10f5f9571f02184f80",
+      "details": "data/phase1d_evidence/M8_dirichlet_t2_G2_G4.json",
+      "details_sha256": "59191b701196c8c35a85d703d87c9c40c27808c414abb389b69f1d16a09907a8"
+    },
+    {
+      "row_id": "M8_dirichlet_t2_G3_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t2_G3_G2.npz",
+      "operators_sha256": "7cca47f8515a7d5072fad1a51c55aeb55daf75ef57ea8d8c1f5614a407a2c62d",
+      "details": "data/phase1d_evidence/M8_dirichlet_t2_G3_G2.json",
+      "details_sha256": "7cceb92372f81d8d649bdfa5949b405cb7a5acdfb69591224f39650c41d5b8e1"
+    },
+    {
+      "row_id": "M8_dirichlet_t2_G3_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t2_G3_G4.npz",
+      "operators_sha256": "2c955de57fe05a15f0b2f1063674f8582e4e51ca08b20fe0caa11867d6ec9e13",
+      "details": "data/phase1d_evidence/M8_dirichlet_t2_G3_G4.json",
+      "details_sha256": "775dc47fd4cbe59e93a5d6432512d23b4af1aa5844c04745923e6dc77a7be183"
+    },
+    {
+      "row_id": "M8_dirichlet_t3_G0_G1",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t3_G0_G1.npz",
+      "operators_sha256": "a3a279102f75020fde3af69edee50a5d1c0bfdb8d8d76bcdd4dfeb0d39ac952e",
+      "details": "data/phase1d_evidence/M8_dirichlet_t3_G0_G1.json",
+      "details_sha256": "7cf76eeb43485aedce875787e3b8a366d1747a3b7b8c332c7503f95568ec7e22"
+    },
+    {
+      "row_id": "M8_dirichlet_t3_G1_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t3_G1_G2.npz",
+      "operators_sha256": "faf0461e8c1e0ecb29b2123f7f030be456a924eb474e68d8418f07d89b754ef0",
+      "details": "data/phase1d_evidence/M8_dirichlet_t3_G1_G2.json",
+      "details_sha256": "0694b709dc39e2ca0f50f4da88782f2add36991deeb06b5ce2664bcf6b5d9a3f"
+    },
+    {
+      "row_id": "M8_dirichlet_t3_G1_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t3_G1_G4.npz",
+      "operators_sha256": "59ce128b33ec4b36e808a9dff3dff13592b2db1578247707a1d625d12b4b4518",
+      "details": "data/phase1d_evidence/M8_dirichlet_t3_G1_G4.json",
+      "details_sha256": "4ef80864fc4e4506625a0b0329246727e4550c10adedd9440571a4bd5b8bae77"
+    },
+    {
+      "row_id": "M8_dirichlet_t3_G2_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t3_G2_G2.npz",
+      "operators_sha256": "bf4c311871823544e27e4d3805131c75a3f4de8a3b87d4ef719e1fcfdffebf26",
+      "details": "data/phase1d_evidence/M8_dirichlet_t3_G2_G2.json",
+      "details_sha256": "b2d13cee8bdd22ff46b3dfad519b80391609f122c430efef107fb2ea7bab5b58"
+    },
+    {
+      "row_id": "M8_dirichlet_t3_G2_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t3_G2_G4.npz",
+      "operators_sha256": "cf46e9373bfad29be06fdd335327b42985b884b52bcc170504b0def01b1e040a",
+      "details": "data/phase1d_evidence/M8_dirichlet_t3_G2_G4.json",
+      "details_sha256": "985c4f5f6ecbb75cf0687f42b2e5362e5367ba715092582d06a7663d31494227"
+    },
+    {
+      "row_id": "M8_dirichlet_t3_G3_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t3_G3_G2.npz",
+      "operators_sha256": "b85d66c5aa7e5069e57abbb90a4c3604f2d542b4b0a15bc8ffc03b746a5ea892",
+      "details": "data/phase1d_evidence/M8_dirichlet_t3_G3_G2.json",
+      "details_sha256": "b833e5924900fee5c58a449b6d034de9998ab0ae206a0a2d0014f02c17df3f4b"
+    },
+    {
+      "row_id": "M8_dirichlet_t3_G3_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t3_G3_G4.npz",
+      "operators_sha256": "420c5d622513d429d25bfaa3eb13275420198b6011acfeb8c4b8dec5902534fa",
+      "details": "data/phase1d_evidence/M8_dirichlet_t3_G3_G4.json",
+      "details_sha256": "1f93075c895a87c81a6845c893e7fcb6fadfb208241fb418a9ac84e91211a163"
+    },
+    {
+      "row_id": "M8_dirichlet_t4_G0_G1",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t4_G0_G1.npz",
+      "operators_sha256": "c87a807b31d28204a94fd08c0324d54eb6e5b89c348ead9f0a57c48abf5e556f",
+      "details": "data/phase1d_evidence/M8_dirichlet_t4_G0_G1.json",
+      "details_sha256": "2bb745f327058c140cd513f981398b4312dff47363f1b8a270f3be0dce4b02ae"
+    },
+    {
+      "row_id": "M8_dirichlet_t4_G1_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t4_G1_G2.npz",
+      "operators_sha256": "65c2f5b90058403db3892ed2d412acf367faa4da75003486cfd9dd547b4b1fcf",
+      "details": "data/phase1d_evidence/M8_dirichlet_t4_G1_G2.json",
+      "details_sha256": "81532d1d2234f1ace4f50c0c9a3270803ef2f9bedd85e44657475766d915890a"
+    },
+    {
+      "row_id": "M8_dirichlet_t4_G1_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t4_G1_G4.npz",
+      "operators_sha256": "73a870868db0299862b65086a1752286941deee473df60465bd7e4f37ebb92e3",
+      "details": "data/phase1d_evidence/M8_dirichlet_t4_G1_G4.json",
+      "details_sha256": "fb784e2402edf41bfbf88f914398574138162545bcb18dae43bdf9fcdd2e3ca6"
+    },
+    {
+      "row_id": "M8_dirichlet_t4_G2_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t4_G2_G2.npz",
+      "operators_sha256": "9c9b8ba6c32938e20ff53c8b4471c087dd86107d15cb955ef99bbf9665db9d07",
+      "details": "data/phase1d_evidence/M8_dirichlet_t4_G2_G2.json",
+      "details_sha256": "9916d81edac688c4fb3d2e4483ecc8ee71627caa4b33b4c6bae7aca6e8f3e74e"
+    },
+    {
+      "row_id": "M8_dirichlet_t4_G2_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t4_G2_G4.npz",
+      "operators_sha256": "0ccb239ae93111f826e56d57ab248e187125966815596376ae484a71555e6544",
+      "details": "data/phase1d_evidence/M8_dirichlet_t4_G2_G4.json",
+      "details_sha256": "727449749f925d0556d20ba12a092beef5ec74ec1bece2afa205b65afc926e9e"
+    },
+    {
+      "row_id": "M8_dirichlet_t4_G3_G2",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t4_G3_G2.npz",
+      "operators_sha256": "5424916a39099b16b092ff3138bcbf9532f7df205b5b9353898af4168d28c2b2",
+      "details": "data/phase1d_evidence/M8_dirichlet_t4_G3_G2.json",
+      "details_sha256": "00a2cb45492ecf437b286f59a6d1104c6544e102cf580f38f0327a0c97142a69"
+    },
+    {
+      "row_id": "M8_dirichlet_t4_G3_G4",
+      "operators": "data/phase1d_evidence/M8_dirichlet_t4_G3_G4.npz",
+      "operators_sha256": "67b96661bc2a3de19b6df01ec7a1f122068c7d50a73996d240037b07f9dc0267",
+      "details": "data/phase1d_evidence/M8_dirichlet_t4_G3_G4.json",
+      "details_sha256": "7d3deaf64ab03acbeddd38a20779f44b8ed8b3822422f54b9c51289c77ac0143"
+    },
+    {
+      "row_id": "M8_strong_skew_t0_G0_G1",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t0_G0_G1.npz",
+      "operators_sha256": "c470718d6635344cb47d0c6bd5ac8fbca01bc0ca632400f84644586cf7fac5b1",
+      "details": "data/phase1d_evidence/M8_strong_skew_t0_G0_G1.json",
+      "details_sha256": "ae078ccf82b7f4c9375b2ade9526ddb9513ea171143169304420ad88d51dc82b"
+    },
+    {
+      "row_id": "M8_strong_skew_t0_G1_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t0_G1_G2.npz",
+      "operators_sha256": "8eebb5e1008270e44280ee084b0c3c1bbbd20b523f332e04f374b4342646356d",
+      "details": "data/phase1d_evidence/M8_strong_skew_t0_G1_G2.json",
+      "details_sha256": "e489d3daed93ec3ea135c5752cef2a6fdd6b42ba87270cfd20c4eb4dc4ebf3cd"
+    },
+    {
+      "row_id": "M8_strong_skew_t0_G1_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t0_G1_G4.npz",
+      "operators_sha256": "a93ae732d0f7552456698a341faa6198db835ba8a88a8328b7435e9251c04772",
+      "details": "data/phase1d_evidence/M8_strong_skew_t0_G1_G4.json",
+      "details_sha256": "83afdb4a7d2f355275f520f58fd2813dc64440b4fc4b8d81fda30ce8788d4d31"
+    },
+    {
+      "row_id": "M8_strong_skew_t0_G2_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t0_G2_G2.npz",
+      "operators_sha256": "d4fc31e6ca2b0add898fb27b55a4ed503b85cb42dd7a64a17f09c96bdd324b0e",
+      "details": "data/phase1d_evidence/M8_strong_skew_t0_G2_G2.json",
+      "details_sha256": "cfd0cdd4d00dde6ff7c660e640fde928cce03f0ec402c03cf51375bc90f7bfaa"
+    },
+    {
+      "row_id": "M8_strong_skew_t0_G2_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t0_G2_G4.npz",
+      "operators_sha256": "246cd68055864c481330e40c19f16383a1966e066fae8bb3bf8ad600edd00bcf",
+      "details": "data/phase1d_evidence/M8_strong_skew_t0_G2_G4.json",
+      "details_sha256": "e2f8dbda7d2ba8bede741dba0046841630f8acee46a921a785b28304a7fbba84"
+    },
+    {
+      "row_id": "M8_strong_skew_t0_G3_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t0_G3_G2.npz",
+      "operators_sha256": "d4fc31e6ca2b0add898fb27b55a4ed503b85cb42dd7a64a17f09c96bdd324b0e",
+      "details": "data/phase1d_evidence/M8_strong_skew_t0_G3_G2.json",
+      "details_sha256": "eeaf242bea731df78aa58d8c995a5a1a6db30950447e64b22685d770b64b82cf"
+    },
+    {
+      "row_id": "M8_strong_skew_t0_G3_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t0_G3_G4.npz",
+      "operators_sha256": "53b7e256c4f9c5b723078b77f08a386b97ffe3a37ce56f3a8bfbc5fff3b48e8a",
+      "details": "data/phase1d_evidence/M8_strong_skew_t0_G3_G4.json",
+      "details_sha256": "63d41ab78a8033548f0d0052d2786373ce981f521fb93655e079c2cfefbaf193"
+    },
+    {
+      "row_id": "M8_strong_skew_t1_G0_G1",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t1_G0_G1.npz",
+      "operators_sha256": "c470718d6635344cb47d0c6bd5ac8fbca01bc0ca632400f84644586cf7fac5b1",
+      "details": "data/phase1d_evidence/M8_strong_skew_t1_G0_G1.json",
+      "details_sha256": "29ae2cc3c5c2f6b7edf9b333a8bca4f47f6c3233582abd441e006b903957b62b"
+    },
+    {
+      "row_id": "M8_strong_skew_t1_G1_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t1_G1_G2.npz",
+      "operators_sha256": "8eebb5e1008270e44280ee084b0c3c1bbbd20b523f332e04f374b4342646356d",
+      "details": "data/phase1d_evidence/M8_strong_skew_t1_G1_G2.json",
+      "details_sha256": "5fbc72d6c5e3ba715d22c33058bdf5f094b3197f63a29f5d3f103be8c4c19e57"
+    },
+    {
+      "row_id": "M8_strong_skew_t1_G1_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t1_G1_G4.npz",
+      "operators_sha256": "a93ae732d0f7552456698a341faa6198db835ba8a88a8328b7435e9251c04772",
+      "details": "data/phase1d_evidence/M8_strong_skew_t1_G1_G4.json",
+      "details_sha256": "0abb79d827d59fdf7636e5aa83ec5b8f52e2f5b98ae2a39c8a5a22c581ee9e9b"
+    },
+    {
+      "row_id": "M8_strong_skew_t1_G2_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t1_G2_G2.npz",
+      "operators_sha256": "d4fc31e6ca2b0add898fb27b55a4ed503b85cb42dd7a64a17f09c96bdd324b0e",
+      "details": "data/phase1d_evidence/M8_strong_skew_t1_G2_G2.json",
+      "details_sha256": "4bd01c2a9e1bc4b622c286c01880e8a89ebc82a2bb688f7c5406bb78930bdb81"
+    },
+    {
+      "row_id": "M8_strong_skew_t1_G2_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t1_G2_G4.npz",
+      "operators_sha256": "246cd68055864c481330e40c19f16383a1966e066fae8bb3bf8ad600edd00bcf",
+      "details": "data/phase1d_evidence/M8_strong_skew_t1_G2_G4.json",
+      "details_sha256": "4f12dac2ab89fd049d1043a1815947d7ae2e631a4868ca1919620a186931ca7b"
+    },
+    {
+      "row_id": "M8_strong_skew_t1_G3_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t1_G3_G2.npz",
+      "operators_sha256": "d4fc31e6ca2b0add898fb27b55a4ed503b85cb42dd7a64a17f09c96bdd324b0e",
+      "details": "data/phase1d_evidence/M8_strong_skew_t1_G3_G2.json",
+      "details_sha256": "cdbc15f93398053633e66b963e5f11ca8c4556f2b59a122c3b046607ec5f84e7"
+    },
+    {
+      "row_id": "M8_strong_skew_t1_G3_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t1_G3_G4.npz",
+      "operators_sha256": "53b7e256c4f9c5b723078b77f08a386b97ffe3a37ce56f3a8bfbc5fff3b48e8a",
+      "details": "data/phase1d_evidence/M8_strong_skew_t1_G3_G4.json",
+      "details_sha256": "525cacbfb9da7b4c02a1345eff6bf805b42081557a63638ee060c3592b2bd880"
+    },
+    {
+      "row_id": "M8_strong_skew_t2_G0_G1",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t2_G0_G1.npz",
+      "operators_sha256": "c470718d6635344cb47d0c6bd5ac8fbca01bc0ca632400f84644586cf7fac5b1",
+      "details": "data/phase1d_evidence/M8_strong_skew_t2_G0_G1.json",
+      "details_sha256": "e6343850666bd0fff95e9882fd9626f1def4e6361fbe5a2d0e6af0b753344b07"
+    },
+    {
+      "row_id": "M8_strong_skew_t2_G1_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t2_G1_G2.npz",
+      "operators_sha256": "8eebb5e1008270e44280ee084b0c3c1bbbd20b523f332e04f374b4342646356d",
+      "details": "data/phase1d_evidence/M8_strong_skew_t2_G1_G2.json",
+      "details_sha256": "020300a37a02766d3ff21ab67272559c6d776242c2b115aa779f5878e4466c58"
+    },
+    {
+      "row_id": "M8_strong_skew_t2_G1_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t2_G1_G4.npz",
+      "operators_sha256": "a93ae732d0f7552456698a341faa6198db835ba8a88a8328b7435e9251c04772",
+      "details": "data/phase1d_evidence/M8_strong_skew_t2_G1_G4.json",
+      "details_sha256": "13ca11313eae86d07f8f33e1b5ae12eea1e7ae69d088a2be051f4b588a72a612"
+    },
+    {
+      "row_id": "M8_strong_skew_t2_G2_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t2_G2_G2.npz",
+      "operators_sha256": "d4fc31e6ca2b0add898fb27b55a4ed503b85cb42dd7a64a17f09c96bdd324b0e",
+      "details": "data/phase1d_evidence/M8_strong_skew_t2_G2_G2.json",
+      "details_sha256": "3435dc7facf1833f7467aef587af79f31880a4084498bae40a66cbd2c95ec0e0"
+    },
+    {
+      "row_id": "M8_strong_skew_t2_G2_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t2_G2_G4.npz",
+      "operators_sha256": "246cd68055864c481330e40c19f16383a1966e066fae8bb3bf8ad600edd00bcf",
+      "details": "data/phase1d_evidence/M8_strong_skew_t2_G2_G4.json",
+      "details_sha256": "69aeb557b72df7dcb1c438bf9ef3fe628885727d56a26cd9c63ce38857d5172b"
+    },
+    {
+      "row_id": "M8_strong_skew_t2_G3_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t2_G3_G2.npz",
+      "operators_sha256": "d4fc31e6ca2b0add898fb27b55a4ed503b85cb42dd7a64a17f09c96bdd324b0e",
+      "details": "data/phase1d_evidence/M8_strong_skew_t2_G3_G2.json",
+      "details_sha256": "75258f27f7dca6a6702474eae2f3994325778e72ae1348d425b465e3c11b1b8f"
+    },
+    {
+      "row_id": "M8_strong_skew_t2_G3_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t2_G3_G4.npz",
+      "operators_sha256": "53b7e256c4f9c5b723078b77f08a386b97ffe3a37ce56f3a8bfbc5fff3b48e8a",
+      "details": "data/phase1d_evidence/M8_strong_skew_t2_G3_G4.json",
+      "details_sha256": "89fde04b37879765aa0a3426fcacefda1c9826c3b6d89161a79b6b8e132031cf"
+    },
+    {
+      "row_id": "M8_strong_skew_t3_G0_G1",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t3_G0_G1.npz",
+      "operators_sha256": "c470718d6635344cb47d0c6bd5ac8fbca01bc0ca632400f84644586cf7fac5b1",
+      "details": "data/phase1d_evidence/M8_strong_skew_t3_G0_G1.json",
+      "details_sha256": "adff51766a2bad5dd3324b1cf3cde02fce0006a83d2ec5da1cf762cbf262a423"
+    },
+    {
+      "row_id": "M8_strong_skew_t3_G1_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t3_G1_G2.npz",
+      "operators_sha256": "8eebb5e1008270e44280ee084b0c3c1bbbd20b523f332e04f374b4342646356d",
+      "details": "data/phase1d_evidence/M8_strong_skew_t3_G1_G2.json",
+      "details_sha256": "e192fb705ce7189839a8b98ba267dd3c646242638eddb45b52ec2b7bbc1fb3d6"
+    },
+    {
+      "row_id": "M8_strong_skew_t3_G1_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t3_G1_G4.npz",
+      "operators_sha256": "a93ae732d0f7552456698a341faa6198db835ba8a88a8328b7435e9251c04772",
+      "details": "data/phase1d_evidence/M8_strong_skew_t3_G1_G4.json",
+      "details_sha256": "92f708504fc5a36ad4815f74c6d3f2e7ced3b336b255c682c654e3fefcfb6f0e"
+    },
+    {
+      "row_id": "M8_strong_skew_t3_G2_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t3_G2_G2.npz",
+      "operators_sha256": "d4fc31e6ca2b0add898fb27b55a4ed503b85cb42dd7a64a17f09c96bdd324b0e",
+      "details": "data/phase1d_evidence/M8_strong_skew_t3_G2_G2.json",
+      "details_sha256": "31e398c1db039b67196b46e5c18261c06e09d9e95b1040cd789f1636b568b7f3"
+    },
+    {
+      "row_id": "M8_strong_skew_t3_G2_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t3_G2_G4.npz",
+      "operators_sha256": "246cd68055864c481330e40c19f16383a1966e066fae8bb3bf8ad600edd00bcf",
+      "details": "data/phase1d_evidence/M8_strong_skew_t3_G2_G4.json",
+      "details_sha256": "5bd6a65cefb5db766c9ba706a7e0bf25ca3dd072c5df8fea06aa3ada12ccb537"
+    },
+    {
+      "row_id": "M8_strong_skew_t3_G3_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t3_G3_G2.npz",
+      "operators_sha256": "d4fc31e6ca2b0add898fb27b55a4ed503b85cb42dd7a64a17f09c96bdd324b0e",
+      "details": "data/phase1d_evidence/M8_strong_skew_t3_G3_G2.json",
+      "details_sha256": "7ba51642d918835d7185d23988a01012424949d5909bd0cca02837aed9c4eadc"
+    },
+    {
+      "row_id": "M8_strong_skew_t3_G3_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t3_G3_G4.npz",
+      "operators_sha256": "53b7e256c4f9c5b723078b77f08a386b97ffe3a37ce56f3a8bfbc5fff3b48e8a",
+      "details": "data/phase1d_evidence/M8_strong_skew_t3_G3_G4.json",
+      "details_sha256": "80e4638a55e333aeacb541afe1d29c8357af5afe9010c74d40a242903deedc00"
+    },
+    {
+      "row_id": "M8_strong_skew_t4_G0_G1",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t4_G0_G1.npz",
+      "operators_sha256": "c470718d6635344cb47d0c6bd5ac8fbca01bc0ca632400f84644586cf7fac5b1",
+      "details": "data/phase1d_evidence/M8_strong_skew_t4_G0_G1.json",
+      "details_sha256": "c8ff8043ba104fc6a61151d04f6fad09a722ab6ce32b0ecce90f020de8759fcf"
+    },
+    {
+      "row_id": "M8_strong_skew_t4_G1_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t4_G1_G2.npz",
+      "operators_sha256": "8eebb5e1008270e44280ee084b0c3c1bbbd20b523f332e04f374b4342646356d",
+      "details": "data/phase1d_evidence/M8_strong_skew_t4_G1_G2.json",
+      "details_sha256": "b889a2a4e828048a4920980c12fe974c6e7c2c88bb911646fcb52c2f91fdd43c"
+    },
+    {
+      "row_id": "M8_strong_skew_t4_G1_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t4_G1_G4.npz",
+      "operators_sha256": "a93ae732d0f7552456698a341faa6198db835ba8a88a8328b7435e9251c04772",
+      "details": "data/phase1d_evidence/M8_strong_skew_t4_G1_G4.json",
+      "details_sha256": "35bbbce27867ad076d4eb6c815237f756b9459b6f339d9522bb4108d3754a402"
+    },
+    {
+      "row_id": "M8_strong_skew_t4_G2_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t4_G2_G2.npz",
+      "operators_sha256": "d4fc31e6ca2b0add898fb27b55a4ed503b85cb42dd7a64a17f09c96bdd324b0e",
+      "details": "data/phase1d_evidence/M8_strong_skew_t4_G2_G2.json",
+      "details_sha256": "c4c6c33941323ed5194872e36484371f4280101baaeaa59e1e7af9205f32d146"
+    },
+    {
+      "row_id": "M8_strong_skew_t4_G2_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t4_G2_G4.npz",
+      "operators_sha256": "246cd68055864c481330e40c19f16383a1966e066fae8bb3bf8ad600edd00bcf",
+      "details": "data/phase1d_evidence/M8_strong_skew_t4_G2_G4.json",
+      "details_sha256": "76e678381147e12de494348d5a06ccb2d69bc6a6afb4005853204979396f8c98"
+    },
+    {
+      "row_id": "M8_strong_skew_t4_G3_G2",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t4_G3_G2.npz",
+      "operators_sha256": "d4fc31e6ca2b0add898fb27b55a4ed503b85cb42dd7a64a17f09c96bdd324b0e",
+      "details": "data/phase1d_evidence/M8_strong_skew_t4_G3_G2.json",
+      "details_sha256": "17a35a2a8285953912feedc8304b61ed6e75bcf1e642519e808266a8b59d95ce"
+    },
+    {
+      "row_id": "M8_strong_skew_t4_G3_G4",
+      "operators": "data/phase1d_evidence/M8_strong_skew_t4_G3_G4.npz",
+      "operators_sha256": "53b7e256c4f9c5b723078b77f08a386b97ffe3a37ce56f3a8bfbc5fff3b48e8a",
+      "details": "data/phase1d_evidence/M8_strong_skew_t4_G3_G4.json",
+      "details_sha256": "c2382a5ea584892e6511ee3604170e0464a34a52f897937c1d2b1470c5d97def"
+    }
+  ],
+  "pre_sdp_diagnostics_sha256": "460cf27acd0da1842e3671e013ec3ca81c80da00bad9d18eb857e721efd9b0b2",
+  "results_sha256": "7251dbceeb1d4201c2c2ea570de76d12c2c3bf26cccc3980807594e0e5d0e3da",
+  "completed_rows": 220
+}

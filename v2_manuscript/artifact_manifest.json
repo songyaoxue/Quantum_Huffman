@@ -1,0 +1,34 @@
+{
+  "verification": {
+    "rows_verified": 220,
+    "conditional_sets_verified": 1040,
+    "status": "PASS",
+    "new_solver_calls": 0
+  },
+  "counts": {
+    "registered_rows": 220,
+    "source_instances": 40,
+    "distinct_priors": 24,
+    "matched_E1": 179,
+    "matched_E2": 138,
+    "fixed_trivial_rows": 41,
+    "G2_positive_rows": 7,
+    "validated_G2_priors": 2,
+    "qualifying_G2_rows": 6
+  },
+  "inputs": {
+    "data/phase1d_registered_results.csv": "7251dbceeb1d4201c2c2ea570de76d12c2c3bf26cccc3980807594e0e5d0e3da",
+    "data/phase1d_robust_replication.csv": "cda9700862fa3862e7504feb4ec3efbc88447db20b1e33cd619a26cfdc326cea",
+    "data/phase1d_fullspace_crosscheck.csv": "af071ff864ab458db7dd13572acf5c8e93a76f90f0046747b17ebd8a5fad3b8e"
+  },
+  "outputs": {
+    "figures/all_certificate_gaps.pdf": "f5c06d9f0798188e6230248b21a09c7ac1b27ebdbbec9bfcddd1f69dabf5b67c",
+    "figures/grouping_nontriviality.pdf": "6f9a7f472003931ba7c1056176b4919b0d39ed6f52619bfb37205a050fcafbc0",
+    "figures/matched_operational_model.pdf": "00ebf6305c1d03f155d926eb8652168fc807e9326f061446c3b2acd72d65bf31",
+    "figures/pareto_coordinates.pdf": "1d2691a7952a750b678733f3d151b7f550f47866166bafae8a0cf300616d1814",
+    "figures/validated_g2_priors.pdf": "04f7db028d4a9d8b13c3633cb1bee9b32aea43753ab67278fa36023eca2e7da8",
+    "generated_tables/all_registered_rows.tex": "357a4884a629627677845bb70bfeedfe4b8164afdda0365721a24789842c7797",
+    "generated_tables/registered_summary.tex": "51a4613dcbe8588eec4f3dc94eac07e7c492a92d6e2c66ebc95a8342363466e5",
+    "generated_tables/validated_cases.tex": "60091aa97796a9084ee9f7c02dd9253139ffe6f94b784b62177092a196cce750"
+  }
+}

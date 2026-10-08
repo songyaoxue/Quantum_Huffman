@@ -1,5 +1,13 @@
 # Mathematical audit for a fixed-budget theorem (Phase 1)
 
+## Current Phase 2 status: VALID scoped matched theorem
+
+The authoritative reconstructed theorem is Theorem 1 in `v2_manuscript/main.tex`. It compares measurement optima for a **specified** matched encoder pair and common partition, via grouped H primal feasibility and grouped F dual feasibility. Huffman prefix optimality proves the support-index ordering; identical orthogonal labels give equal C_A. Weak duality proves the strict success ordering when the gap is positive, hence Pareto dominance with at least one strictly improved coordinate, even with equal length indices. Scalar equal-budget and universal fixed-encoder superiority remain abandoned.
+
+The deterministic architecture is explicitly defined by the unchanged Phase 1D implementation. Registered positive evidence is limited to the stored sample, with two validated distinct E2 priors in G2/M=8/G=2. Numerical feasibility remains floating-point/residual based, not interval certified. Read-only reconstruction checks 220/220 rows and 1040 conditional certificate sets; no SDP was solved in Phase 2. The older normalized sufficient certificate and bounded-overlap result are secondary supplement propositions, preserving their original hypotheses and proofs.
+
+Historical Phase 1 findings below concern the abandoned common scalar-budget proposal and prior evidence gates, not the current matched-pair theorem.
+
 **Current Phase 1D decision:** the universal fixed-design and scalar equal-budget routes remain abandoned. The specified-pair Pareto implication is valid, and a preregistered source-only grouping supplies repeated numerically verified positive finite-instance bounds. The scoped pairwise group route passes its gate; old numerical provenance remains 707/707. No manuscript theorem or structure was edited in this phase.
 
 **Decision: BLOCKED.** The existing Theorem 7 remains a valid conditional statement about normalized efficiencies of two fixed ensembles under positive, declared scalar costs. Its proof does not establish a common-budget comparison of operationally admissible strategies. No new theorem is inserted into the manuscript.

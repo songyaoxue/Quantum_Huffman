@@ -1,0 +1,29 @@
+\begin{table*}[tbp]
+\caption{Two distinct validated G2 priors with $M=8$, $G=2$, and matched E2 tasks. Symbols and partitions use zero-based indices. Bounds and residuals are registered values; the final two rows give the independent ambient-space re-solve. Prior vectors are displayed to four decimals; certificates use the full-precision stored priors.}
+\label{tab:validated}
+\centering\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Quantity} & \textbf{Zipf} ($s=0.8$) & \textbf{Dirichlet} ($\alpha=2$) \\
+\midrule
+Source seed & 51808 & 2837 \\
+$(p_0,\ldots,p_3)$ & $(0.3092,0.1776,0.1284,0.1020)$ & $(0.0477,0.0211,0.0644,0.1103)$ \\
+$(p_4,\ldots,p_7)$ & $(0.0853,0.0737,0.0652,0.0586)$ & $(0.2621,0.1018,0.1576,0.2350)$ \\
+Huffman length vector & $(2,2,3,3,4,4,4,4)$ & $(5,5,4,3,2,3,3,2)$ \\
+Group $0$ & $\{0,4,5,7\}$ & $\{1,3,4,5\}$ \\
+Group $1$ & $\{1,2,3,6\}$ & $\{0,2,6,7\}$ \\
+$\bar L_H$ & 2.796049 & 2.704828 \\
+$n_{\rm fix}$ & 3 & 3 \\
+$n_{\max}$ & 5 & 6 \\
+$C_A$ (both arms) & 1 & 1 \\
+$\underline P_H$ & 0.975660 & 0.991066 \\
+$\overline P_F$ & 0.969570 & 0.987125 \\
+$\Delta_{\rm pair}$ & 0.006090 & 0.003941 \\
+H primal residual & 6.96e-15 & 1.20e-14 \\
+F dual violation & 0.0 & 0.0 \\
+Repeat solve / full-space check & PASS / PASS & PASS / PASS \\
+Full-space H lower / F upper & 0.975645 / 0.969620 & 0.991062 / 0.987286 \\
+Full-space certificate gap & 0.006025 & 0.003776 \\
+\bottomrule
+\end{tabular}
+\end{table*}

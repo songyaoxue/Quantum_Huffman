@@ -1,5 +1,11 @@
 # Blocking issues for v2
 
+## Current Phase 2 status
+
+User-authorized reconstruction now uses `v2_manuscript/` and the validated specified-pair route. No active blocker is carried forward for that scoped mathematical implication or frozen-data provenance. Universal fixed-length optimality and heterogeneous scalar equal-budget claims remain rejected/abandoned; they are not asserted in the new manuscript. No new experiment matrix was run. The 707-cell legacy audit and the 220-row/1040-set matched read-only audit pass. Prior stop statuses below are historical and superseded for the scoped Phase 2 reconstruction.
+
+Scientific review should scrutinize the model-specific support-index semantics and floating-point certificate assumptions. A future public v2 release still requires an explicit author decision; the old Zenodo DOI and frozen PRA source/tag are unchanged.
+
 **Current status after Phase 1D: gate closed for a scoped pairwise group-route reconstruction.** The preregistered deterministic encoder and source-only grouping yield two independently different prior instances satisfying the E2/robustness gate. All 220 rows pass independent certificate/provenance verification, and original full-space SDP checks confirm the positives. Old numerical traceability remains 707/707. No Phase 2 or manuscript edits occurred. Historical blocker tables are preserved; the Phase 1D closure below supersedes their current status.
 
 **Status: STOP after Phase 1.** The manuscript, its figures, numerical outputs, and Zenodo v1.0.0 archive have not been restructured or regenerated.

@@ -1,5 +1,13 @@
 # Side-information fairness audit (Phase 1)
 
+## Current Phase 2 status: PASS for the specified matched pair
+
+Main Sections II--IV explicitly match prior, ambient Hilbert space, constrained encoder architecture, symbol ordering, support/amplitude/phase rules, generation effort, partition, orthogonal label alphabet, ideal label width, and conditional measurement model. H and F differ only by the supplied length vector. The upper certificate is the **grouped F dual**, using normalized conditional priors and probability-weighted aggregation. No global unlabeled F dual is reused for the new theorem.
+
+The support-index/label vector is declared separately from hardware or channel costs. Identical source-correlated labels isolate the allocation comparison. The main theorem bounds optimal measurements for those two fixed ensembles, not unrestricted fixed-length state design. All four partitions are outcome-independent preregistered rules; old overlap-aware results remain secondary heuristic diagnostics. G2's 7 positive rows are not seven independent priors: only two priors pass the repeated E2 M=8/G=2 evidence gate.
+
+See `MAIN_CLAIM_AUDIT_V2.md` and `RESULT_COUNTING_POLICY.md`. Earlier blocked common-budget comparisons below are retained as historical audit history, not promoted into the reconstructed claim.
+
 **Current Phase 1D status: PASS for the preregistered matched comparison.** The specified deterministic encoders share priors, ambient space, partition, orthogonal labels, label width and conditional SDP architecture. Source-only probability grouping at M=8/G=2 passes the prospective E2/replication gate. Historical published comparisons remain differently informed and cannot be relabeled as matched.
 
 **Status: BLOCKED for a fixed-budget advantage claim.** The present label `|a_{g(i)}>` is deterministic, source-correlated information. Its orthogonality removes inter-group ambiguity exactly, so `P_group>=P_base` for the same payload ensemble is expected. The research question is whether that gain survives a common operational cost and a comparable fixed baseline.

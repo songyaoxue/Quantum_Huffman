@@ -1,0 +1,11 @@
+numpy
+scipy
+cvxpy
+matplotlib
+pandas
+
+# Optional: used only for inspecting/building local communication circuits.
+# The communication-level validation has a density-matrix fallback and does
+# not require IBM Quantum credentials.
+# qiskit
+# qiskit-aer

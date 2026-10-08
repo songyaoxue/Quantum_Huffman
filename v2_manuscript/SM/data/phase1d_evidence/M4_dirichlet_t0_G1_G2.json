@@ -1,0 +1,95 @@
+{
+  "row_id": "M4_dirichlet_t0_G1_G2",
+  "H": {
+    "lower": 0.9779206583045481,
+    "upper": 0.9780208761562506,
+    "primal_residual": 3.486958161945066e-15,
+    "dual_residual": 0.0,
+    "groups": [
+      {
+        "members": [
+          0,
+          2
+        ],
+        "p_g": 0.315913295186407,
+        "q": [
+          0.47727556875762145,
+          0.5227244312423786
+        ],
+        "primal_lower": 0.9406229629168503,
+        "dual_upper": 0.9407374328218606,
+        "primal_residual": 2.9408137411253214e-15,
+        "dual_residual": 0.0,
+        "primal_status": "optimal",
+        "dual_status": "optimal",
+        "span_rank": 2,
+        "span_reconstruction_residual": 5.202485023838288e-16
+      },
+      {
+        "members": [
+          1,
+          3
+        ],
+        "p_g": 0.684086704813593,
+        "q": [
+          0.9155838883278213,
+          0.08441611167217859
+        ],
+        "primal_lower": 0.995144846071795,
+        "dual_upper": 0.9952384822824686,
+        "primal_residual": 3.486958161945066e-15,
+        "dual_residual": 0.0,
+        "primal_status": "optimal",
+        "dual_status": "optimal",
+        "span_rank": 2,
+        "span_reconstruction_residual": 3.753054053477074e-16
+      }
+    ]
+  },
+  "F": {
+    "lower": 0.9981063478708625,
+    "upper": 0.9981582081317955,
+    "primal_residual": 4.4939712661996205e-15,
+    "dual_residual": 0.0,
+    "groups": [
+      {
+        "members": [
+          0,
+          2
+        ],
+        "p_g": 0.315913295186407,
+        "q": [
+          0.47727556875762145,
+          0.5227244312423786
+        ],
+        "primal_lower": 0.9940081580430438,
+        "dual_upper": 0.9940805883503447,
+        "primal_residual": 4.4939712661996205e-15,
+        "dual_residual": 0.0,
+        "primal_status": "optimal",
+        "dual_status": "optimal",
+        "span_rank": 2,
+        "span_reconstruction_residual": 2.592031310972558e-16
+      },
+      {
+        "members": [
+          1,
+          3
+        ],
+        "p_g": 0.684086704813593,
+        "q": [
+          0.9155838883278213,
+          0.08441611167217859
+        ],
+        "primal_lower": 0.9999989042437544,
+        "dual_upper": 1.000041265195485,
+        "primal_residual": 2.6988818696211482e-15,
+        "dual_residual": 0.0,
+        "primal_status": "optimal",
+        "dual_status": "optimal",
+        "span_rank": 2,
+        "span_reconstruction_residual": 9.614813431917819e-17
+      }
+    ]
+  }
+}

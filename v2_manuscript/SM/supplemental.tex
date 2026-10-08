@@ -1,0 +1,84 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,longtable,pdflscape,array,hyperref,braket,graphicx,placeins}
+\usepackage[numbers,sort&compress]{natbib}
+\setlength{\emergencystretch}{2em}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue,hypertexnames=false}
+\newcommand{\suppsection}[1]{\section*{#1}}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}[proposition]{Corollary}
+\renewcommand{\theproposition}{S\arabic{proposition}}
+\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\begin{document}
+\begin{center}
+{\Large\bfseries Supplemental Material for}\\[0.6em]
+{\large\bfseries Finite-Instance Resource Certification for Group-Conditioned Discrimination of Huffman-Shaped Quantum Ensembles}\\[1em]
+Songyao Xue and Mengsi Zhang
+\end{center}
+This supplement gives the frozen matched-comparison protocol, full registered results, stored-certificate validation, and secondary analyses. The matched discrimination evidence in S1--S5 uses the same group side information on both arms. The scalarized, approximate-decoder, and effective-noise analyses in S6--S22 have their own declared comparison conventions.
+
+\suppsection{S1. Frozen registry and evidence provenance}
+The analysis registry was frozen before evaluation, at preregistration commit
+\begin{center}\small\texttt{830fe5a91348088710b1409de9f4c329d09f5419}.\end{center}
+The result commit is \texttt{7607907}. Registry identifier \texttt{PHASE1D-DETERMINISTIC-CYCLIC-001} identifies the deterministic architecture and evaluation matrix. The complete registry, source seeds, package versions, and implementation hashes are in \url{PHASE_1D_REGISTRY.json}. Its SHA-256 digest is
+\begin{center}\footnotesize\texttt{5e1a092fef6743380ab828c7ba13a8a1385b87bbc9bc621d9341254484b8c036}.\end{center}
+All 220 registered rows are in \url{data/phase1d_registered_results.csv}. Pre-SDP diagnostics, source states, supports, Gram matrices, primal effects, and dual operators are stored with the run manifest. The row-level trace links each result to its source and operator hashes. The registry and original result artifacts are unchanged by table and figure aggregation.
+
+The 40 source entries comprise five seeds for each family and $M=4,8$. Near-uniform sources normalize clipped values $1/M+\xi_i$, with independent seeded Gaussian $\xi_i$ of standard deviation $0.04/M$ and clipping floor $10^{-6}$. Zipf sources have $p_i\propto(i+1)^{-0.8}$. Dirichlet sources have parameter vector $(2,\ldots,2)$. Strong-skew sources have $p_0=0.75$ and equal tail mass. Zipf and strong-skew seed replicas share their prior vectors across seeds. Overall there are 24 distinct priors.
+
+A registered row fixes a source entry, grouping rule, and group count. A source instance is the registered family/$M$/seed entry. A distinct prior is determined by the stored full-precision vector and its hash. A seed replica with the same prior is not an additional independent distribution. The robust-positive rows under G2 correspond to three priors across both alphabet sizes; the E2-positive $M=8,G=2$ subset corresponds to two priors. Counting is deterministic and deduplicated within each reported cell.
+
+\suppsection{S2. Matched encoder and grouping details}
+Both arms use $n_{\max}=\max(n_{\rm fix},\max_i l_i^H)+1$, cyclic placement with shift zero, equal-modulus amplitudes, and the same deterministic phase ansatz. At each probability-ordered symbol, the cursor advances by half its support size. The encoder uses the frozen NumPy \texttt{argsort(-p)} ordering, and wrapped supports are sorted by \texttt{unique}. The supplied-length adapter applies the same rules to $l^H$ and the constant fixed-length vector. Source seeds are offset by 100 for the encoder interface, but this deterministic mode makes no random draws and uses zero optimizer iterations. The implementation and configuration hashes accompany the registry.
+
+For G0 all symbols form one group. G1 assigns the zero-based index modulo $G$. G2 sorts by $(-p_i,i)$, then assigns each symbol to the least-probability group, resolving group-mass ties by group index. G3 forms a binary Huffman heap keyed by weight and node identifier: leaves use symbol indices and internal nodes use increasing merge serials. Starting at the root, the cut repeatedly splits the shallowest nonleaf frontier node, resolving ties by its minimum leaf index and then its serial. Final subtrees are ordered by minimum leaf index. These rules fix the same partition on H and F before inspecting quantum geometry.
+
+For each group, the diagnostics store its mass $p_g$, maximum off-diagonal Gram magnitude, and
+\begin{equation}
+ A_{\mathrm{in},g}^X=\sum_{\substack{i<j\\i,j\in\mathcal G_g}}q_i^{(g)}q_j^{(g)}|\Gamma_{ij}^X|^2.
+\end{equation}
+Nontriviality requires at least two members and off-diagonal magnitude above $10^{-10}$. E1 requires a common nontrivial group on both arms; E2 requires at least one nonsingleton and nontriviality of every nonsingleton group on both arms. All classifications agree at the sensitivity threshold $10^{-8}$. There are 65 singleton-containing rows and 80 singleton groups, counted over partitions rather than separately for each arm. No eligibility condition removes a row from evaluation.
+
+\suppsection{S3. Conditional SDP formulation and certificate verification}
+For each arm $X$ and group $g$, solve
+\begin{align}
+ P_{X,g}^*&=\max_{\{E_i\}}\sum_{i\in\mathcal G_g}q_i^{(g)}\operatorname{Tr}(E_i\rho_i^X),\\
+ &E_i\succeq0,\quad\sum_iE_i=I,\nonumber\\
+ D_{X,g}^*&=\min_{Y_g}\operatorname{Tr}Y_g,\quad
+ Y_g\succeq q_i^{(g)}\rho_i^X\quad(i\in\mathcal G_g).
+\end{align}
+The conditional priors sum to one. The aggregate lower and upper bounds are $\sum_gp_g\underline P_{X,g}$ and $\sum_gp_g\overline P_{X,g}$; the matched certificate uses H lower and F upper. The F dual is grouped with the same labels and partition, rather than the global unlabeled dual.
+
+SCS uses tolerance $5\times10^{-6}$, at most 25000 iterations, and a 30-s time limit per solve. State-span compression uses rank threshold $10^{-12}$. Returned effects are Hermitized, projected to their positive parts, regularized, and normalized by the inverse square root of their sum. After lifting, the orthogonal complement is assigned across effects to complete the ambient POVM. The dual is Hermitized, lifted, and shifted using the maximum slack violation and safety shift $5\times10^{-8}$. The full-space check verifies all $Y_g-q_i^{(g)}\rho_i^X\succeq0$ and POVM completeness, with feasibility tolerance $10^{-7}$ and aggregation tolerance $10^{-12}$. Singleton tasks are handled analytically. Both arms' primal and dual objects are stored even though the main certificate uses only H lower and F upper.
+
+The robust-positive threshold is $100(5\times10^{-6})=5\times10^{-4}$. Every registered case is preserved; all 220 resulting cases pass. Independently reconstructing the stored objects checks 1040 conditional certificate sets. Every robust-positive row was repeat-solved, and the independent uncompressed formulation confirmed all eight robust-positive rows. Five Zipf replicas share identical inputs and their full-space crosscheck is cached; there are four distinct encoder/partition pairs among the eight rows. This is floating-point verification with explicit residual checks, not exact-arithmetic or interval certification.
+
+The files \url{data/phase1d_robust_replication.csv} and \url{data/phase1d_fullspace_crosscheck.csv} record the repeat and full-space comparisons. The $M=8,G=2$ G2 priors are the Zipf vector and the seed-2837 Dirichlet vector. Their registered gaps are $0.006090$ and $0.003941$; full-space gaps are $0.006025$ and $0.003776$ after rounding. Full vectors and corresponding states remain in the source archives.
+
+\suppsection{S4. Complete registered results}
+The following table includes all 220 rows, without filtering by eligibility, triviality, or certificate sign. Registered seed entries and duplicate priors remain visible. The $M=4$ G2 robust-positive row fails E2; the $M=4$ G3 robust-positive row satisfies E2 but supplies only one prior for that regime. The replicated two-prior E2 evidence occurs in G2 with $M=8,G=2$.
+\begin{landscape}\scriptsize
+\input{generated_tables/all_registered_rows.tex}
+\end{landscape}
+
+\suppsection{S5. Reproduction and evidence levels}
+The matched data and frozen implementation accompany this supplement in \texttt{data/}, \texttt{code/}, and \texttt{scripts/}. Reproduction uses the package versions recorded in the registry. From the supplement directory, run the following commands:
+\begin{quote}\small\ttfamily
+python scripts/reproduce\_registered.py --task evaluate\\
+python scripts/reproduce\_registered.py --task verify\\
+python scripts/reproduce\_registered.py --task fullspace
+\end{quote}
+They evaluate the frozen matrix, independently check stored operators and repeat the robust positives, and perform the independent ambient-space comparison, respectively. The portable entry point checks the frozen registry and implementation hashes without requiring a Git checkout. Reproduction uses a separate working copy so packaged results remain intact. No new evaluation is needed to compile the article. The root reproducibility package contains the read-only manuscript-artifact generator and row-level numerical trace. Hashes and frozen before/after commits identify the original inputs.
+
+The secondary analyses use the separate publicly archived Version 1.0.0 data/code release, DOI \href{https://doi.org/10.5281/zenodo.22945847}{10.5281/zenodo.22945847}. Their fixed references need not share the matched labels or deterministic architecture. Their normalized margins test their declared scalarized comparison, not the main pairwise Pareto certificate. PGM values are approximate-decoder diagnostics; bounded-overlap inequalities are surrogate design assumptions; effective logical-failure curves are recovery proxies. This distinction applies to all secondary figures and tables.
+
+\input{secondary_protocols.tex}
+\input{secondary_theory.tex}
+\input{secondary_figures.tex}
+\FloatBarrier
+\bibliographystyle{apsrev4-2}
+\bibliography{references}
+\end{document}

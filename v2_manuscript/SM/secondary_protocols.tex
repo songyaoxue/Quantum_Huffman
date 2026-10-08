@@ -1,0 +1,66 @@
+\suppsection{S6. Secondary: Numerical and reproducibility overview}
+The numerical evidence has three roles. Numerical SDP calculations provide finite-instance primal/dual certificates where the grouped primal POVM is feasible and the fixed-length dual operator is feasible. The scalable PGM calculations are approximate diagnostics. The favorable-regime sweep is a finite sampled design-space map rather than a population-probability estimate. Source families are Zipf, Dirichlet, near-uniform, and strong-skew distributions. The benchmark uses alphabet sizes $M\in\{4,8,16,32,64\}$; the favorable sweep uses $M\in\{4,8,16,32\}$. Payload modes are optimized, deterministic-phase, and random-phase. Grouping is random, probability-aware, or overlap-aware. The unweighted resource convention is $C_{\rm total}=\bar L+C_A+C_{\rm QEC}$, with declared alternatives reported in the associated CSV files.
+
+\suppsection{S7. Secondary: Data and file manifest}
+\begin{center}\small
+\begin{tabular}{p{0.22\linewidth}p{0.27\linewidth}p{0.23\linewidth}p{0.15\linewidth}}
+\toprule
+Scientific object & Data file & Generating script & Status\\
+\midrule
+Default support-budget benchmark & \url{data/benchmark_multiM.csv} & \url{run_benchmarks.py} & PGM diagnostic\\
+Payload comparison & \url{data/payload_generation_comparison.csv} & \url{run_benchmarks.py} & deterministic heuristic comparison\\
+M=4 certificate sample & \url{data/sdp_certificate_statistics.csv} & \url{run_certificate_search.py} & numerical SDP certificate rows\\
+Controlled M=8 probe & \url{data/exact_sdp_m8_probe.csv} & \url{run_exact_sdp_m8_probe.py} & numerical SDP certificate rows\\
+Favorable-regime sweep & \url{data/favorable_regime_sweep.csv} & \url{run_favorable_regime_sweep.py} & PGM diagnostic\\
+Sweep plots and summaries & \url{data/favorable_regime_sweep_summary.csv} & \url{plot_favorable_regime_sweep.py} & derived diagnostic summary\\
+Support-overlap diagnostics & \url{data/support_overlap_analysis.csv} & \url{support_overlap_analysis.py} & derived diagnostic summary\\
+Weighted sensitivity & \url{data/resource_sensitivity.csv} & \url{run_resource_sensitivity.py} & convention-sensitivity diagnostic\\
+QEC hierarchy & \url{data/qec_reliability_hierarchy.csv} & \url{run_qec_hierarchy.py} & toy/proxy reliability diagnostic\\
+Randomized validation & \url{data/randomized_ensemble_validation.csv} & \url{experiments/run_randomized_ensemble_validation.py} & SDP/PGM split by row\\
+Helstrom validation & \url{data/sdp_helstrom_validation.csv} & \url{experiments/validate_sdp_against_helstrom.py} & numerical validation\\
+\bottomrule
+\end{tabular}
+\end{center}
+The seed and configuration fields are retained in each source CSV. The full data dictionary and command mapping are provided in the accompanying reproducibility package.
+
+\suppsection{S8. Secondary: Support-budget and payload-generation protocol}
+For a positive source distribution, binary Huffman lengths are computed by a deterministic heap construction. The fixed-length reference cost is $n_{\rm fix}=\lceil\log_2 M\rceil$, and the common dimension is $2^{n_{\max}}$ with $n_{\max}=\max(n_{\rm fix},\max_i l_i)+\texttt{extra\_qubits}$. Supports are cyclic computational-basis subsets with $|S_i|\le 2^{n_{\max}-l_i}$. The offset is controlled by \texttt{support\_overlap\_shift}. Optimized states use the seeded local phase search in \texttt{payload\_generation.py}; random-phase states use seeded phase draws, and deterministic-phase states use the deterministic phase construction. The optimized mode is a deterministic local-search heuristic, not a claim of global objective optimality.
+
+\suppsection{S9. Secondary: Grouping protocols}
+Random grouping uses a seeded random permutation and round-robin allocation. Probability-aware grouping assigns symbols in descending prior order to the group with lowest accumulated probability. Overlap-aware grouping assigns the next high-prior symbol to the group minimizing the probability-weighted within-group squared-overlap score plus the implemented $0.02$ load penalty. The group count is declared per run; the benchmark uses $G=\min(\max(2,\lceil\sqrt M\rceil),M)$. Within a grouping comparison, the same payload ensemble and source probabilities are reused.
+
+\suppsection{S10. Secondary: SDP certificate construction and feasibility checks}
+For each numerical SDP, SCS solves the primal minimum-error POVM problem with tolerance \texttt{eps=5e-6} and at most 25000 iterations. The returned effects are Hermitized, projected to their positive semidefinite parts, regularized by $\max(10^{-10},\texttt{eps}\times10^{-2})/m$, and normalized by the inverse square root of their sum. Their objective value is the feasible primal lower value $\underline P_{\rm group}$. The primal completeness residual is $\|\sum_iE_i-I\|_F$, and the primal PSD residual is the magnitude of any negative minimum effect eigenvalue after postprocessing.
+
+For the fixed-length reference, the dual variable is Hermitized and shifted by $\max(0,-\lambda_{\min})+\max(10^{-10},\texttt{eps}\times10^{-2})$ so that every $Y-p_i\rho_i$ is positive semidefinite. The trace of the shifted operator gives $\overline P_{\rm fix}$. The dual feasibility residual is the magnitude of any negative minimum slack eigenvalue after the shift. The reported certificate gap is the sum of the grouped and fixed-side postprocessed primal--dual gaps. The implementation aborts if a postprocessed lower value exceeds its upper value by more than $10^{-8}$. Thus the theorem is exact, whereas floating-point certificate validity relies on the reported numerical feasibility checks and postprocessing rather than symbolic or interval-arithmetic proof.
+
+\suppsection{S11. Secondary: Complete M=4 certificate table}
+The numerical-SDP certificate sample contains 40 $M=4$ rows, of which three have $M_{\rm cert}>0$, giving $3/40=0.075$. The largest reported margin is $0.078835$ after manuscript rounding. The separate five $M=8$ PGM diagnostic rows in the same CSV have no numerical-SDP certificate values and are not included below.
+\begin{landscape}\scriptsize
+\input{supplemental_m4_metadata.tex}
+\input{supplemental_m4_certificates.tex}
+\end{landscape}
+
+\suppsection{S12. Secondary: Controlled M=8 certificate probe}
+The two controlled numerical-SDP instances yield $M_{\rm cert}=0.081398$ and $M_{\rm cert}=-0.083336$, respectively. They are finite-instance probes and do not constitute a broad $M=8$ certificate survey.
+\input{supplemental_m8_probe.tex}
+
+\suppsection{S13. Secondary: Favorable-regime sweep}
+The favorable sweep samples $M\in\{4,8,16,32\}$, the source families and parameter grids encoded in \url{run_favorable_regime_sweep.py}, overlap shifts $0,1,2,4$, payload modes optimized/deterministic-phase/random-phase, and the three grouping protocols. The QEC labels are \texttt{no\_qec}, \texttt{low\_overhead\_proxy}, and \texttt{moderate\_overhead\_proxy}, with $C_{\rm QEC}=0,1,3$. It uses PGM, and every row is labeled as a diagnostic. The complete 56160-row CSV remains in the reproducibility package.
+\input{supplemental_favorable_summary.tex}
+Here $G_{\rm comp}=n_{\rm fix}-\bar L$ is the support-index saving, $g_{\rm rel}=G_{\rm comp}/n_{\rm fix}$ its relative value, and $r_{\rm cost}=(C_A+C_{\rm QEC})/n_{\rm fix}$ the scalarized overhead ratio. The removed-ambiguity fraction is $r_{\rm sep}=A_{\rm sep}/A_{\rm global}$, with zero for a zero denominator. The support-intersection ratio is $R_{\rm sup}=\sum_{i<j}|S_i\cap S_j|/\sum_{i<j}\min(|S_i|,|S_j|)$, also zero for a zero denominator. For the no-QEC subset, the following means summarize the positive and nonpositive diagnostic rows.
+\input{generated_tables/supplemental_no_qec_table.tex}
+These are finite-sample diagnostic summaries.
+
+\suppsection{S14. Secondary: Support-overlap diagnostics}
+The support-overlap ratio $R_{\rm sup}$ is computed from intersections of assigned computational-basis supports. It is distinct from the payload-state Gram overlap and from minimum-error success. The ambiguity quantities $A_{\rm Huff}=A_{\rm global}$, $A_{\rm in}$, and $A_{\rm sep}=A_{\rm global}-A_{\rm in}$ are computed from source-weighted squared payload overlaps. The ratio $r_{\rm sep}=A_{\rm sep}/A_{\rm global}$ is recorded with a zero-denominator guard. The derived statistics are stored in \texttt{data/support\_overlap\_analysis.csv} and \texttt{data/support\_overlap\_summary.csv}.
+
+\suppsection{S15. Secondary: Weighted resource sensitivity}
+The default sensitivity scan varies $w_A/w_L\in\{0,0.5,1,1.5,2,3\}$, $w_Q/w_L\in\{0,0.25,0.5,1,1.5,2\}$, and $w_D/w_L\in\{0,0.01,0.03,0.06,0.1\}$, while setting $w_M/w_L=0.01$ and $w_G/w_L=0.002$. A weighted row is positive when $M_{\rm res}^{(w)}>0$. The default scan has 181 positive rows out of 9540, or $0.01897$ ($1.90\%$). The favorable sweep's weighted-positive fraction is $0.34672$ ($0.347$). This is a declared convention-sensitivity analysis, not a hardware-calibrated theorem.
+
+\suppsection{S16. Secondary: QEC reliability proxy details}
+The QEC layer uses only the implemented repetition-style toy model, stabilizer-code proxy, and depth-sensitive proxy. Under the stated independent-error family assumptions, $P_{\rm corr}\ge\sum_{w=0}^t\binom nw p^w(1-p)^{n-w}$ and $q_L=1-P_{\rm corr}$, hence $q_L\le1-\sum_{w=0}^t\binom nw p^w(1-p)^{n-w}$. The reported $C_{\rm QEC}$ values are declared resource proxies. These calculations are not hardware-calibrated fault-tolerant simulations.
+
+\suppsection{S17. Secondary: Randomized ensemble validation}
+The randomized validation script uses a fixed generator seed, Dirichlet source draws, normalized complex-Gaussian pure states in dimension four, and alphabet sizes $M\in\{4,8,16,32\}$. It evaluates random, probability-aware, and overlap-aware partitions. Small cases may use numerical SDP according to the script's solver path, while larger rows use PGM. The CSV records the relevant baseline type and row-level configuration.
+
