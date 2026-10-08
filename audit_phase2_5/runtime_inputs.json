@@ -1,0 +1,59 @@
+{
+  "matched_G2_M8_G2_rows": 20,
+  "mean_seconds": 0.1780022667498997,
+  "median_seconds": 0.13996931300061985,
+  "p95_seconds": 0.2897206455492778,
+  "max_seconds": 0.3148540840011264,
+  "mean_operator_bytes": 57448.25,
+  "max_operator_bytes": 183801,
+  "fullspace_historical_runtime_recorded": false,
+  "compressed_calls_per_prior_max": 8,
+  "repeat_calls_per_positive_max": 8,
+  "fullspace_calls_per_positive_max": 8,
+  "draft_ambient_dimension_counts": {
+    "16": 12,
+    "32": 19,
+    "64": 12,
+    "128": 4,
+    "256": 1
+  },
+  "draft_uncompressed_one_archive_bytes": 65478656,
+  "estimate_table": [
+    {
+      "N": 32,
+      "initial_solve_calls_max": 256,
+      "initial_matched_runtime_mean_extrapolation_seconds": 5.69607253599679,
+      "initial_matched_runtime_observed_max_extrapolation_seconds": 10.075330688036045,
+      "initial_operator_storage_mean_extrapolation_MB": 1.838344,
+      "all_positive_total_solve_calls_max": 768,
+      "all_positive_solver_process_ceiling_hours": 14.933333333333334
+    },
+    {
+      "N": 40,
+      "initial_solve_calls_max": 320,
+      "initial_matched_runtime_mean_extrapolation_seconds": 7.120090669995988,
+      "initial_matched_runtime_observed_max_extrapolation_seconds": 12.594163360045057,
+      "initial_operator_storage_mean_extrapolation_MB": 2.29793,
+      "all_positive_total_solve_calls_max": 960,
+      "all_positive_solver_process_ceiling_hours": 18.666666666666668
+    },
+    {
+      "N": 48,
+      "initial_solve_calls_max": 384,
+      "initial_matched_runtime_mean_extrapolation_seconds": 8.544108803995185,
+      "initial_matched_runtime_observed_max_extrapolation_seconds": 15.112996032054067,
+      "initial_operator_storage_mean_extrapolation_MB": 2.757516,
+      "all_positive_total_solve_calls_max": 1152,
+      "all_positive_solver_process_ceiling_hours": 22.4
+    },
+    {
+      "N": 64,
+      "initial_solve_calls_max": 512,
+      "initial_matched_runtime_mean_extrapolation_seconds": 11.39214507199358,
+      "initial_matched_runtime_observed_max_extrapolation_seconds": 20.15066137607209,
+      "initial_operator_storage_mean_extrapolation_MB": 3.676688,
+      "all_positive_total_solve_calls_max": 1536,
+      "all_positive_solver_process_ceiling_hours": 29.866666666666667
+    }
+  ]
+}

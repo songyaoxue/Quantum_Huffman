@@ -1,0 +1,37 @@
+{
+  "candidate_count": 48,
+  "phase1d_prior_duplicates": 0,
+  "archival_prior_duplicates": 0,
+  "within_draft_duplicates": 0,
+  "seed_collisions": 0,
+  "archival_prior_vectors_scanned": 72,
+  "files_with_prior_vectors": [
+    "Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_/SM/data/benchmark_multiM.csv",
+    "Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_/SM/data/favorable_regime_sweep.csv",
+    "Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_/SM/data/sdp_certificate_statistics.csv",
+    "Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_/paper_data/results/benchmark_multiM.csv",
+    "Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_/paper_data/results/favorable_regime_sweep.csv",
+    "Error_Corrected_Probabilistic_Quantum_Huffman_Coding_with_Group_Ancilla_and_Posterior_Correction__1_/paper_data/results/sdp_certificate_statistics.csv"
+  ],
+  "initial_draft_collisions": [
+    {
+      "family": "strong_skew",
+      "parameter": 0.82,
+      "seed": null
+    },
+    {
+      "family": "strong_skew",
+      "parameter": 0.92,
+      "seed": null
+    }
+  ],
+  "replacements": {
+    "0.82": 0.83,
+    "0.92": 0.93
+  },
+  "archive_comparison_absolute_tolerance": 5e-08,
+  "scope": "Accessible root/legacy SM/legacy paper_data CSV vector fields, Phase1C and Phase1D archives; cannot certify nonexposure outside repository",
+  "new_encoder_evaluations": 0,
+  "new_solver_calls": 0,
+  "status": "DRAFT_ONLY"
+}

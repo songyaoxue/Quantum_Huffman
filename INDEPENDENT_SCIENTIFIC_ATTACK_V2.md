@@ -1,0 +1,34 @@
+# Independent scientific attack: Phase 2.5
+
+Audit target: d0e1cc0 on codex/paper-v2-resource-certificate. Decision: **CONDITIONAL GO**, scientific core **B (valid with textual patches)**. This is a hostile desk/reviewer assessment, not an endorsement of publication novelty. No manuscript/supplement patch is applied, and no new SDP is run.
+
+## CRITICAL
+
+No demonstrated invalidating mathematical, matched-information, or provenance defect was found in the scoped pairwise statement. This does not certify physical resource advantage or exact-arithmetic numerical feasibility. An interpretation as dominance over optimized fixed-length encoders would be false: that unrestricted class can attain success one.
+
+## MAJOR
+
+1. **A: architecture-specific existence may have little independent scientific significance.** Main lines 80--102 declare cyclic supports, equal amplitudes and deterministic phases, but provide no physical channel/implementation constraint or information-theoretic optimality principle selecting them. Cyclic half-support shifts create reproducible overlap; the phase formula is a generator, not a derived optimal design. Equal amplitudes and bounded supports are understandable modeling choices; their particular combination is an implementation-derived testbed. A different equally natural rule can remove every positive example while leaving Theorem 1 valid. The theorem applies to specified output ensembles; numerical success concerns this one generator. Add that distinction and a concrete testbed motivation, not an invented hardware justification. Independent encoder ablation would be separate future research.
+2. **B: the resource title overstates operational content.** Main lines 104--111 explicitly say a smaller length permits a larger support and does not reduce ambient qubits. Minimizing C_L rewards a classical length index; it is not minimizing preparation burden, support cardinality, transmitted length or physical memory. Pareto ordering is mathematically valid for declared objectives but does not establish an operational resource trade-off. Switch the title to Pareto certification and call the vector a declared comparison vector. Refusal to narrow this interpretation would be a conceptual blocker.
+3. **D: limited theoretical novelty.** The proof combines standard weak duality with Huffman optimality and matched coordinates. Calling it a central theorem is defensible as a certificate proposition, but it is not a new discrimination bound, encoder optimality theorem or resource law. A journal may require a substantive structural explanation of when the chosen geometry satisfies the certificate. Confirmatory existence is useful but cannot repair this novelty concern by itself.
+4. **E: solver tolerance is not objective uncertainty.** Main lines 207--213 define robustness using 100 eps. SCS termination is scale dependent; this factor is a prespecified reporting gate, not a certified error budget. Residual-based sensitivity and repeated full-space separation are the relevant evidence. The present floating-point certificates are adequate numerical evidence, not rigorous interval certification. Full-space verification CSVs are hashed and internally consistent, but the independent full-space operators and runtimes were not archived, preventing operator-level rechecking of that separate solve in this audit.
+5. **F: extremely narrow evidence.** Seven G2 rows are three priors overall; the headline M8/G2/E2 subset is six rows but two priors. Five copies of the fixed Zipf prior do not give five independent replications across a source population. Existence and numerical repeatability are supported; prevalence, a positive regime, superiority of probability balancing and generalization are not. No evidence-backed statement explains why these two priors work.
+6. **G: formal preregistration unsupported.** Local commit/reflog and the runner guard support prospective local freezing. GitHub currently reports only main, with last push before Phase 1D; the freeze SHA lookup returns HTTP 422. There is no verified external timestamp for the freeze. Replace pre-registered with pre-specified/frozen-before-evaluation. Current GitHub absence cannot prove no earlier remote copy existed, but cannot justify the stronger term either.
+7. **H: release completeness.** Zenodo v1 is secondary evidence, not the matched dataset. Internal review can use the accompanying bundle; submission must actually supply accessible registry, all rows, code and operators, with version-specific availability wording. The old DOI must not be presented as archiving Phase 1D.
+8. **Supplement dilution.** S6--S22 recreate a broad earlier framework with unrelated scalar/QEC claims. They obscure which baseline and resource meaning support the new theorem. Move them into an identified archival legacy package, not journal SM. The main QEC/MAP paragraph adds no evidence and should be removed.
+
+## Side-information attack (C)
+
+The label is source-correlated classical information encoded in an orthogonal register. Matching the same g(i) makes the H/F information comparison fair; both decoder optima are grouped. It does not make labels free or prove a quantum advantage over a classical task. G2 is an engineered classical partition and an input to the declared discrimination task, not a quantum optimization discovery. Both arms must receive its same realization. C_A is ideal alphabet width, not measured communication overhead. No direct physical communication-cost claim is present in the main text, but "charged" and "resource" invite that interpretation.
+
+## MINOR
+
+- Explain tie ordering by the pinned implementation/environment, not a platform-independent unstated ordering. Equal-prior Huffman ties preserve the length inequality but can change the states.
+- State nonempty groups and unrestricted conditional POVMs directly in Theorem 1 rather than relying only on preceding definitions.
+- Define Pareto dominance as all coordinates no worse and at least one strict; "strong dominance" (strict in every coordinate) is impossible with matched C_A.
+- E2 means each nonsingleton group has at least one nonzero pair overlap; it does not imply all pairs overlap, comparable difficulty, or positive certificates.
+- Independence of the full-space formulation means uncompressed formulation, not a second solver family, independent hardware or independent data.
+
+## Gate
+
+No STOP condition A--F was triggered. Model scope is defensible as a deliberately narrow mathematical testbed; its physical motivation and generalization are weak. Approve confirmatory *methodology* only after human review of terminology, fixed inputs, residual policy and archival scope. A GO decision would still not establish journal significance. Preserved evidence: audit_phase2_5/stored_certificate_recheck.csv and certificate_summary.json. New solver calls: 0.

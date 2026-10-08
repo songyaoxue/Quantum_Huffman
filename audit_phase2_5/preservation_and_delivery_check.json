@@ -1,0 +1,18 @@
+{
+  "protected_hashes": {
+    "v2_manuscript/main.tex": "6523ef66a84ceb062bc6699a7fbeb7e35207fffbd11c70bd0763830bf5bc6a41",
+    "v2_manuscript/main.pdf": "2e87985b80706dbf4d42b433068f34712af43f3d59f76d3507ec5d80f2cf1180",
+    "v2_manuscript/SM/supplemental.tex": "105f704e62962afa5422caa5cffbd82c5b9ea238306230221c4674480fa7f74a",
+    "v2_manuscript/SM/supplemental.pdf": "76fc2b0add5a7a1b8efbee8f3ccaf6b09c30ead997aad4c4048a169802084ed9",
+    "PHASE_1D_REGISTRY.json": "5e1a092fef6743380ab828c7ba13a8a1385b87bbc9bc621d9341254484b8c036",
+    "NUMERICAL_TRACEABILITY_V2.csv": "743095b1793933688d745f7c80100e5f3f3bd7202be61aea1173f3d9b522c65d"
+  },
+  "PRA_tag": "e7b69ae4bcc3f47f9121bc2d35ddb130fe419880",
+  "original_data_code_manuscript_changed": false,
+  "required_outputs_present": 18,
+  "draft_prior_count": 48,
+  "draft_duplicates": 0,
+  "registry_frozen": false,
+  "new_solver_calls": 0,
+  "status": "PASS"
+}

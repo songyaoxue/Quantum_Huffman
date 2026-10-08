@@ -1,0 +1,83 @@
+{
+  "files": [
+    {
+      "git_blob_hash": "c572d25eb56cdf271d288fd1c3fb73b79ab0fd90",
+      "path": "code/huffman_support.py",
+      "role": "Source generation reference, Huffman construction and ambient/support rules",
+      "sha256": "578a787833648c8cf1c7ae4e787cac9877847a3f8ebbc859caf2aa4b6fb15bb8"
+    },
+    {
+      "git_blob_hash": "4b7378e8e3aee035b908dfb322657d834e13f23d",
+      "path": "code/payload_generation.py",
+      "role": "Equal-modulus deterministic phase payload",
+      "sha256": "178a1d6bf0846cd37e624caf7d5746fdb0986ef377528365b563ccdeb09e39e7"
+    },
+    {
+      "git_blob_hash": "0d31162e4830ab1c8323548a4783d92862b1e2c8",
+      "path": "code/decoding_sdp.py",
+      "role": "POVM repair, density and independent full-space reference",
+      "sha256": "2147d9a2a4ccb6b08e2ca95bd55d380285a6728e844aef8b8604b195eef1f3f6"
+    },
+    {
+      "git_blob_hash": "2bd6fa33028385d5086413b246496a974257a903",
+      "path": "scripts/pairwise_matched_smoke_v2.py",
+      "role": "Matched supplied-length cyclic support adapter",
+      "sha256": "c7cee38adb0e4361acae0dafe926fd2f8de785ec23c48c832aab3dab81093261"
+    },
+    {
+      "git_blob_hash": "5884ddd6011a53e102b6c945f4488397fca882c5",
+      "path": "scripts/phase1d_model.py",
+      "role": "G2 outcome-independent grouping and Gram diagnostics",
+      "sha256": "45ac0f1a25408e82af9cc92a7a5704582fb57f939860cfcabf5f214cbf32153f"
+    },
+    {
+      "git_blob_hash": "e5c7c28f90d3599ece4393c2a110249cdfa22878",
+      "path": "scripts/run_phase1d_registered.py",
+      "role": "Unchanged conditional compressed SDP function only; main/load_registry unused",
+      "sha256": "c6b383e1f1fa159173729b15101cb4b78959de7bf7b0e9d13e284cf130f08988"
+    },
+    {
+      "git_blob_hash": "5877e96cfc90773cb1150e952e15fb7c4c7f5c7d",
+      "path": "scripts/confirmatory_worker.py",
+      "role": "Isolated conditional solve and independent full-space verification",
+      "sha256": "ac36defc70ebbbef2fbb38aca7b3d63c7bfd76745522068e11c28b849a01af3f"
+    },
+    {
+      "git_blob_hash": "561a3607a3654e1931bbfe87c56574b509b346c2",
+      "path": "scripts/confirmatory_policy.py",
+      "role": "Unique thresholds, final classifications and outcome gate",
+      "sha256": "6ed1b3f711029057b1c016abcd5c486582e617a929efffca922319f0412072fd"
+    },
+    {
+      "git_blob_hash": "60905422d6550e917af1efd4c2bfd047882b0497",
+      "path": "scripts/confirmatory_inputs.py",
+      "role": "Audit-hook firewall denying development data/outcome access",
+      "sha256": "0d14ef78ad5a9d003b2336fe09e10b0d410491e27372251c5b1e255a747b1284"
+    },
+    {
+      "git_blob_hash": "820d6d56d3454633843c2e9a49b6dd75951ddf9e",
+      "path": "scripts/run_confirmatory_frozen.py",
+      "role": "Nonadaptive 48-prior runner with automatic validation",
+      "sha256": "3ab873d324a9308baebd79101c2e18150d1dc4da6fe3197c9b5a9061666e47f5"
+    },
+    {
+      "git_blob_hash": "d9cfb279f0c32319240cc4a1fd105dc452a246df",
+      "path": "scripts/verify_confirmatory_freeze.py",
+      "role": "Pre-execution integrity and environment guard",
+      "sha256": "2c821014f1444599a0c362fecc2417112d9120c39bb79187055798a774fde97f"
+    },
+    {
+      "git_blob_hash": "cd7941b09151da24dc3beab5394aacd1e5b691c3",
+      "path": "scripts/build_confirmatory_freeze.py",
+      "role": "Prior-only artifact provenance generator",
+      "sha256": "d6074e2ae0d56dbeab8b435ac64d1c804ab5616691a873ef7f6910d2b52451d6"
+    },
+    {
+      "git_blob_hash": "6b6dfe34ae37da94c455434c5ea2a54a68ba817c",
+      "path": "scripts/test_confirmatory_freeze.py",
+      "role": "No-solve guard and policy regression tests",
+      "sha256": "61b02df5d8cef327db8f6fe8170b7de524f401c1210f5c49736b9ea5308b0c5f"
+    }
+  ],
+  "study_id": "CONFIRMATORY-M8-G2-G2-V1"
+}

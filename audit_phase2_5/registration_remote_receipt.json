@@ -1,0 +1,14 @@
+{
+  "audit_context": "2026-10-08 Phase 2.5, read-only gh api requests",
+  "repository": "songyaoxue/Quantum_Huffman",
+  "branches_observed": [{"name": "main", "sha": "1abe2cf9096ec71f37db2f9b206dfd7860c104a4"}],
+  "freeze_commit_requested": "830fe5a91348088710b1409de9f4c329d09f5419",
+  "freeze_commit_http_status": 422,
+  "freeze_commit_response": "No commit found for SHA",
+  "visibility": "public",
+  "repository_pushed_at_observed": "2026-09-24T18:30:50Z",
+  "git_ls_remote": "interrupted without results; no inference drawn",
+  "external_preregistration_timestamp_verified": false,
+  "historical_absence_proved": false,
+  "pushes_performed_by_this_audit": 0
+}

@@ -1,0 +1,2 @@
+# Keep prior-file hashes byte-identical across Git checkouts.
+**/CONFIRMATORY_*.csv -text

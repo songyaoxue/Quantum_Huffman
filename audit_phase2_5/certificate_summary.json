@@ -1,0 +1,19 @@
+{
+  "rows": 220,
+  "conditional_sets": 1040,
+  "status": "PASS",
+  "max_state_norm_error": 4.440892098500626e-16,
+  "max_hermiticity_error": 1.760126261118026e-16,
+  "minimum_effect_eigenvalue": 1.2499973662594541e-08,
+  "minimum_dual_slack_eigenvalue": 4.999999980461562e-08,
+  "max_numerical_envelope": 7.1661254708033084e-09,
+  "robust_positive_counts": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 7,
+    "G3": 1
+  },
+  "fullspace_csv_checked": true,
+  "fullspace_operators_available": false,
+  "new_solver_calls": 0
+}
