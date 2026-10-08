@@ -1,9 +1,10 @@
 # Confirmatory freeze record
 
 Freeze tag: confirmatory-v1-frozen-before-run.
-Freeze commit: resolve this immutable tag; the explicit SHA and external receipt
-will be recorded in a separate provenance-only follow-up commit after push.
-The freeze commit cannot contain its own SHA without a circular dependency.
+Freeze commit: d198821c81259c17b94ef6d4388130bde10bd7a6.
+This explicit SHA and the external receipt are recorded in a separate
+provenance-only follow-up commit. Frozen registry/code/priors remain in the
+original immutable tag; the follow-up does not move it.
 
 ## Frozen artifact SHA-256
 
@@ -38,7 +39,24 @@ e7b69ae4bcc3f47f9121bc2d35ddb130fe419880. No Zenodo upload or modification.
 
 ## External visibility
 
-Pending push and remote retrieval. Execution guard requires the final external
-receipt and matching remote tag before any later human-authorized batch.
-The receipt will distinguish retrieval/server timestamps from Git author dates;
-public Git visibility is an external freeze witness, not formal preregistration.
+Branch and annotated tag pushed atomically. GitHub public API confirmed the tag
+object f3047df922a41238b6c46e897178a18309c16657 targets the freeze commit.
+Remote commit URL:
+https://github.com/songyaoxue/Quantum_Huffman/commit/d198821c81259c17b94ef6d4388130bde10bd7a6
+
+GitHub response Date: Thu, 08 Oct 2026 09:24:02 GMT.
+Retrieval time: 2026-10-08T09:24:05Z. HTTP status 200; request ID:
+6267:1F93DF:F446:FE03:6AC76132. See
+CONFIRMATORY_EXTERNAL_FREEZE_RECEIPT.json for the remote reference receipt.
+These timestamps witness remote availability, not the time the server first
+received the push. Git author/committer dates are not external timestamps.
+This is externally witnessed Git visibility, not formal preregistration.
+
+The execution guard requires this receipt, frozen-tag byte equality and a
+live remote tag match before a later separately authorized run. No SDP was run
+after the push either. Result directories remain empty.
+
+The prior CSV uses the approved CRLF bytes. Git's whitespace warning for CR
+line endings is intentional; .gitattributes prevents normalization and keeps
+the frozen SHA-256 valid across checkouts. The staged bytes were verified
+against every frozen artifact before committing.

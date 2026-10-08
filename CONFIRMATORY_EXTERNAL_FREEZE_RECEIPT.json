@@ -1,0 +1,21 @@
+{
+  "study_id": "CONFIRMATORY-M8-G2-G2-V1",
+  "freeze_commit": "d198821c81259c17b94ef6d4388130bde10bd7a6",
+  "freeze_tag": "confirmatory-v1-frozen-before-run",
+  "annotated_tag_object": "f3047df922a41238b6c46e897178a18309c16657",
+  "registry_sha256": "090ce3fe480c045750b741844e6e45311c183e2b29656c1b28d45a4ea307d465",
+  "remote_repository": "https://github.com/songyaoxue/Quantum_Huffman",
+  "remote_visibility": "public",
+  "remote_commit_url": "https://github.com/songyaoxue/Quantum_Huffman/commit/d198821c81259c17b94ef6d4388130bde10bd7a6",
+  "remote_tag_api_url": "https://api.github.com/repos/songyaoxue/Quantum_Huffman/git/refs/tags/confirmatory-v1-frozen-before-run",
+  "remote_tag_target_verified": "d198821c81259c17b94ef6d4388130bde10bd7a6",
+  "remote_branch_target_at_retrieval": "d198821c81259c17b94ef6d4388130bde10bd7a6",
+  "github_response_status": "HTTP/2.0 200 OK",
+  "github_response_date": "Thu, 08 Oct 2026 09:24:02 GMT",
+  "github_request_id": "6267:1F93DF:F446:FE03:6AC76132",
+  "retrieval_time_utc": "2026-10-08T09:24:05Z",
+  "git_committer_date_not_external_receipt": "2026-10-08T09:23:32Z",
+  "evidence_scope": "Remote public GitHub API visibility witnessed at the response/retrieval time, not an immutable registration service or proof of Git author's timestamp",
+  "confirmatory_sdp_executed": false,
+  "formal_preregistration": false
+}
